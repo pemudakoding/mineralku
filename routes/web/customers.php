@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Customer\{
+    HomeController,
+};
 use Illuminate\Support\Facades\Route;
 
 /**
@@ -9,5 +12,5 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::name('customers.')->group(function () {
-
+    Route::get('/', [HomeController::class,'index'])->name('home');
 });
