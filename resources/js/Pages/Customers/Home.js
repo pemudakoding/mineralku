@@ -1,7 +1,7 @@
 import React from 'react';
 import {setLayout} from '@/Utils/Layout';
 
-const Home = () => {
+const Home = (props) => {
     return (
         <div>
             Anjays
