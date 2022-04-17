@@ -1,0 +1,10 @@
+@import '@/assets/css/color.scss';
+
+.button-icon:hover {
+    svg {
+        fill: $blue;
+    }
+    span {
+        color: $blue;
+    }
+}

@@ -1,10 +1,10 @@
 import React from 'react';
-import {setLayout} from '@/Utils/Layout';
+import {setLayout} from '@/utils/Layout';
 
 const Home = (props) => {
     return (
         <div>
-            Anjays
+            Test
         </div>
     )
 }
