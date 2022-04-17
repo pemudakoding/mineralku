@@ -13,10 +13,10 @@ const ButtonColIcon = ({type, method, as, href, icon,title}) => {
             method={method}
             as={as}
             type={type}
-            className="button-icon flex flex-col justify-center items-center"
+            className="button-icon flex flex-col justify-center items-center poppins"
         >
             <IconComponent/>
-            <span>{ title }</span>
+            <span className="mt-2">{ title }</span>
         </Link>
     )
 }
