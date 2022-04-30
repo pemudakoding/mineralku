@@ -9,8 +9,10 @@ module.exports = {
     extend: {
         colors: {
             'blue-default':'#6FB2D2',
+            'blue-default-50': '#EFFFFD',
             'blue-default-100':'#56BBF1',
-            'blue-default-200': '#48a8db'
+            'blue-default-200': '#48a8db',
+            'black': '#3A4750'
         },
         boxShadow: {
             'primary': '0px 0px 100px #2a8cd9',
