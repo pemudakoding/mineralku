@@ -1,5 +1,5 @@
-import IMG_SERTIFIKASI from './tersertifikasi.png';
+import IMG_JOIN from './join.png';
 
 export {
-    IMG_SERTIFIKASI
+    IMG_JOIN
 }

@@ -15,7 +15,7 @@ module.exports = {
             'black': '#3A4750'
         },
         boxShadow: {
-            'primary': '0px 0px 100px #2a8cd9',
+            'primary': '0px 20px 60px -13px #2a8cd9',
         }
     },
   },
