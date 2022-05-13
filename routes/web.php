@@ -14,16 +14,8 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//require __DIR__.'/web/customer.php';
 
-Route::get('/', function () {
-    return Inertia::render('Customer/Home', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+require __DIR__.'/web/customer.php';
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-
+const path = require('path');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -10,18 +10,19 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-
 mix.js('resources/js/app.js', 'public/js')
-    .react()
     .postCss('resources/css/app.css', 'public/css', [
-        require('postcss-import'),
         require('tailwindcss'),
-        require('autoprefixer'),
     ])
-    .alias({
-        '@': 'resources/js',
-    });
-
-if (mix.inProduction()) {
-    mix.version();
-}
+   .react()
+   .webpackConfig({
+        output: {
+            chunkFilename: 'js/[name].js?id=[chunkhash]',
+        },
+        resolve: {
+           alias: {
+               '@': path.resolve(__dirname, 'resources/js/'),
+           }
+       }
+   })
+   .version();
