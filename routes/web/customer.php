@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Customer\{
+    DepotController,
     HomeController,
 };
 use Illuminate\Support\Facades\Route;
@@ -12,5 +13,6 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::name('customers.')->group(function () {
-    Route::get('/', [HomeController::class,'index'])->name('home');
+    Route::get('/', [HomeController::class,'index'])->name('index');
+    Route::get('/depot', DepotController::class)->name('show');
 });

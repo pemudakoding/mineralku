@@ -4,6 +4,8 @@ import ApplicationLogo from './ApplicationLogo';
 import ValidationErrors from './ValidationErrors';
 import NavLink from './NavLink';
 import ResponsiveNavLink from './ResponsiveNavLink';
+import DepotImage from './DepotImage';
+import Icon from './Icon';
 import {
     Checkbox,
     Label,
@@ -19,5 +21,7 @@ export {
     Input,
     ValidationErrors,
     NavLink,
-    ResponsiveNavLink
+    ResponsiveNavLink,
+    DepotImage,
+    Icon
 }
