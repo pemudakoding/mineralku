@@ -5769,8 +5769,16 @@ __webpack_require__.r(__webpack_exports__);
 
 var Register = function Register() {
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.useForm)({
-    name: '',
+    first_name: '',
+    last_name: '',
+    username: '',
     email: '',
+    birthday: '',
+    phone_number: '',
+    province: '',
+    subdistrict: '',
+    village: '',
+    address: '',
     password: '',
     password_confirmation: ''
   }),
@@ -5829,7 +5837,7 @@ var Register = function Register() {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
                     type: "text",
                     name: "first_name",
-                    value: data.email,
+                    value: data.first_name,
                     className: "mt-1 block w-full",
                     autoComplete: "first_name",
                     isFocused: true,
@@ -5842,7 +5850,7 @@ var Register = function Register() {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
                     type: "text",
                     name: "last_name",
-                    value: data.email,
+                    value: data.last_name,
                     className: "mt-1 block w-full",
                     autoComplete: "last_name",
                     isFocused: false,
@@ -5858,7 +5866,7 @@ var Register = function Register() {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
                     type: "date",
                     name: "birthday",
-                    value: data.email,
+                    value: data.birthday,
                     className: "mt-1 block w-full",
                     autoComplete: "birthday",
                     isFocused: false,
@@ -5874,7 +5882,7 @@ var Register = function Register() {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
                     type: "text",
                     name: "address",
-                    value: data.email,
+                    value: data.address,
                     className: "mt-1 block w-full",
                     autoComplete: "address",
                     isFocused: false,
@@ -5890,7 +5898,7 @@ var Register = function Register() {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
                     type: "text",
                     name: "village",
-                    value: data.email,
+                    value: data.village,
                     className: "mt-1 block w-full",
                     autoComplete: "village",
                     isFocused: false,
@@ -5903,7 +5911,7 @@ var Register = function Register() {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
                     type: "text",
                     name: "subdistrict",
-                    value: data.email,
+                    value: data.subdistrict,
                     className: "mt-1 block w-full",
                     autoComplete: "subdistrict",
                     isFocused: false,
@@ -5916,7 +5924,7 @@ var Register = function Register() {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
                     type: "text",
                     name: "province",
-                    value: data.email,
+                    value: data.province,
                     className: "mt-1 block w-full",
                     autoComplete: "province",
                     isFocused: false,
@@ -5932,7 +5940,7 @@ var Register = function Register() {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
                     type: "text",
                     name: "username",
-                    value: data.email,
+                    value: data.username,
                     className: "mt-1 block w-full",
                     autoComplete: "username",
                     isFocused: false,
@@ -5976,7 +5984,7 @@ var Register = function Register() {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Label, {
                     forInput: "confirm_password",
-                    value: "Konfirmasi User"
+                    value: "Konfirmasi Password"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
                     type: "text",
                     name: "confirm_password",

@@ -11,8 +11,16 @@ import { Head, useForm } from '@inertiajs/inertia-react';
 const Register = () => {
 
     const { data, setData, post, processing, errors, reset } = useForm({
-        name: '',
+        first_name: '',
+        last_name: '',
+        username: '',
         email: '',
+        birthday: '',
+        phone_number: '',
+        province: '',
+        subdistrict: '',
+        village: '',
+        address: '',
         password: '',
         password_confirmation: '',
     });
@@ -55,7 +63,7 @@ const Register = () => {
                                         <Input
                                             type="text"
                                             name="first_name"
-                                            value={data.email}
+                                            value={data.first_name}
                                             className="mt-1 block w-full"
                                             autoComplete="first_name"
                                             isFocused={true}
@@ -68,7 +76,7 @@ const Register = () => {
                                         <Input
                                             type="text"
                                             name="last_name"
-                                            value={data.email}
+                                            value={data.last_name}
                                             className="mt-1 block w-full"
                                             autoComplete="last_name"
                                             isFocused={false}
@@ -83,7 +91,7 @@ const Register = () => {
                                         <Input
                                             type="date"
                                             name="birthday"
-                                            value={data.email}
+                                            value={data.birthday}
                                             className="mt-1 block w-full"
                                             autoComplete="birthday"
                                             isFocused={false}
@@ -98,7 +106,7 @@ const Register = () => {
                                         <Input
                                             type="text"
                                             name="address"
-                                            value={data.email}
+                                            value={data.address}
                                             className="mt-1 block w-full"
                                             autoComplete="address"
                                             isFocused={false}
@@ -113,7 +121,7 @@ const Register = () => {
                                         <Input
                                             type="text"
                                             name="village"
-                                            value={data.email}
+                                            value={data.village}
                                             className="mt-1 block w-full"
                                             autoComplete="village"
                                             isFocused={false}
@@ -126,7 +134,7 @@ const Register = () => {
                                         <Input
                                             type="text"
                                             name="subdistrict"
-                                            value={data.email}
+                                            value={data.subdistrict}
                                             className="mt-1 block w-full"
                                             autoComplete="subdistrict"
                                             isFocused={false}
@@ -139,7 +147,7 @@ const Register = () => {
                                         <Input
                                             type="text"
                                             name="province"
-                                            value={data.email}
+                                            value={data.province}
                                             className="mt-1 block w-full"
                                             autoComplete="province"
                                             isFocused={false}
@@ -154,7 +162,7 @@ const Register = () => {
                                         <Input
                                             type="text"
                                             name="username"
-                                            value={data.email}
+                                            value={data.username}
                                             className="mt-1 block w-full"
                                             autoComplete="username"
                                             isFocused={false}
@@ -194,7 +202,7 @@ const Register = () => {
                                 </div>
                                 <div className='confirm_password mb-5'>
                                     <div>
-                                        <Label forInput="confirm_password" value="Konfirmasi User" />
+                                        <Label forInput="confirm_password" value="Konfirmasi Password" />
 
                                         <Input
                                             type="text"
