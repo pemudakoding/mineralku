@@ -22,6 +22,8 @@
 
         @env ('local')
             <script src="http://localhost:8080/js/bundle.js"></script>
+            <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+            <script>eruda.init();</script>
         @endenv
     </body>
 </html>
