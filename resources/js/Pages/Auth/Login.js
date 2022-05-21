@@ -33,64 +33,63 @@ export default function Login({ status, canResetPassword }) {
     };
 
     return (
-        <Guest>
-            <Head title="Log in" />
-
-            {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
+       <Guest>
+           <Head title="Masuk" />
+           
+           {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
 
             <ValidationErrors errors={errors} />
+            <div className="section-auth">
+                <div className="auth-wrapper">
+                    <div className="container">
+                        <div className="auth-head">
+                            <h3 className='font-medium fredoka-one text-black text-3xl text-center'>Masuk</h3>
+                        </div>
+                        <form onSubmit={submit}>
+                            <div className="form-section mt-10 mb-8">
+                                <div className='email mb-5'>
+                                    <div>
+                                        <Label forInput="email" value="Email" />
 
-            <form onSubmit={submit}>
-                <div>
-                    <Label forInput="email" value="Email" />
+                                        <Input
+                                            type="text"
+                                            name="email"
+                                            value={data.email}
+                                            className="mt-1 block w-full"
+                                            autoComplete="email"
+                                            isFocused={true}
+                                            handleChange={onHandleChange}
+                                        />
+                                    </div>
+                                </div>
+                                <div className='password mb-5'>
+                                    <div>
+                                        <Label forInput="password" value="Password" />
 
-                    <Input
-                        type="text"
-                        name="email"
-                        value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
-                        isFocused={true}
-                        handleChange={onHandleChange}
-                    />
+                                        <Input
+                                            type="text"
+                                            name="password"
+                                            value={data.password}
+                                            className="mt-1 block w-full"
+                                            autoComplete="password"
+                                            isFocused={false}
+                                            handleChange={onHandleChange}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="auth-footer flex justify-center">
+                                <Button
+                                    type='button'
+                                    method='post'
+                                    title='MASUK'
+                                    style='primary'
+                                />
+                            </div>
+                        </form>
+                    </div>
                 </div>
-
-                <div className="mt-4">
-                    <Label forInput="password" value="Password" />
-
-                    <Input
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="current-password"
-                        handleChange={onHandleChange}
-                    />
-                </div>
-
-                <div className="block mt-4">
-                    <label className="flex items-center">
-                        <Checkbox name="remember" value={data.remember} handleChange={onHandleChange} />
-
-                        <span className="ml-2 text-sm text-gray-600">Remember me</span>
-                    </label>
-                </div>
-
-                <div className="flex items-center justify-end mt-4">
-                    {canResetPassword && (
-                        <Link
-                            href={route('password.request')}
-                            className="underline text-sm text-gray-600 hover:text-gray-900"
-                        >
-                            Forgot your password?
-                        </Link>
-                    )}
-
-                    <Button className="ml-4" processing={processing}>
-                        Log in
-                    </Button>
-                </div>
-            </form>
+            </div>
         </Guest>
     );
 }
