@@ -35,18 +35,16 @@ export default function Login({ status, canResetPassword }) {
     return (
        <Guest>
            <Head title="Masuk" />
-           
-           {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
-
-            <ValidationErrors errors={errors} />
             <div className="section-auth">
                 <div className="auth-wrapper">
                     <div className="container">
-                        <div className="auth-head">
+                        <div className="auth-head mb-5">
                             <h3 className='font-medium fredoka-one text-black text-3xl text-center'>Masuk</h3>
                         </div>
                         <form onSubmit={submit}>
-                            <div className="form-section mt-10 mb-8">
+                            {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
+                            <ValidationErrors errors={errors} />
+                            <div className="form-section mt-5 mb-8">
                                 <div className='email mb-5'>
                                     <div>
                                         <Label forInput="email" value="Email" />
@@ -67,7 +65,7 @@ export default function Login({ status, canResetPassword }) {
                                         <Label forInput="password" value="Password" />
 
                                         <Input
-                                            type="text"
+                                            type="password"
                                             name="password"
                                             value={data.password}
                                             className="mt-1 block w-full"
@@ -81,6 +79,7 @@ export default function Login({ status, canResetPassword }) {
                             <div className="auth-footer flex justify-center">
                                 <Button
                                     type='button'
+                                    as='button'
                                     method='post'
                                     title='MASUK'
                                     style='primary'

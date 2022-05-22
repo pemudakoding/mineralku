@@ -44,18 +44,16 @@ const Register = () => {
     return (
        <Guest>
            <Head title="Daftar" />
-           
-           {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
-
-            <ValidationErrors errors={errors} />
             <div className="section-auth">
                 <div className="auth-wrapper">
                     <div className="container">
-                        <div className="auth-head">
+                        <div className="auth-head mb-5">
                             <h3 className='font-medium fredoka-one text-black text-3xl text-center'>Daftar</h3>
                         </div>
                         <form onSubmit={submit}>
-                            <div className="form-section mt-10 mb-8">
+                            {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
+                            <ValidationErrors errors={errors} />
+                            <div className="form-section mt-5 mb-8">
                                 <div className='name grid grid-cols-2 gap-4 mb-5'>
                                     <div>
                                         <Label forInput="first_name" value="Nama Depan" />
@@ -190,7 +188,7 @@ const Register = () => {
                                         <Label forInput="password" value="Password" />
 
                                         <Input
-                                            type="text"
+                                            type="password"
                                             name="password"
                                             value={data.password}
                                             className="mt-1 block w-full"
@@ -205,7 +203,7 @@ const Register = () => {
                                         <Label forInput="confirm_password" value="Konfirmasi Password" />
 
                                         <Input
-                                            type="text"
+                                            type="password"
                                             name="confirm_password"
                                             value={data.confirm_password}
                                             className="mt-1 block w-full"
@@ -234,6 +232,7 @@ const Register = () => {
                             <div className="auth-footer flex justify-center">
                                 <Button
                                     type='button'
+                                    as='button'
                                     method='post'
                                     title='DAFTAR'
                                     style='primary'
