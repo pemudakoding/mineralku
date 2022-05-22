@@ -21,8 +21,7 @@ const Home = (props) => {
                     <Button href='/login' title='Masuk' style="primary-outline"/>
                 </section>
             </HeroSection>
-
-            <main className='section-container bg-blue-default-50 pt-20 pb-40'>
+            <main className="relative section-container bg-blue-default-50 pt-20 pb-40">
                 <div className="section-wrapper md:w-6/12 w-10/12 mx-auto">
                     <section className="about-section mb-20">
                         <p className='poppins text-center text-black'>
