@@ -15,5 +15,5 @@ export {
     IMG_LANGGANAN,
     IMG_REKOMENDASI,
     IMG_VOUCHER,
-    IMG_TRACKING
-}
+    IMG_TRACKING,
+};

@@ -14,15 +14,15 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-            'blue-default':'#6FB2D2',
-            'blue-default-50': '#EFFFFD',
-            'blue-default-100':'#56BBF1',
-            'blue-default-200': '#48a8db',
-            'black': '#3A4750'
-        },
-        boxShadow: {
-            'primary': '0px 20px 60px -13px #2a8cd9',
-        }
+                'blue-default': '#6FB2D2',
+                'blue-default-50': '#EFFFFD',
+                'blue-default-100': '#56BBF1',
+                'blue-default-200': '#48a8db',
+                'black': '#3A4750',
+            },
+            boxShadow: {
+                primary: '0px 20px 60px -13px #2a8cd9',
+            },
         },
     },
 

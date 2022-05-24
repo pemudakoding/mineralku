@@ -1,10 +1,5 @@
 import React, { useEffect } from 'react';
-import {
-    Button,
-    Input,
-    Label,
-    ValidationErrors
-} from '@/Components';
+import { Button, Input, Label, ValidationErrors } from '@/Components';
 import Guest from '@/Layouts/Guest';
 import { Head, useForm } from '@inertiajs/inertia-react';
 
@@ -34,7 +29,8 @@ export default function ConfirmPassword() {
             <Head title="Confirm Password" />
 
             <div className="mb-4 text-sm text-gray-600">
-                This is a secure area of the application. Please confirm your password before continuing.
+                This is a secure area of the application. Please confirm your password before
+                continuing.
             </div>
 
             <ValidationErrors errors={errors} />

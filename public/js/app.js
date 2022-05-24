@@ -4382,7 +4382,7 @@ var Button = function Button(_ref) {
     method: method,
     as: as,
     type: type,
-    className: ["poppins font-medium px-12 py-3 rounded-full transition-all duration-100 ease-in inline-block", getStyleClass(style), className].join(" "),
+    className: ['poppins font-medium px-12 py-3 rounded-full transition-all duration-100 ease-in inline-block', getStyleClass(style), className].join(' '),
     children: title
   });
 };
@@ -5153,7 +5153,7 @@ var HeroSection = function HeroSection(_ref) {
   var children = _ref.children,
       className = _ref.className;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("section", {
-    className: ['relative hero-wrapper bg-gradient-to-br from-blue-default to-blue-default-100 pt-20 pb-10', className].join(" "),
+    className: ['relative hero-wrapper bg-gradient-to-br from-blue-default to-blue-default-100 pt-20 pb-10', className].join(' '),
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       className: "container mx-auto",
       children: children
@@ -7070,7 +7070,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".button-icon:hover svg {\n  fill: #6FB2D2;\n}\n.button-icon:hover span {\n  color: #6FB2D2;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".button-icon:hover svg {\n  fill: #6fb2d2;\n}\n.button-icon:hover span {\n  color: #6fb2d2;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

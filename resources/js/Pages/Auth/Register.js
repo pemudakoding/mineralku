@@ -1,15 +1,9 @@
 import React, { useEffect } from 'react';
-import {
-    Button,
-    Input,
-    Label,
-    ValidationErrors
-} from '@/Components';
+import { Button, Input, Label, ValidationErrors } from '@/Components';
 import Guest from '@/Layouts/Guest';
 import { Head, useForm } from '@inertiajs/inertia-react';
 
 const Register = () => {
-
     const { data, setData, post, processing, errors, reset } = useForm({
         first_name: '',
         last_name: '',
@@ -32,7 +26,10 @@ const Register = () => {
     }, []);
 
     const onHandleChange = (event) => {
-        setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
+        setData(
+            event.target.name,
+            event.target.type === 'checkbox' ? event.target.checked : event.target.value
+        );
     };
 
     const submit = (e) => {
@@ -42,19 +39,25 @@ const Register = () => {
     };
 
     return (
-       <Guest>
-           <Head title="Daftar" />
+        <Guest>
+            <Head title="Daftar" />
             <div className="section-auth">
                 <div className="auth-wrapper">
                     <div className="container">
                         <div className="auth-head mb-5">
-                            <h3 className='font-medium fredoka-one text-black text-3xl text-center'>Daftar</h3>
+                            <h3 className="font-medium fredoka-one text-black text-3xl text-center">
+                                Daftar
+                            </h3>
                         </div>
                         <form onSubmit={submit}>
-                            {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
+                            {status && (
+                                <div className="mb-4 font-medium text-sm text-green-600">
+                                    {status}
+                                </div>
+                            )}
                             <ValidationErrors errors={errors} />
                             <div className="form-section mt-5 mb-8">
-                                <div className='name grid grid-cols-2 gap-4 mb-5'>
+                                <div className="name grid grid-cols-2 gap-4 mb-5">
                                     <div>
                                         <Label forInput="first_name" value="Nama Depan" />
 
@@ -82,7 +85,7 @@ const Register = () => {
                                         />
                                     </div>
                                 </div>
-                                <div className='birthday mb-5'>
+                                <div className="birthday mb-5">
                                     <div>
                                         <Label forInput="birthday" value="Tanggal Lahir" />
 
@@ -97,7 +100,7 @@ const Register = () => {
                                         />
                                     </div>
                                 </div>
-                                <div className='address mb-5'>
+                                <div className="address mb-5">
                                     <div>
                                         <Label forInput="address" value="Alamat" />
 
@@ -112,7 +115,7 @@ const Register = () => {
                                         />
                                     </div>
                                 </div>
-                                <div className='address-detail grid grid-cols-3 gap-4 mb-5'>
+                                <div className="address-detail grid grid-cols-3 gap-4 mb-5">
                                     <div>
                                         <Label forInput="village" value="Kelurahan" />
 
@@ -153,7 +156,7 @@ const Register = () => {
                                         />
                                     </div>
                                 </div>
-                                <div className='username mb-5'>
+                                <div className="username mb-5">
                                     <div>
                                         <Label forInput="username" value="Username" />
 
@@ -168,7 +171,7 @@ const Register = () => {
                                         />
                                     </div>
                                 </div>
-                                <div className='email mb-5'>
+                                <div className="email mb-5">
                                     <div>
                                         <Label forInput="email" value="Email" />
 
@@ -183,7 +186,7 @@ const Register = () => {
                                         />
                                     </div>
                                 </div>
-                                <div className='password mb-5'>
+                                <div className="password mb-5">
                                     <div>
                                         <Label forInput="password" value="Password" />
 
@@ -198,9 +201,12 @@ const Register = () => {
                                         />
                                     </div>
                                 </div>
-                                <div className='confirm_password mb-5'>
+                                <div className="confirm_password mb-5">
                                     <div>
-                                        <Label forInput="confirm_password" value="Konfirmasi Password" />
+                                        <Label
+                                            forInput="confirm_password"
+                                            value="Konfirmasi Password"
+                                        />
 
                                         <Input
                                             type="password"
@@ -213,7 +219,7 @@ const Register = () => {
                                         />
                                     </div>
                                 </div>
-                                <div className='phone_number mb-5'>
+                                <div className="phone_number mb-5">
                                     <div>
                                         <Label forInput="phone_number" value="Nomor Whatsapp" />
 
@@ -231,11 +237,11 @@ const Register = () => {
                             </div>
                             <div className="auth-footer flex justify-center">
                                 <Button
-                                    type='button'
-                                    as='button'
-                                    method='post'
-                                    title='DAFTAR'
-                                    style='primary'
+                                    type="button"
+                                    as="button"
+                                    method="post"
+                                    title="DAFTAR"
+                                    style="primary"
                                 />
                             </div>
                         </form>
@@ -244,6 +250,6 @@ const Register = () => {
             </div>
         </Guest>
     );
-}
+};
 
-export default Register
+export default Register;

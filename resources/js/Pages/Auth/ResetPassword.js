@@ -1,10 +1,5 @@
 import React, { useEffect } from 'react';
-import {
-    Button,
-    Input,
-    Label,
-    ValidationErrors
-} from '@/Components';
+import { Button, Input, Label, ValidationErrors } from '@/Components';
 import Guest from '@/Layouts/Guest';
 import { Head, useForm } from '@inertiajs/inertia-react';
 

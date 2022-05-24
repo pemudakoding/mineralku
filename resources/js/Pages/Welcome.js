@@ -17,7 +17,10 @@ export default function Welcome(props) {
                                 Log in
                             </Link>
 
-                            <Link href={route('register')} className="ml-4 text-sm text-gray-700 underline">
+                            <Link
+                                href={route('register')}
+                                className="ml-4 text-sm text-gray-700 underline"
+                            >
                                 Register
                             </Link>
                         </>
@@ -66,9 +69,11 @@ export default function Welcome(props) {
 
                                 <div className="ml-12">
                                     <div className="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                        Laravel has wonderful, thorough documentation covering every aspect of the
-                                        framework. Whether you are new to the framework or have previous experience with
-                                        Laravel, we recommend reading all of the documentation from beginning to end.
+                                        Laravel has wonderful, thorough documentation covering every
+                                        aspect of the framework. Whether you are new to the
+                                        framework or have previous experience with Laravel, we
+                                        recommend reading all of the documentation from beginning to
+                                        end.
                                     </div>
                                 </div>
                             </div>
@@ -100,9 +105,10 @@ export default function Welcome(props) {
 
                                 <div className="ml-12">
                                     <div className="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                        Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript
-                                        development. Check them out, see for yourself, and massively level up your
-                                        development skills in the process.
+                                        Laracasts offers thousands of video tutorials on Laravel,
+                                        PHP, and JavaScript development. Check them out, see for
+                                        yourself, and massively level up your development skills in
+                                        the process.
                                     </div>
                                 </div>
                             </div>
@@ -133,9 +139,10 @@ export default function Welcome(props) {
 
                                 <div className="ml-12">
                                     <div className="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                        Laravel News is a community driven portal and newsletter aggregating all of the
-                                        latest and most important news in the Laravel ecosystem, including new package
-                                        releases and tutorials.
+                                        Laravel News is a community driven portal and newsletter
+                                        aggregating all of the latest and most important news in the
+                                        Laravel ecosystem, including new package releases and
+                                        tutorials.
                                     </div>
                                 </div>
                             </div>
@@ -161,7 +168,8 @@ export default function Welcome(props) {
 
                                 <div className="ml-12">
                                     <div className="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                        Laravel's robust library of first-party tools and libraries, such as{' '}
+                                        Laravel's robust library of first-party tools and libraries,
+                                        such as{' '}
                                         <a href="https://forge.laravel.com" className="underline">
                                             Forge
                                         </a>
@@ -177,29 +185,47 @@ export default function Welcome(props) {
                                         <a href="https://envoyer.io" className="underline">
                                             Envoyer
                                         </a>{' '}
-                                        help you take your projects to the next level. Pair them with powerful open
-                                        source libraries like{' '}
-                                        <a href="https://laravel.com/docs/billing" className="underline">
+                                        help you take your projects to the next level. Pair them
+                                        with powerful open source libraries like{' '}
+                                        <a
+                                            href="https://laravel.com/docs/billing"
+                                            className="underline"
+                                        >
                                             Cashier
                                         </a>
                                         ,{' '}
-                                        <a href="https://laravel.com/docs/dusk" className="underline">
+                                        <a
+                                            href="https://laravel.com/docs/dusk"
+                                            className="underline"
+                                        >
                                             Dusk
                                         </a>
                                         ,{' '}
-                                        <a href="https://laravel.com/docs/broadcasting" className="underline">
+                                        <a
+                                            href="https://laravel.com/docs/broadcasting"
+                                            className="underline"
+                                        >
                                             Echo
                                         </a>
                                         ,{' '}
-                                        <a href="https://laravel.com/docs/horizon" className="underline">
+                                        <a
+                                            href="https://laravel.com/docs/horizon"
+                                            className="underline"
+                                        >
                                             Horizon
                                         </a>
                                         ,{' '}
-                                        <a href="https://laravel.com/docs/sanctum" className="underline">
+                                        <a
+                                            href="https://laravel.com/docs/sanctum"
+                                            className="underline"
+                                        >
                                             Sanctum
                                         </a>
                                         ,{' '}
-                                        <a href="https://laravel.com/docs/telescope" className="underline">
+                                        <a
+                                            href="https://laravel.com/docs/telescope"
+                                            className="underline"
+                                        >
                                             Telescope
                                         </a>
                                         , and more.
@@ -240,7 +266,10 @@ export default function Welcome(props) {
                                     <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                                 </svg>
 
-                                <a href="https://github.com/sponsors/taylorotwell" className="ml-1 underline">
+                                <a
+                                    href="https://github.com/sponsors/taylorotwell"
+                                    className="ml-1 underline"
+                                >
                                     Sponsor
                                 </a>
                             </div>

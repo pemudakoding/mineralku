@@ -1,9 +1,5 @@
-import Checkbox from './Checkbox'
-import Input from './Input'
-import Label from './Label'
+import Checkbox from './Checkbox';
+import Input from './Input';
+import Label from './Label';
 
-export {
-    Checkbox,
-    Input,
-    Label
-}
+export { Checkbox, Input, Label };

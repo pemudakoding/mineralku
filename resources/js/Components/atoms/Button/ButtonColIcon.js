@@ -1,10 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import {Link} from '@inertiajs/inertia-react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from '@inertiajs/inertia-react';
 import * as Icon from 'react-feather';
 
-
-const ButtonColIcon = ({type, method, as, href, icon,title}) => {
+const ButtonColIcon = ({ type, method, as, href, icon, title }) => {
     const IconComponent = Icon[icon];
 
     return (
@@ -15,11 +14,11 @@ const ButtonColIcon = ({type, method, as, href, icon,title}) => {
             type={type}
             className="button-icon flex flex-col justify-center items-center poppins"
         >
-            <IconComponent/>
-            <span className="mt-2">{ title }</span>
+            <IconComponent />
+            <span className="mt-2">{title}</span>
         </Link>
-    )
-}
+    );
+};
 
 ButtonColIcon.propTypes = {
     type: PropTypes.string,
@@ -28,7 +27,6 @@ ButtonColIcon.propTypes = {
     href: PropTypes.string,
     icon: PropTypes.string,
     title: PropTypes.string,
-}
-
+};
 
 export default ButtonColIcon;
