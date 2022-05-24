@@ -3,7 +3,7 @@ import { Button } from '@/Components';
 
 const Footer = (props) => {
     return (
-        <footer className='footer-wrapper bg-white fixed w-full bottom-0 py-3 shadow-2xl'>
+        <footer className='footer-wrapper z-50 bg-white fixed w-full bottom-0 py-3 shadow-2xl'>
             <div className='nav-wrapper container mx-auto'>
                 <nav>
                     <ul className="flex justify-center">

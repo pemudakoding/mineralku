@@ -33,11 +33,11 @@ const Button = ({type, method, as, href, icon, title, style, className}) => {
 
 function getStyleClass(style) {
     if(style == 'primary') {
-        return ' bg-blue-default-100 text-white hover:bg-blue-default-200 shadow-primary'
+        return ' bg-blue-default-100 border-2 border-blue-default-100 text-white hover:bg-blue-default-200 shadow-primary'
     }
 
     if(style == 'primary-outline') {
-        return 'bg-transparent hover:bg-blue-default-100 text-white'
+        return 'bg-transparent border-2 border-white hover:bg-white text-white hover:text-blue-default-100 shadow-primary'
     }
 }
 

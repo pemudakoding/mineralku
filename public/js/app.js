@@ -4389,11 +4389,11 @@ var Button = function Button(_ref) {
 
 function getStyleClass(style) {
   if (style == 'primary') {
-    return ' bg-blue-default-100 text-white hover:bg-blue-default-200 shadow-primary';
+    return ' bg-blue-default-100 border-2 border-blue-default-100 text-white hover:bg-blue-default-200 shadow-primary';
   }
 
   if (style == 'primary-outline') {
-    return 'bg-transparent hover:bg-blue-default-100 text-white';
+    return 'bg-transparent border-2 border-white hover:bg-white text-white hover:text-blue-default-100 shadow-primary';
   }
 }
 
@@ -5083,7 +5083,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var Footer = function Footer(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("footer", {
-    className: "footer-wrapper bg-white fixed w-full bottom-0 py-3 shadow-2xl",
+    className: "footer-wrapper z-50 bg-white fixed w-full bottom-0 py-3 shadow-2xl",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "nav-wrapper container mx-auto",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("nav", {
@@ -5158,7 +5158,7 @@ var HeroSection = function HeroSection(_ref) {
       className: "container mx-auto",
       children: children
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "absolute z-50 -bottom-10 md:hidden right-0 left-0",
+      className: "absolute z-30 -bottom-10 md:hidden right-0 left-0",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
         className: "text-blue-default-50",
         xmlns: "http://www.w3.org/2000/svg",
@@ -6358,17 +6358,24 @@ var Home = function Home(props) {
         className: "text-white text-center mt-4 poppins",
         children: ["Yuk! cukupi kebutuhanmu ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), "air galonmu di Mineralku"]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("section", {
-        className: "button-section mt-8 mb-10 flex flex-col items-center md:block ",
+        className: "button-section mt-8 mb-8 flex flex-col items-center md:block ",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Button, {
-          href: "/register",
-          title: "Daftar",
+          href: "/login",
+          title: "Masuk",
           style: "primary",
           className: "md:mr-3 md:mb-0 mb-3"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Button, {
-          href: "/login",
-          title: "Masuk",
+          href: "/register",
+          title: "Daftar",
           style: "primary-outline"
         })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "w-full h-auto flex justify-center -mb-6",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+          src: _assets_images__WEBPACK_IMPORTED_MODULE_3__.IMG_HERO,
+          alt: "Join image",
+          className: "w-1/2 md:w-1/3 mx-auto"
+        })
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("main", {
       className: "relative section-container bg-blue-default-50 pt-20 pb-40",
@@ -6392,23 +6399,65 @@ var Home = function Home(props) {
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "reason-content",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Reason, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "w-full h-auto flex justify-center mt-10",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                  src: _assets_images__WEBPACK_IMPORTED_MODULE_3__.IMG_TERSERTIFIKASI,
+                  alt: "Join image",
+                  className: "w-1/4 mx-auto mb-6"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Reason, {
                 title: "1. Telah Tersertifikasi Oleh Dinas Kesehatan",
                 desc: "Para Mitra Depot air minum di Mineralku telah tersertifikasi oleh Dinas Kesehatan setempat, sehingga para pengguna tidak perlu khawatir saat memesan air minum isi ulang di Mineralku."
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "w-full h-auto flex justify-center mt-10",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                  src: _assets_images__WEBPACK_IMPORTED_MODULE_3__.IMG_TRACKING,
+                  alt: "Join image",
+                  className: "w-1/4 mx-auto mb-6"
+                })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Reason, {
                 title: "2. Tracking Pesanan",
                 desc: "Terdapat fitur tracking pesanan dapat memudahkan pengguna ketika melihat status pesanan.",
                 onRight: true
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "w-full h-auto flex justify-center mt-10",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                  src: _assets_images__WEBPACK_IMPORTED_MODULE_3__.IMG_REKOMENDASI,
+                  alt: "Join image",
+                  className: "w-1/4 mx-auto mb-6"
+                })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Reason, {
                 title: "3. Rekomendasi Depot Air Minum Terdekat",
                 desc: "Memberikan rekomendasi depot air minum terdekat, yang dapat memudahkan pengguna untuk mencari pengganti ketika depot langganan sedang tutup."
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "w-full h-auto flex justify-center mt-10",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                  src: _assets_images__WEBPACK_IMPORTED_MODULE_3__.IMG_JADWAL,
+                  alt: "Join image",
+                  className: "w-1/4 mx-auto mb-6"
+                })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Reason, {
                 title: "4. Pemesanan Terjadwal",
                 desc: "Dapat melakukan penjadwalan sehingga memudahkan pengguna untuk melakukan pemesanan air berulang, mengantisipasi Air Galon habis diwaktu yang tidak tepat.",
                 onRight: true
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "w-full h-auto flex justify-center mt-10",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                  src: _assets_images__WEBPACK_IMPORTED_MODULE_3__.IMG_VOUCHER,
+                  alt: "Join image",
+                  className: "w-1/4 mx-auto mb-6"
+                })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Reason, {
                 title: "5. Voucher Gratis Ongkir & Promo",
                 desc: "Terdapat banyak promo berupa gratis ongkir ataupun promo lainnya seperti beli 5 gratis 1."
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "w-full h-auto flex justify-center mt-10",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                  src: _assets_images__WEBPACK_IMPORTED_MODULE_3__.IMG_LANGGANAN,
+                  alt: "Join image",
+                  className: "w-1/4 mx-auto mb-6"
+                })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Reason, {
                 title: "6. Berlangganan",
                 desc: "Bisa berlangganan di Depot pilihan kamu, yang dapat memudahkan kamu dalam mengatur jadwal diwaktu yang dapat kalian sesuaikan.",
@@ -6860,9 +6909,30 @@ _inertiajs_progress__WEBPACK_IMPORTED_MODULE_3__.InertiaProgress.init({
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "IMG_JOIN": () => (/* reexport safe */ _join_png__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */   "IMG_HERO": () => (/* reexport safe */ _hero_png__WEBPACK_IMPORTED_MODULE_2__["default"]),
+/* harmony export */   "IMG_JADWAL": () => (/* reexport safe */ _jadwal_png__WEBPACK_IMPORTED_MODULE_3__["default"]),
+/* harmony export */   "IMG_JOIN": () => (/* reexport safe */ _join_png__WEBPACK_IMPORTED_MODULE_0__["default"]),
+/* harmony export */   "IMG_LANGGANAN": () => (/* reexport safe */ _langganan_png__WEBPACK_IMPORTED_MODULE_4__["default"]),
+/* harmony export */   "IMG_REKOMENDASI": () => (/* reexport safe */ _rekomendasi_png__WEBPACK_IMPORTED_MODULE_5__["default"]),
+/* harmony export */   "IMG_TERSERTIFIKASI": () => (/* reexport safe */ _tersertifikasi_png__WEBPACK_IMPORTED_MODULE_1__["default"]),
+/* harmony export */   "IMG_TRACKING": () => (/* reexport safe */ _tracking_png__WEBPACK_IMPORTED_MODULE_7__["default"]),
+/* harmony export */   "IMG_VOUCHER": () => (/* reexport safe */ _voucher_png__WEBPACK_IMPORTED_MODULE_6__["default"])
 /* harmony export */ });
 /* harmony import */ var _join_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./join.png */ "./resources/js/assets/images/join.png");
+/* harmony import */ var _tersertifikasi_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tersertifikasi.png */ "./resources/js/assets/images/tersertifikasi.png");
+/* harmony import */ var _hero_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./hero.png */ "./resources/js/assets/images/hero.png");
+/* harmony import */ var _jadwal_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./jadwal.png */ "./resources/js/assets/images/jadwal.png");
+/* harmony import */ var _langganan_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./langganan.png */ "./resources/js/assets/images/langganan.png");
+/* harmony import */ var _rekomendasi_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./rekomendasi.png */ "./resources/js/assets/images/rekomendasi.png");
+/* harmony import */ var _voucher_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./voucher.png */ "./resources/js/assets/images/voucher.png");
+/* harmony import */ var _tracking_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./tracking.png */ "./resources/js/assets/images/tracking.png");
+
+
+
+
+
+
+
 
 
 
@@ -7251,6 +7321,36 @@ module.exports = deepmerge_1;
 
 /***/ }),
 
+/***/ "./resources/js/assets/images/hero.png":
+/*!*********************************************!*\
+  !*** ./resources/js/assets/images/hero.png ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/hero.png?5c4c2d5665160bd03c3002b3c54a848e");
+
+/***/ }),
+
+/***/ "./resources/js/assets/images/jadwal.png":
+/*!***********************************************!*\
+  !*** ./resources/js/assets/images/jadwal.png ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/jadwal.png?413492f9f2e8d04b0efcff4b68df98c0");
+
+/***/ }),
+
 /***/ "./resources/js/assets/images/join.png":
 /*!*********************************************!*\
   !*** ./resources/js/assets/images/join.png ***!
@@ -7263,6 +7363,81 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/join.png?0306822f51fd11c4586c21a194d4ea03");
+
+/***/ }),
+
+/***/ "./resources/js/assets/images/langganan.png":
+/*!**************************************************!*\
+  !*** ./resources/js/assets/images/langganan.png ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/langganan.png?a2ce3b45418f311270b1dcdc48ea38c0");
+
+/***/ }),
+
+/***/ "./resources/js/assets/images/rekomendasi.png":
+/*!****************************************************!*\
+  !*** ./resources/js/assets/images/rekomendasi.png ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/rekomendasi.png?95d477d61bb306ce4394023dbfdb48f9");
+
+/***/ }),
+
+/***/ "./resources/js/assets/images/tersertifikasi.png":
+/*!*******************************************************!*\
+  !*** ./resources/js/assets/images/tersertifikasi.png ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/tersertifikasi.png?b837de1c8f53abbe2b5361955a4c3ab9");
+
+/***/ }),
+
+/***/ "./resources/js/assets/images/tracking.png":
+/*!*************************************************!*\
+  !*** ./resources/js/assets/images/tracking.png ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/tracking.png?3f140f5b379366b5783d29e88f8b8ad8");
+
+/***/ }),
+
+/***/ "./resources/js/assets/images/voucher.png":
+/*!************************************************!*\
+  !*** ./resources/js/assets/images/voucher.png ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/voucher.png?16198e3b2a46c0824a48537dcbdb207c");
 
 /***/ }),
 

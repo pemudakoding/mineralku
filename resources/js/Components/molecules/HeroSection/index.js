@@ -7,7 +7,7 @@ const HeroSection = ({children,className}) => {
             <div className='container mx-auto'>
                 {children}
             </div>
-            <div className="absolute z-50 -bottom-10 md:hidden right-0 left-0">
+            <div className="absolute z-30 -bottom-10 md:hidden right-0 left-0">
                 <svg className="text-blue-default-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                     <path fill="currentColor" fill-opacity="1" d="M0,64L48,90.7C96,117,192,171,288,170.7C384,171,480,117,576,90.7C672,64,768,64,864,74.7C960,85,1056,107,1152,106.7C1248,107,1344,85,1392,74.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
                 </svg>
