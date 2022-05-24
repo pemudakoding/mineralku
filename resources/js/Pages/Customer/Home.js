@@ -1,5 +1,5 @@
 import React from 'react';
-import { setLayout } from '@/Utils/Layout';
+import {setLayout} from '@/Utils/Layout';
 import {
     Button,
     HeroSection,
@@ -22,15 +22,15 @@ const Home = (props) => {
             <HeroSection className="text-center">
                 <h1 className='fredoka-one text-white text-4xl'>Selamat Datang!</h1>
                 <p className="text-white text-center mt-4 poppins">
-                    Yuk! cukupi kebutuhanmu <br/>
+                    Yuk! cukupi kebutuhanmu <br />
                     air galonmu di Mineralku
                 </p>
                 <section className="button-section mt-8 mb-8 flex flex-col items-center md:block ">
-                    <Button href='/login' title='Masuk' style="primary" className='md:mr-3 md:mb-0 mb-3'/>
-                    <Button href='/register' title='Daftar' style="primary-outline"/>
+                    <Button href='/login' title='Masuk' style="primary" className='md:mr-3 md:mb-0 mb-3' />
+                    <Button href='/register' title='Daftar' style="primary-outline" />
                 </section>
                 <div className="w-full h-auto flex justify-center -mb-6">
-                    <img src={IMG_HERO} alt="Join image" className='w-1/2 md:w-1/3 mx-auto'/>
+                    <img src={IMG_HERO} alt="Join image" className='w-1/2 md:w-1/3 mx-auto' />
                 </div>
             </HeroSection>
             <main className="relative section-container bg-blue-default-50 pt-20 pb-40">
@@ -47,60 +47,60 @@ const Home = (props) => {
                                 <h3 className='font-medium fredoka-one text-black text-3xl text-center'>Kenapa Harus Mineralku?</h3>
                             </div>
                             <div className="reason-content">
-                                <div className="w-full h-auto flex justify-center mt-10">
-                                    <img src={IMG_TERSERTIFIKASI} alt="Join image" className='w-1/4 mx-auto mb-6'/>
-                                </div>
-                                <Reason
-                                    title="1. Telah Tersertifikasi Oleh Dinas Kesehatan"
-                                    desc='Para Mitra Depot air minum di Mineralku telah tersertifikasi oleh Dinas Kesehatan setempat, sehingga
-                                        para pengguna tidak perlu khawatir saat memesan air minum isi ulang di Mineralku.'
+                                <div className="w-full flex justify-center flex-col lg:flex-row lg:items-center lg:flex-row-reverse lg:my-6">
+                                    <img src={IMG_TERSERTIFIKASI} alt="Join image" className='w-1/4 lg:1/3 h-auto mx-auto mt-10 mb-6 lg:my-0' />
+                                    <Reason
+                                        title="1. Telah Tersertifikasi Oleh Dinas Kesehatan"
+                                        desc='Para Mitra Depot air minum di Mineralku telah tersertifikasi oleh Dinas Kesehatan setempat, sehingga
+                                            para pengguna tidak perlu khawatir saat memesan air minum isi ulang di Mineralku.'
                                     />
-
-                                <div className="w-full h-auto flex justify-center mt-10">
-                                    <img src={IMG_TRACKING} alt="Join image" className='w-1/4 mx-auto mb-6'/>
                                 </div>
-                                <Reason
-                                    title="2. Tracking Pesanan"
-                                    desc='Terdapat fitur tracking pesanan dapat memudahkan
-                                        pengguna ketika melihat status pesanan.'
-                                    onRight/>
 
-                                <div className="w-full h-auto flex justify-center mt-10">
-                                    <img src={IMG_REKOMENDASI} alt="Join image" className='w-1/4 mx-auto mb-6'/>
-                                </div>
-                                <Reason
-                                    title="3. Rekomendasi Depot Air Minum Terdekat"
-                                    desc='Memberikan rekomendasi depot air minum terdekat, yang dapat memudahkan
-                                        pengguna untuk mencari pengganti ketika depot langganan sedang tutup.'
+                                <div className="w-full flex justify-center flex-col lg:flex-row lg:items-center lg:my-6">
+                                    <img src={IMG_TRACKING} alt="Join image" className='w-1/4 lg:1/3 h-auto mx-auto mt-10 mb-6 lg:my-0' />
+                                    <Reason
+                                        title="2. Tracking Pesanan"
+                                        desc='Terdapat fitur tracking pesanan dapat memudahkan
+                                            pengguna ketika melihat status pesanan.'
+                                        onRight
                                     />
-
-                                <div className="w-full h-auto flex justify-center mt-10">
-                                    <img src={IMG_JADWAL} alt="Join image" className='w-1/4 mx-auto mb-6'/>
                                 </div>
-                                <Reason
-                                    title="4. Pemesanan Terjadwal"
-                                    desc='Dapat melakukan penjadwalan sehingga memudahkan pengguna untuk melakukan
-                                        pemesanan air berulang, mengantisipasi Air Galon habis diwaktu yang tidak tepat.'
-                                    onRight/>
 
-                                <div className="w-full h-auto flex justify-center mt-10">
-                                    <img src={IMG_VOUCHER} alt="Join image" className='w-1/4 mx-auto mb-6'/>
-                                </div>
-                                <Reason
-                                    title="5. Voucher Gratis Ongkir & Promo"
-                                    desc='Terdapat banyak promo berupa gratis ongkir ataupun promo lainnya
-                                        seperti beli 5 gratis 1.'
+                                <div className="w-full flex justify-center flex-col lg:flex-row lg:items-center lg:flex-row-reverse lg:my-6">
+                                    <img src={IMG_REKOMENDASI} alt="Join image" className='w-1/4 lg:1/3 h-auto mx-auto mt-10 mb-6 lg:my-0' />
+                                    <Reason
+                                        title="3. Rekomendasi Depot Air Minum Terdekat"
+                                        desc='Memberikan rekomendasi depot air minum terdekat, yang dapat memudahkan
+                                            pengguna untuk mencari pengganti ketika depot langganan sedang tutup.'
                                     />
-
-                                <div className="w-full h-auto flex justify-center mt-10">
-                                    <img src={IMG_LANGGANAN} alt="Join image" className='w-1/4 mx-auto mb-6'/>
                                 </div>
-                                <Reason
-                                    title="6. Berlangganan"
-                                    desc='Bisa berlangganan di Depot pilihan kamu, yang dapat memudahkan kamu
-                                        dalam mengatur jadwal diwaktu yang dapat kalian sesuaikan.'
-                                    onRight
+
+                                <div className="w-full flex justify-center flex-col lg:flex-row lg:items-center lg:my-6">
+                                    <img src={IMG_JADWAL} alt="Join image" className='w-1/4 lg:1/3 h-auto mx-auto mt-10 mb-6 lg:my-0' />
+                                    <Reason
+                                        title="4. Pemesanan Terjadwal"
+                                        desc='Dapat melakukan penjadwalan sehingga memudahkan pengguna untuk melakukan
+                                            pemesanan air berulang, mengantisipasi Air Galon habis diwaktu yang tidak tepat.'
+                                        onRight
                                     />
+                                </div>
+                                <div className="w-full flex justify-center flex-col lg:flex-row lg:items-center lg:flex-row-reverse lg:my-6">
+                                    <img src={IMG_VOUCHER} alt="Join image" className='w-1/4 lg:1/3 h-auto mx-auto mt-10 mb-6 lg:my-0' />
+                                    <Reason
+                                        title="5. Voucher Gratis Ongkir & Promo"
+                                        desc='Terdapat banyak promo berupa gratis ongkir ataupun promo lainnya
+                                            seperti beli 5 gratis 1.'
+                                    />
+                                </div>
+                                <div className="w-full flex justify-center flex-col lg:flex-row lg:items-center lg:my-6">
+                                    <img src={IMG_LANGGANAN} alt="Join image" className='w-1/4 lg:1/3 h-auto mx-auto mt-10 mb-6 lg:my-0' />
+                                    <Reason
+                                        title="6. Berlangganan"
+                                        desc='Bisa berlangganan di Depot pilihan kamu, yang dapat memudahkan kamu
+                                            dalam mengatur jadwal diwaktu yang dapat kalian sesuaikan.'
+                                        onRight
+                                    />
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -108,11 +108,11 @@ const Home = (props) => {
                         <div className="container">
                             <div className="join-title mb-10">
                                 <h3 className='font-medium fredoka-one text-black text-3xl mb-4 text-center'>Kamu punya usaha depot air minum?</h3>
-                                <img src={IMG_JOIN} alt="Join image" className='w-5/12 mx-auto mb-4'/>
+                                <img src={IMG_JOIN} alt="Join image" className='w-5/12 mx-auto mb-4' />
                                 <h3 className='font-medium fredoka-one text-black text-3xl mb-4 text-center'>Yuk! gabung jadi mitra di Mineralku</h3>
                             </div>
                             <div className="text-center">
-                                <Button href='/register' title='Gabung Sekarang' style="primary"/>
+                                <Button href='/register' title='Gabung Sekarang' style="primary" />
                             </div>
                         </div>
                     </section>

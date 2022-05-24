@@ -4681,14 +4681,14 @@ var Reason = function Reason(_ref) {
       desc = _ref.desc,
       onRight = _ref.onRight;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    className: "reason-content-item mb-6 text-center lg:text-left ".concat(onRight ? 'lg:text-right' : ''),
+    className: "reason-content-item mb-6 lg:w-2/3 text-center ".concat(onRight ? 'lg:text-right' : 'lg:text-left'),
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "poppins text-black  ".concat(onRight ? 'lg:flex flex-col items-end' : ''),
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
         className: "text-xl font-bold mb-3",
         children: title
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        className: "lg:w-8/12",
+        className: "".concat(onRight ? 'lg:ml-4:' : 'lg:mr-4'),
         children: desc
       })]
     })
@@ -6399,69 +6399,69 @@ var Home = function Home(props) {
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "reason-content",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "w-full h-auto flex justify-center mt-10",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "w-full flex justify-center flex-col lg:flex-row lg:items-center lg:flex-row-reverse lg:my-6",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                   src: _assets_images__WEBPACK_IMPORTED_MODULE_3__.IMG_TERSERTIFIKASI,
                   alt: "Join image",
-                  className: "w-1/4 mx-auto mb-6"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Reason, {
-                title: "1. Telah Tersertifikasi Oleh Dinas Kesehatan",
-                desc: "Para Mitra Depot air minum di Mineralku telah tersertifikasi oleh Dinas Kesehatan setempat, sehingga para pengguna tidak perlu khawatir saat memesan air minum isi ulang di Mineralku."
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "w-full h-auto flex justify-center mt-10",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                  className: "w-1/4 lg:1/3 h-auto mx-auto mt-10 mb-6 lg:my-0"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Reason, {
+                  title: "1. Telah Tersertifikasi Oleh Dinas Kesehatan",
+                  desc: "Para Mitra Depot air minum di Mineralku telah tersertifikasi oleh Dinas Kesehatan setempat, sehingga para pengguna tidak perlu khawatir saat memesan air minum isi ulang di Mineralku."
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "w-full flex justify-center flex-col lg:flex-row lg:items-center lg:my-6",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                   src: _assets_images__WEBPACK_IMPORTED_MODULE_3__.IMG_TRACKING,
                   alt: "Join image",
-                  className: "w-1/4 mx-auto mb-6"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Reason, {
-                title: "2. Tracking Pesanan",
-                desc: "Terdapat fitur tracking pesanan dapat memudahkan pengguna ketika melihat status pesanan.",
-                onRight: true
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "w-full h-auto flex justify-center mt-10",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                  className: "w-1/4 lg:1/3 h-auto mx-auto mt-10 mb-6 lg:my-0"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Reason, {
+                  title: "2. Tracking Pesanan",
+                  desc: "Terdapat fitur tracking pesanan dapat memudahkan pengguna ketika melihat status pesanan.",
+                  onRight: true
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "w-full flex justify-center flex-col lg:flex-row lg:items-center lg:flex-row-reverse lg:my-6",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                   src: _assets_images__WEBPACK_IMPORTED_MODULE_3__.IMG_REKOMENDASI,
                   alt: "Join image",
-                  className: "w-1/4 mx-auto mb-6"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Reason, {
-                title: "3. Rekomendasi Depot Air Minum Terdekat",
-                desc: "Memberikan rekomendasi depot air minum terdekat, yang dapat memudahkan pengguna untuk mencari pengganti ketika depot langganan sedang tutup."
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "w-full h-auto flex justify-center mt-10",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                  className: "w-1/4 lg:1/3 h-auto mx-auto mt-10 mb-6 lg:my-0"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Reason, {
+                  title: "3. Rekomendasi Depot Air Minum Terdekat",
+                  desc: "Memberikan rekomendasi depot air minum terdekat, yang dapat memudahkan pengguna untuk mencari pengganti ketika depot langganan sedang tutup."
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "w-full flex justify-center flex-col lg:flex-row lg:items-center lg:my-6",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                   src: _assets_images__WEBPACK_IMPORTED_MODULE_3__.IMG_JADWAL,
                   alt: "Join image",
-                  className: "w-1/4 mx-auto mb-6"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Reason, {
-                title: "4. Pemesanan Terjadwal",
-                desc: "Dapat melakukan penjadwalan sehingga memudahkan pengguna untuk melakukan pemesanan air berulang, mengantisipasi Air Galon habis diwaktu yang tidak tepat.",
-                onRight: true
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "w-full h-auto flex justify-center mt-10",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                  className: "w-1/4 lg:1/3 h-auto mx-auto mt-10 mb-6 lg:my-0"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Reason, {
+                  title: "4. Pemesanan Terjadwal",
+                  desc: "Dapat melakukan penjadwalan sehingga memudahkan pengguna untuk melakukan pemesanan air berulang, mengantisipasi Air Galon habis diwaktu yang tidak tepat.",
+                  onRight: true
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "w-full flex justify-center flex-col lg:flex-row lg:items-center lg:flex-row-reverse lg:my-6",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                   src: _assets_images__WEBPACK_IMPORTED_MODULE_3__.IMG_VOUCHER,
                   alt: "Join image",
-                  className: "w-1/4 mx-auto mb-6"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Reason, {
-                title: "5. Voucher Gratis Ongkir & Promo",
-                desc: "Terdapat banyak promo berupa gratis ongkir ataupun promo lainnya seperti beli 5 gratis 1."
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "w-full h-auto flex justify-center mt-10",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                  className: "w-1/4 lg:1/3 h-auto mx-auto mt-10 mb-6 lg:my-0"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Reason, {
+                  title: "5. Voucher Gratis Ongkir & Promo",
+                  desc: "Terdapat banyak promo berupa gratis ongkir ataupun promo lainnya seperti beli 5 gratis 1."
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "w-full flex justify-center flex-col lg:flex-row lg:items-center lg:my-6",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                   src: _assets_images__WEBPACK_IMPORTED_MODULE_3__.IMG_LANGGANAN,
                   alt: "Join image",
-                  className: "w-1/4 mx-auto mb-6"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Reason, {
-                title: "6. Berlangganan",
-                desc: "Bisa berlangganan di Depot pilihan kamu, yang dapat memudahkan kamu dalam mengatur jadwal diwaktu yang dapat kalian sesuaikan.",
-                onRight: true
+                  className: "w-1/4 lg:1/3 h-auto mx-auto mt-10 mb-6 lg:my-0"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Reason, {
+                  title: "6. Berlangganan",
+                  desc: "Bisa berlangganan di Depot pilihan kamu, yang dapat memudahkan kamu dalam mengatur jadwal diwaktu yang dapat kalian sesuaikan.",
+                  onRight: true
+                })]
               })]
             })]
           })
