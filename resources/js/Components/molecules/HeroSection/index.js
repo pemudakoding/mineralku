@@ -36,6 +36,11 @@ const HeroSection = ({ children, className }) => {
                     ></path>
                 </svg>
             </div>
+            <div className="absolute z-30 -bottom-10 hidden md:block right-0 left-0">
+                <svg   className="text-blue-default-50"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill="currentColor" fill-opacity="1" d="M0,160L40,176C80,192,160,224,240,245.3C320,267,400,277,480,250.7C560,224,640,160,720,160C800,160,880,224,960,234.7C1040,245,1120,203,1200,192C1280,181,1360,203,1400,213.3L1440,224L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
+                </svg>
+            </div>
         </section>
     );
 };

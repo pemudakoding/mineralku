@@ -37,7 +37,7 @@ const Home = (props) => {
                     />
                 </section>
                 <div className="w-full h-auto flex justify-center -mb-6">
-                    <img src={IMG_HERO} alt="Join image" className="w-1/2 md:w-1/3 mx-auto" />
+                    <img src={IMG_HERO} alt="Join image" className="w-1/2 md:w-1/6 mx-auto" />
                 </div>
             </HeroSection>
             <main className="relative section-container bg-blue-default-50 pt-20 pb-40">
