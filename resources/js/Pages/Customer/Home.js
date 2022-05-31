@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { setLayout } from '@/Utils/Layout';
-import { Button, HeroSection, Reason } from '@/Components';
+import { Button, HeroSection, Reason, OrderDialog } from '@/Components';
 import {
     IMG_JOIN,
     IMG_TERSERTIFIKASI,
@@ -12,9 +12,16 @@ import {
     IMG_TRACKING,
 } from '@/assets/images';
 
+const openOrderDialog = (setOrderDialogOpen) => {
+    setOrderDialogOpen(true);
+}
+
 const Home = (props) => {
+    let [isOrderDialogOpen, setOrderDialogOpen] = useState(false);
+
     return (
         <>
+            <OrderDialog isOrderDialogOpen={isOrderDialogOpen} setOrderDialogOpen={setOrderDialogOpen}/>
             <HeroSection className="text-center">
                 <h1 className="fredoka-one text-white text-4xl">Selamat Datang!</h1>
                 <p className="text-white text-center mt-4 poppins">
@@ -23,12 +30,11 @@ const Home = (props) => {
                 </p>
                 <section className="button-section mt-8 mb-8 flex flex-col items-center md:block ">
                     <Button
-                        href="/login"
-                        title="Masuk"
+                        title="Pesan Sekarang"
                         style="primary"
                         className="md:mr-3 md:mb-0 mb-3"
+                        onClick={() => setOrderDialogOpen(true)}
                     />
-                    <Button href="/register" title="Daftar" style="primary-outline" />
                 </section>
                 <div className="w-full h-auto flex justify-center -mb-6">
                     <img src={IMG_HERO} alt="Join image" className="w-1/2 md:w-1/3 mx-auto" />
