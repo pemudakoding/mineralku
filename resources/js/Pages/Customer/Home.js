@@ -56,7 +56,7 @@ const Home = (props) => {
                                 </h3>
                             </div>
                             <div className="reason-content">
-                                <div className="w-full flex justify-center flex-col lg:flex-row lg:items-center lg:flex-row-reverse lg:my-6">
+                                <div className="w-full flex justify-center flex-col lg:flex-row lg:items-center lg:flex-row-reverse lg:my-14">
                                     <img
                                         src={IMG_TERSERTIFIKASI}
                                         alt="Join image"
@@ -69,7 +69,7 @@ const Home = (props) => {
                                     />
                                 </div>
 
-                                <div className="w-full flex justify-center flex-col lg:flex-row lg:items-center lg:my-6">
+                                <div className="w-full flex justify-center flex-col lg:flex-row lg:items-center lg:my-14">
                                     <img
                                         src={IMG_TRACKING}
                                         alt="Join image"
@@ -83,7 +83,7 @@ const Home = (props) => {
                                     />
                                 </div>
 
-                                <div className="w-full flex justify-center flex-col lg:flex-row lg:items-center lg:flex-row-reverse lg:my-6">
+                                <div className="w-full flex justify-center flex-col lg:flex-row lg:items-center lg:flex-row-reverse lg:my-14">
                                     <img
                                         src={IMG_REKOMENDASI}
                                         alt="Join image"
@@ -96,7 +96,7 @@ const Home = (props) => {
                                     />
                                 </div>
 
-                                <div className="w-full flex justify-center flex-col lg:flex-row lg:items-center lg:my-6">
+                                <div className="w-full flex justify-center flex-col lg:flex-row lg:items-center lg:my-14">
                                     <img
                                         src={IMG_JADWAL}
                                         alt="Join image"
@@ -109,7 +109,7 @@ const Home = (props) => {
                                         onRight
                                     />
                                 </div>
-                                <div className="w-full flex justify-center flex-col lg:flex-row lg:items-center lg:flex-row-reverse lg:my-6">
+                                <div className="w-full flex justify-center flex-col lg:flex-row lg:items-center lg:flex-row-reverse lg:my-14">
                                     <img
                                         src={IMG_VOUCHER}
                                         alt="Join image"
@@ -121,7 +121,7 @@ const Home = (props) => {
                                             seperti beli 5 gratis 1."
                                     />
                                 </div>
-                                <div className="w-full flex justify-center flex-col lg:flex-row lg:items-center lg:my-6">
+                                <div className="w-full flex justify-center flex-col lg:flex-row lg:items-center lg:my-14">
                                     <img
                                         src={IMG_LANGGANAN}
                                         alt="Join image"
