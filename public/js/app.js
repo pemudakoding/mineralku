@@ -4885,7 +4885,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var BaseDialog = function BaseDialog(_ref) {
-  var isBaseDialogOpen = _ref.isBaseDialogOpen,
+  var children = _ref.children,
+      isBaseDialogOpen = _ref.isBaseDialogOpen,
       setBaseDialogOpen = _ref.setBaseDialogOpen;
   var cancelButtonRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_2__.Transition, {
@@ -4895,7 +4896,6 @@ var BaseDialog = function BaseDialog(_ref) {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog, {
       as: "div",
       className: "relative z-50 w-full h-full",
-      initialFocus: cancelButtonRef,
       onClose: setBaseDialogOpen,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_2__.Transition.Child, {
         as: react__WEBPACK_IMPORTED_MODULE_0__.Fragment,
@@ -4920,35 +4920,36 @@ var BaseDialog = function BaseDialog(_ref) {
             leave: "ease-in duration-200",
             leaveFrom: "opacity-100 scale-100",
             leaveTo: "opacity-0 scale-95",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog.Panel, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog.Panel, {
               className: "w-full max-w-md transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                className: "p-6",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog.Title, {
-                  as: "h3",
-                  className: "text-lg font-medium leading-6 text-gray-900",
-                  children: "title"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "mt-2",
-                  children: "content"
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                className: "bg-gray-100 px-6 py-4 sm:flex sm:flex-row-reverse",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-                  type: "button",
-                  className: "w-full justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm",
-                  onClick: function onClick() {
-                    return setBaseDialogOpen(false);
-                  },
-                  ref: cancelButtonRef,
-                  children: "Got it, thanks!"
-                })
-              })]
+              children: children
             })
           })
         })
       })]
     })
+  });
+};
+
+BaseDialog.Title = function (props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog.Title, {
+    as: "h3",
+    className: "text-lg px-6 pt-6 font-medium leading-6 text-gray-900",
+    children: props.children
+  });
+};
+
+BaseDialog.Content = function (props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: "mt-2 px-6 pb-6",
+    children: props.children
+  });
+};
+
+BaseDialog.Button = function (props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: "bg-gray-100 px-6 py-4 sm:flex sm:flex-row-reverse",
+    children: props.children
   });
 };
 
@@ -5323,12 +5324,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var OrderDialog = function OrderDialog(_ref) {
   var isOrderDialogOpen = _ref.isOrderDialogOpen,
       setOrderDialogOpen = _ref.setOrderDialogOpen;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.BaseDialog, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_Components__WEBPACK_IMPORTED_MODULE_1__.BaseDialog, {
     isBaseDialogOpen: isOrderDialogOpen,
-    setBaseDialogOpen: setOrderDialogOpen
+    setBaseDialogOpen: setOrderDialogOpen,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.BaseDialog.Title, {
+      children: "title modal"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_Components__WEBPACK_IMPORTED_MODULE_1__.BaseDialog.Content, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        children: "content"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        children: "content two"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.BaseDialog.Button, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+        type: "button",
+        className: "w-full justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm",
+        children: "Got it, thanks!"
+      })
+    })]
   });
 };
 

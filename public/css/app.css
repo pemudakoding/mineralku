@@ -612,6 +612,10 @@ select{
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
 }
+.my-2{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
 .ml-3{
     margin-left: 0.75rem;
 }
@@ -716,6 +720,9 @@ select{
 }
 .grid{
     display: grid;
+}
+.contents{
+    display: contents;
 }
 .hidden{
     display: none;
@@ -1101,6 +1108,12 @@ select{
 }
 .pb-10{
     padding-bottom: 2.5rem;
+}
+.pb-6{
+    padding-bottom: 1.5rem;
+}
+.pb-0{
+    padding-bottom: 0px;
 }
 .text-left{
     text-align: left;
