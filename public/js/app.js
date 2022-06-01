@@ -4840,6 +4840,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ApplicationLogo": () => (/* reexport safe */ _atoms__WEBPACK_IMPORTED_MODULE_1__.ApplicationLogo),
+/* harmony export */   "BaseDialog": () => (/* reexport safe */ _molecules__WEBPACK_IMPORTED_MODULE_0__.BaseDialog),
 /* harmony export */   "Button": () => (/* reexport safe */ _atoms__WEBPACK_IMPORTED_MODULE_1__.Button),
 /* harmony export */   "Checkbox": () => (/* reexport safe */ _atoms__WEBPACK_IMPORTED_MODULE_1__.Checkbox),
 /* harmony export */   "DepotImage": () => (/* reexport safe */ _atoms__WEBPACK_IMPORTED_MODULE_1__.DepotImage),
@@ -4860,6 +4861,98 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _atoms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./atoms */ "./resources/js/Components/atoms/index.js");
 
 
+
+/***/ }),
+
+/***/ "./resources/js/Components/molecules/BaseDialog/index.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/Components/molecules/BaseDialog/index.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/transitions/transition.js");
+/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/dialog/dialog.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+var BaseDialog = function BaseDialog(_ref) {
+  var isBaseDialogOpen = _ref.isBaseDialogOpen,
+      setBaseDialogOpen = _ref.setBaseDialogOpen;
+  var cancelButtonRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_2__.Transition, {
+    appear: true,
+    show: isBaseDialogOpen,
+    as: react__WEBPACK_IMPORTED_MODULE_0__.Fragment,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog, {
+      as: "div",
+      className: "relative z-50 w-full h-full",
+      initialFocus: cancelButtonRef,
+      onClose: setBaseDialogOpen,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_2__.Transition.Child, {
+        as: react__WEBPACK_IMPORTED_MODULE_0__.Fragment,
+        enter: "ease-out duration-300",
+        enterFrom: "opacity-0",
+        enterTo: "opacity-100",
+        leave: "ease-in duration-200",
+        leaveFrom: "opacity-100",
+        leaveTo: "opacity-0",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "fixed inset-0 backdrop-blur-sm bg-black/30"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "fixed inset-0 overflow-y-auto",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "flex min-h-full items-center justify-center p-4 text-center",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_2__.Transition.Child, {
+            as: react__WEBPACK_IMPORTED_MODULE_0__.Fragment,
+            enter: "ease-out duration-300",
+            enterFrom: "opacity-0 scale-95",
+            enterTo: "opacity-100 scale-100",
+            leave: "ease-in duration-200",
+            leaveFrom: "opacity-100 scale-100",
+            leaveTo: "opacity-0 scale-95",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog.Panel, {
+              className: "w-full max-w-md transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "p-6",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog.Title, {
+                  as: "h3",
+                  className: "text-lg font-medium leading-6 text-gray-900",
+                  children: "title"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "mt-2",
+                  children: "content"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                className: "bg-gray-100 px-6 py-4 sm:flex sm:flex-row-reverse",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+                  type: "button",
+                  className: "w-full justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm",
+                  onClick: function onClick() {
+                    return setBaseDialogOpen(false);
+                  },
+                  ref: cancelButtonRef,
+                  children: "Got it, thanks!"
+                })
+              })]
+            })
+          })
+        })
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BaseDialog);
 
 /***/ }),
 
@@ -5224,10 +5317,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/transitions/transition.js");
-/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/dialog/dialog.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var _Components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components */ "./resources/js/Components/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -5235,71 +5326,9 @@ __webpack_require__.r(__webpack_exports__);
 var OrderDialog = function OrderDialog(_ref) {
   var isOrderDialogOpen = _ref.isOrderDialogOpen,
       setOrderDialogOpen = _ref.setOrderDialogOpen;
-  var cancelButtonRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_2__.Transition, {
-    appear: true,
-    show: isOrderDialogOpen,
-    as: react__WEBPACK_IMPORTED_MODULE_0__.Fragment,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog, {
-      as: "div",
-      className: "relative z-50 w-full h-full",
-      initialFocus: cancelButtonRef,
-      onClose: setOrderDialogOpen,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_2__.Transition.Child, {
-        as: react__WEBPACK_IMPORTED_MODULE_0__.Fragment,
-        enter: "ease-out duration-300",
-        enterFrom: "opacity-0",
-        enterTo: "opacity-100",
-        leave: "ease-in duration-200",
-        leaveFrom: "opacity-100",
-        leaveTo: "opacity-0",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "fixed inset-0 backdrop-blur-sm bg-black/30"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "fixed inset-0 overflow-y-auto",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "flex min-h-full items-center justify-center p-4 text-center",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_2__.Transition.Child, {
-            as: react__WEBPACK_IMPORTED_MODULE_0__.Fragment,
-            enter: "ease-out duration-300",
-            enterFrom: "opacity-0 scale-95",
-            enterTo: "opacity-100 scale-100",
-            leave: "ease-in duration-200",
-            leaveFrom: "opacity-100 scale-100",
-            leaveTo: "opacity-0 scale-95",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog.Panel, {
-              className: "w-full max-w-md transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                className: "p-6",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog.Title, {
-                  as: "h3",
-                  className: "text-lg font-medium leading-6 text-gray-900",
-                  children: "Modal Dialog Title"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "mt-2",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-                    className: "text-sm text-gray-500",
-                    children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi accumsan condimentum justo a tincidunt. Aliquam nibh velit, imperdiet et nunc tincidunt, rutrum dictum nibh. Maecenas sapien ante, dignissim id dui sed, commodo sodales nunc."
-                  })
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                className: "bg-gray-100 px-6 py-4 sm:flex sm:flex-row-reverse",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-                  type: "button",
-                  className: "w-full justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm",
-                  onClick: function onClick() {
-                    return setOrderDialogOpen(false);
-                  },
-                  ref: cancelButtonRef,
-                  children: "Got it, thanks!"
-                })
-              })]
-            })
-          })
-        })
-      })]
-    })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.BaseDialog, {
+    isBaseDialogOpen: isOrderDialogOpen,
+    setBaseDialogOpen: setOrderDialogOpen
   });
 };
 
@@ -5316,17 +5345,20 @@ var OrderDialog = function OrderDialog(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "BaseDialog": () => (/* reexport safe */ _BaseDialog__WEBPACK_IMPORTED_MODULE_4__["default"]),
 /* harmony export */   "DepotProductCard": () => (/* reexport safe */ _DepotProductCard__WEBPACK_IMPORTED_MODULE_3__["default"]),
 /* harmony export */   "Dropdown": () => (/* reexport safe */ _Dropdown__WEBPACK_IMPORTED_MODULE_2__["default"]),
 /* harmony export */   "Footer": () => (/* reexport safe */ _Footer__WEBPACK_IMPORTED_MODULE_0__["default"]),
 /* harmony export */   "HeroSection": () => (/* reexport safe */ _HeroSection__WEBPACK_IMPORTED_MODULE_1__["default"]),
-/* harmony export */   "OrderDialog": () => (/* reexport safe */ _OrderDialog__WEBPACK_IMPORTED_MODULE_4__["default"])
+/* harmony export */   "OrderDialog": () => (/* reexport safe */ _OrderDialog__WEBPACK_IMPORTED_MODULE_5__["default"])
 /* harmony export */ });
 /* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Footer */ "./resources/js/Components/molecules/Footer/index.js");
 /* harmony import */ var _HeroSection__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HeroSection */ "./resources/js/Components/molecules/HeroSection/index.js");
 /* harmony import */ var _Dropdown__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Dropdown */ "./resources/js/Components/molecules/Dropdown/index.js");
 /* harmony import */ var _DepotProductCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DepotProductCard */ "./resources/js/Components/molecules/DepotProductCard/index.js");
-/* harmony import */ var _OrderDialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./OrderDialog */ "./resources/js/Components/molecules/OrderDialog/index.js");
+/* harmony import */ var _BaseDialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./BaseDialog */ "./resources/js/Components/molecules/BaseDialog/index.js");
+/* harmony import */ var _OrderDialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./OrderDialog */ "./resources/js/Components/molecules/OrderDialog/index.js");
+
 
 
 
