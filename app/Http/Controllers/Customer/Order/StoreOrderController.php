@@ -17,6 +17,7 @@ class StoreOrderController extends Controller
      */
     public function __invoke(Request $request)
     {
-        Notification::sendNow($request, new SendOrderMessageNotification($request));
+        Notification::route('telegram', '')
+            ->notify(new SendOrderMessageNotification());
     }
 }
