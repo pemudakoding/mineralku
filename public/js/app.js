@@ -4888,7 +4888,6 @@ var BaseDialog = function BaseDialog(_ref) {
   var children = _ref.children,
       isBaseDialogOpen = _ref.isBaseDialogOpen,
       setBaseDialogOpen = _ref.setBaseDialogOpen;
-  var cancelButtonRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_2__.Transition, {
     appear: true,
     show: isBaseDialogOpen,
@@ -4920,9 +4919,22 @@ var BaseDialog = function BaseDialog(_ref) {
             leave: "ease-in duration-200",
             leaveFrom: "opacity-100 scale-100",
             leaveTo: "opacity-0 scale-95",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog.Panel, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog.Panel, {
               className: "w-full max-w-md transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all",
-              children: children
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "p-6",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog.Title, {
+                  as: "h3",
+                  className: "text-lg font-medium leading-6 text-gray-900",
+                  children: children[0]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "mt-2",
+                  children: children[1]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                className: "bg-gray-100 px-6 py-4 sm:flex sm:flex-row-reverse",
+                children: children[2]
+              })]
             })
           })
         })
@@ -4932,25 +4944,15 @@ var BaseDialog = function BaseDialog(_ref) {
 };
 
 BaseDialog.Title = function (props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog.Title, {
-    as: "h3",
-    className: "text-lg px-6 pt-6 font-medium leading-6 text-gray-900",
-    children: props.children
-  });
+  return props.children;
 };
 
 BaseDialog.Content = function (props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    className: "mt-2 px-6 pb-6",
-    children: props.children
-  });
+  return props.children;
 };
 
 BaseDialog.Button = function (props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    className: "bg-gray-100 px-6 py-4 sm:flex sm:flex-row-reverse",
-    children: props.children
-  });
+  return props.children;
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BaseDialog);
