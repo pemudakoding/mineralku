@@ -1031,6 +1031,14 @@ select{
     --tw-bg-opacity: 1;
     background-color: rgb(254 202 202 / var(--tw-bg-opacity));
 }
+.bg-gray-500{
+    --tw-bg-opacity: 1;
+    background-color: rgb(107 114 128 / var(--tw-bg-opacity));
+}
+.bg-gray-50{
+    --tw-bg-opacity: 1;
+    background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
 .bg-gradient-to-br{
     background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
@@ -1509,6 +1517,10 @@ select{
 .focus\:ring-blue-default-200:focus{
     --tw-ring-opacity: 1;
     --tw-ring-color: rgb(72 168 219 / var(--tw-ring-opacity));
+}
+.focus\:ring-gray-200:focus{
+    --tw-ring-opacity: 1;
+    --tw-ring-color: rgb(229 231 235 / var(--tw-ring-opacity));
 }
 .focus\:ring-opacity-50:focus{
     --tw-ring-opacity: 0.5;

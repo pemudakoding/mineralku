@@ -86,6 +86,13 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen }) => {
                 >
                     Pesan Sekarang
                 </button>
+                <button
+                        type="button"
+                        className="w-full justify-center rounded-md border bg-gray-50 shadow-sm px-4 py-2  text-base font-medium text-gray-700  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                        onClick={() => setOrderDialogOpen(false)}
+                    >
+                    Batal
+                </button>
             </BaseDialog.Button>
         </BaseDialog>
     );
