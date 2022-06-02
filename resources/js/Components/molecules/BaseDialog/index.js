@@ -17,7 +17,7 @@ const BaseDialog = ({ children, isBaseDialogOpen, setBaseDialogOpen }) => {
                     <div className="fixed inset-0 backdrop-blur-sm bg-black/30" />
                 </Transition.Child>
                 <div className="fixed inset-0 overflow-y-auto">
-                    <div className="flex min-h-full items-center justify-center p-4 text-center">
+                    <div className="poppins flex min-h-full items-center justify-center p-4">
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-300"
@@ -27,15 +27,15 @@ const BaseDialog = ({ children, isBaseDialogOpen, setBaseDialogOpen }) => {
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all">
+                            <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white shadow-xl transition-all">
                                 <div className="p-6">
                                     <Dialog.Title
                                         as="h3"
-                                        className="text-lg font-medium leading-6 text-gray-900"
+                                        className="text-2xl text-center text-blue-default-200 font-bold leading-6 text-gray-900"
                                     >
                                         {children[0]}
                                     </Dialog.Title>
-                                    <div className="mt-2">{children[1]}</div>
+                                    <div className="mt-6">{children[1]}</div>
                                 </div>
                                 <div className="bg-gray-100 px-6 py-4 sm:flex sm:flex-row-reverse">
                                     {children[2]}
