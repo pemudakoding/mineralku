@@ -4517,18 +4517,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
+
 function Checkbox(_ref) {
-  var name = _ref.name,
+  var title = _ref.title,
+      name = _ref.name,
       value = _ref.value,
-      handleChange = _ref.handleChange;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
-    type: "checkbox",
-    name: name,
-    value: value,
-    className: "rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50",
-    onChange: function onChange(e) {
-      return handleChange(e);
-    }
+      handleChange = _ref.handleChange,
+      checked = _ref.checked;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
+    className: "flex items-center",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+      type: "checkbox",
+      name: name,
+      value: value,
+      className: "rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50",
+      onChange: function onChange(e) {
+        return handleChange(e);
+      },
+      checked: checked
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+      className: "ml-2 text-sm font-medium text-gray-600",
+      children: title
+    })]
   });
 }
 
@@ -4543,13 +4553,20 @@ function Checkbox(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Input)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_feather__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-feather */ "./node_modules/react-feather/dist/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
-function Input(_ref) {
+
+
+
+
+var Input = function Input(_ref) {
   var _ref$type = _ref.type,
       type = _ref$type === void 0 ? 'text' : _ref$type,
       name = _ref.name,
@@ -4558,13 +4575,40 @@ function Input(_ref) {
       autoComplete = _ref.autoComplete,
       required = _ref.required,
       isFocused = _ref.isFocused,
-      handleChange = _ref.handleChange;
+      handleChange = _ref.handleChange,
+      placeholder = _ref.placeholder,
+      style = _ref.style,
+      icon = _ref.icon;
   var input = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+  var IconComponent = react_feather__WEBPACK_IMPORTED_MODULE_2__[icon];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (isFocused) {
       input.current.focus();
     }
   }, []);
+
+  if (style == 'input-icon') {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "w-full relative",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        className: "absolute inset-y-0 left-0 text-gray-600 flex items-center pl-2",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(IconComponent, {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+        type: type,
+        name: name,
+        value: value,
+        className: "w-full py-2 text-sm bg-white text-gray-600 font-medium rounded-md pl-10 border-2 border-gray-300 focus:outline-none" + className,
+        ref: input,
+        placeholder: placeholder,
+        autoComplete: autoComplete,
+        required: required,
+        onChange: function onChange(e) {
+          return handleChange(e);
+        }
+      })]
+    });
+  }
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     className: "flex flex-col items-start",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
@@ -4580,7 +4624,22 @@ function Input(_ref) {
       }
     })
   });
-}
+};
+
+Input.propTypes = {
+  type: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+  value: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+  autoComplete: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+  icon: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+  required: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+  style: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+  handleChange: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+  isFocused: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+  name: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+  placeholder: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string)
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Input);
 
 /***/ }),
 
@@ -4840,6 +4899,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ApplicationLogo": () => (/* reexport safe */ _atoms__WEBPACK_IMPORTED_MODULE_1__.ApplicationLogo),
+/* harmony export */   "BaseDialog": () => (/* reexport safe */ _molecules__WEBPACK_IMPORTED_MODULE_0__.BaseDialog),
 /* harmony export */   "Button": () => (/* reexport safe */ _atoms__WEBPACK_IMPORTED_MODULE_1__.Button),
 /* harmony export */   "Checkbox": () => (/* reexport safe */ _atoms__WEBPACK_IMPORTED_MODULE_1__.Checkbox),
 /* harmony export */   "DepotImage": () => (/* reexport safe */ _atoms__WEBPACK_IMPORTED_MODULE_1__.DepotImage),
@@ -4860,6 +4920,101 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _atoms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./atoms */ "./resources/js/Components/atoms/index.js");
 
 
+
+/***/ }),
+
+/***/ "./resources/js/Components/molecules/BaseDialog/index.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/Components/molecules/BaseDialog/index.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/transitions/transition.js");
+/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/dialog/dialog.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+var BaseDialog = function BaseDialog(_ref) {
+  var children = _ref.children,
+      isBaseDialogOpen = _ref.isBaseDialogOpen,
+      setBaseDialogOpen = _ref.setBaseDialogOpen;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_2__.Transition, {
+    appear: true,
+    show: isBaseDialogOpen,
+    as: react__WEBPACK_IMPORTED_MODULE_0__.Fragment,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog, {
+      as: "div",
+      className: "relative z-50 w-full h-full",
+      onClose: setBaseDialogOpen,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_2__.Transition.Child, {
+        as: react__WEBPACK_IMPORTED_MODULE_0__.Fragment,
+        enter: "ease-out duration-300",
+        enterFrom: "opacity-0",
+        enterTo: "opacity-100",
+        leave: "ease-in duration-200",
+        leaveFrom: "opacity-100",
+        leaveTo: "opacity-0",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "fixed inset-0 backdrop-blur-sm bg-black/30"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "fixed inset-0 overflow-y-auto",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "poppins flex min-h-full items-center justify-center p-4",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_2__.Transition.Child, {
+            as: react__WEBPACK_IMPORTED_MODULE_0__.Fragment,
+            enter: "ease-out duration-300",
+            enterFrom: "opacity-0 scale-95",
+            enterTo: "opacity-100 scale-100",
+            leave: "ease-in duration-200",
+            leaveFrom: "opacity-100 scale-100",
+            leaveTo: "opacity-0 scale-95",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog.Panel, {
+              className: "w-full max-w-md transform overflow-hidden rounded-2xl bg-white shadow-xl transition-all",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+                className: "p-6",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog.Title, {
+                  as: "h3",
+                  className: "text-2xl text-center text-blue-default-200 font-bold leading-6 text-gray-900",
+                  children: children[0]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                  className: "mt-6",
+                  children: children[1]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+                className: "bg-gray-100 px-6 py-4 sm:flex sm:flex-row-reverse",
+                children: children[2]
+              })]
+            })
+          })
+        })
+      })]
+    })
+  });
+};
+
+BaseDialog.Title = function (props) {
+  return props.children;
+};
+
+BaseDialog.Content = function (props) {
+  return props.children;
+};
+
+BaseDialog.Button = function (props) {
+  return props.children;
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BaseDialog);
 
 /***/ }),
 
@@ -5224,9 +5379,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/transitions/transition.js");
-/* harmony import */ var _headlessui_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @headlessui/react */ "./node_modules/@headlessui/react/dist/components/dialog/dialog.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components */ "./resources/js/Components/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -5235,76 +5389,125 @@ __webpack_require__.r(__webpack_exports__);
 var OrderDialog = function OrderDialog(_ref) {
   var isOrderDialogOpen = _ref.isOrderDialogOpen,
       setOrderDialogOpen = _ref.setOrderDialogOpen;
-  var cancelButtonRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_2__.Transition.Root, {
-    show: isOrderDialogOpen,
-    as: react__WEBPACK_IMPORTED_MODULE_0__.Fragment,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog, {
-      as: "div",
-      className: "relative z-50",
-      initialFocus: cancelButtonRef,
-      onClose: setOrderDialogOpen,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_2__.Transition.Child, {
-        as: react__WEBPACK_IMPORTED_MODULE_0__.Fragment,
-        enter: "ease-out duration-300",
-        enterFrom: "opacity-0",
-        enterTo: "opacity-100",
-        leave: "ease-in duration-200",
-        leaveFrom: "opacity-100",
-        leaveTo: "opacity-0",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_Components__WEBPACK_IMPORTED_MODULE_1__.BaseDialog, {
+    isBaseDialogOpen: isOrderDialogOpen,
+    setBaseDialogOpen: setOrderDialogOpen,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.BaseDialog.Title, {
+      children: "Buat Pesanan"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_Components__WEBPACK_IMPORTED_MODULE_1__.BaseDialog.Content, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "inline-block bg-blue-default-200 mb-4 text-xs font-semibold rounded-md text-white py-1 px-2",
+        children: "Detail Pesanan"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "relative flex items-center mb-2",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
+          style: "input-icon",
+          icon: "Camera",
+          placeholder: "Pilih Depot"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "fixed z-10 inset-0 overflow-y-auto",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-          className: "flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_2__.Transition.Child, {
-            as: react__WEBPACK_IMPORTED_MODULE_0__.Fragment,
-            enter: "ease-out duration-300",
-            enterFrom: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95",
-            enterTo: "opacity-100 translate-y-0 sm:scale-100",
-            leave: "ease-in duration-200",
-            leaveFrom: "opacity-100 translate-y-0 sm:scale-100",
-            leaveTo: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog.Panel, {
-              className: "relative bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                className: "bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                  className: "sm:flex sm:items-start",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-                    className: "mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Dialog.Title, {
-                      as: "h3",
-                      className: "text-lg leading-6 font-medium text-gray-900",
-                      children: "Modal Title"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                      className: "mt-2",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-                        className: "text-sm text-gray-500",
-                        children: "Modal Body"
-                      })
-                    })]
-                  })
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-                className: "bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-                  type: "button",
-                  className: "mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm",
-                  onClick: function onClick() {
-                    return setOrderDialogOpen(false);
-                  },
-                  ref: cancelButtonRef,
-                  children: "Cancel"
-                })
-              })]
-            })
-          })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "relative flex items-center mb-2",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
+          style: "input-icon",
+          icon: "Camera",
+          placeholder: "Jumlah Pesanan"
         })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "relative flex items-center mb-2",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
+          style: "input-icon",
+          icon: "Camera",
+          placeholder: "Nama"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "relative flex items-center mb-2",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
+          style: "input-icon",
+          icon: "Camera",
+          placeholder: "Nomor WhatsApp"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "relative flex items-center mb-2",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
+          style: "input-icon",
+          icon: "Camera",
+          placeholder: "Alamat Lengkap"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "inline-block bg-blue-default-200 my-4 text-xs font-semibold rounded-md text-white py-1 px-2",
+        children: "Pengiriman"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "relative flex items-center mb-2",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Checkbox, {
+          title: "Antar Ke Alamat Saya",
+          checked: true
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "relative flex items-center mb-2",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Checkbox, {
+          title: "Ambil Sendiri"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "inline-block bg-blue-default-200 my-4 text-xs font-semibold rounded-md text-white py-1 px-2",
+        children: "Jadwal Pengantaran"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "relative flex items-center mb-2",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Checkbox, {
+          title: "Antar sekarang",
+          checked: true
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "relative flex items-center mb-2",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Checkbox, {
+          title: "Atur Jadwal"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "inline-block bg-blue-default-200 my-4 text-xs font-semibold rounded-md text-white py-1 px-2",
+        children: "Total Pembayaran"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "flex flex-wrap items-center justify-between",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "bg-blue-200 text-sm text-gray-600 font-medium w-2/3 mb-2",
+          children: "Sub Total Untuk Produk"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "bg-red-200 text-right text-sm text-gray-600 font-medium w-1/3 mb-2",
+          children: "Rp 5.000"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "bg-blue-200 text-sm text-gray-600 font-medium w-2/3 mb-2",
+          children: "Sub Total Untuk Pengiriman"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "bg-red-200 text-right text-sm text-gray-600 font-medium w-1/3 mb-2",
+          children: "Rp 1.000"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "bg-blue-200 text-sm text-gray-600 font-medium w-2/3 mb-2",
+          children: "Service Fee (10%)"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "bg-red-200 text-right text-sm text-gray-600 font-medium w-1/3 mb-2",
+          children: "Rp. 600"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "mx-6 mb-2 border-2 border-gray-500 rounded-lg px-3 py-2",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+          className: "font-medium text-xs text-gray-500 leading-3",
+          children: "Service Free membantu kami meningkatkan kualitas layanan untuk Anda."
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "flex flex-wrap items-center justify-between",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "bg-blue-200 text-xl text-gray-600 font-medium w-2/3 mb-2",
+          children: "Total"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "bg-red-200 text-right text-xl text-gray-600 font-medium w-1/3 mb-2",
+          children: "Rp 6.600"
+        })]
       })]
-    })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.BaseDialog.Button, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+        type: "button",
+        className: "w-full justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm",
+        children: "Pesan Sekarang"
+      })
+    })]
   });
 };
 
@@ -5321,17 +5524,20 @@ var OrderDialog = function OrderDialog(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "BaseDialog": () => (/* reexport safe */ _BaseDialog__WEBPACK_IMPORTED_MODULE_4__["default"]),
 /* harmony export */   "DepotProductCard": () => (/* reexport safe */ _DepotProductCard__WEBPACK_IMPORTED_MODULE_3__["default"]),
 /* harmony export */   "Dropdown": () => (/* reexport safe */ _Dropdown__WEBPACK_IMPORTED_MODULE_2__["default"]),
 /* harmony export */   "Footer": () => (/* reexport safe */ _Footer__WEBPACK_IMPORTED_MODULE_0__["default"]),
 /* harmony export */   "HeroSection": () => (/* reexport safe */ _HeroSection__WEBPACK_IMPORTED_MODULE_1__["default"]),
-/* harmony export */   "OrderDialog": () => (/* reexport safe */ _OrderDialog__WEBPACK_IMPORTED_MODULE_4__["default"])
+/* harmony export */   "OrderDialog": () => (/* reexport safe */ _OrderDialog__WEBPACK_IMPORTED_MODULE_5__["default"])
 /* harmony export */ });
 /* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Footer */ "./resources/js/Components/molecules/Footer/index.js");
 /* harmony import */ var _HeroSection__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HeroSection */ "./resources/js/Components/molecules/HeroSection/index.js");
 /* harmony import */ var _Dropdown__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Dropdown */ "./resources/js/Components/molecules/Dropdown/index.js");
 /* harmony import */ var _DepotProductCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DepotProductCard */ "./resources/js/Components/molecules/DepotProductCard/index.js");
-/* harmony import */ var _OrderDialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./OrderDialog */ "./resources/js/Components/molecules/OrderDialog/index.js");
+/* harmony import */ var _BaseDialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./BaseDialog */ "./resources/js/Components/molecules/BaseDialog/index.js");
+/* harmony import */ var _OrderDialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./OrderDialog */ "./resources/js/Components/molecules/OrderDialog/index.js");
+
 
 
 

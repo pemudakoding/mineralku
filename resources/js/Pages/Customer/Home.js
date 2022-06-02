@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { setLayout } from '@/Utils/Layout';
 import { Button, HeroSection, Reason, OrderDialog } from '@/Components';
 import {
@@ -14,14 +14,17 @@ import {
 
 const openOrderDialog = (setOrderDialogOpen) => {
     setOrderDialogOpen(true);
-}
+};
 
 const Home = (props) => {
     let [isOrderDialogOpen, setOrderDialogOpen] = useState(false);
 
     return (
         <>
-            <OrderDialog isOrderDialogOpen={isOrderDialogOpen} setOrderDialogOpen={setOrderDialogOpen}/>
+            <OrderDialog
+                isOrderDialogOpen={isOrderDialogOpen}
+                setOrderDialogOpen={setOrderDialogOpen}
+            />
             <HeroSection className="text-center">
                 <h1 className="fredoka-one text-white text-4xl">Selamat Datang!</h1>
                 <p className="text-white text-center mt-4 poppins">

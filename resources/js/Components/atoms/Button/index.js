@@ -18,21 +18,23 @@ const Button = ({ type, method, as, href, icon, title, style, className, onClick
         );
     }
 
-    if(method && href){
-        return <Link
-            href={href}
-            method={method}
-            as={as}
-            type={type}
-            className={[
-                'poppins font-medium px-12 py-3 rounded-full transition-all duration-100 ease-in inline-block',
-                getStyleClass(style),
-                className,
-            ].join(' ')}
-            onclick={onclick}
-        >
-            {title}
-        </Link>
+    if (method && href) {
+        return (
+            <Link
+                href={href}
+                method={method}
+                as={as}
+                type={type}
+                className={[
+                    'poppins font-medium px-12 py-3 rounded-full transition-all duration-100 ease-in inline-block',
+                    getStyleClass(style),
+                    className,
+                ].join(' ')}
+                onclick={onclick}
+            >
+                {title}
+            </Link>
+        );
     }
 
     return (
