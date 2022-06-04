@@ -27,9 +27,8 @@ class RegisterAction
 
     protected function store(): self
     {
-        $data = $this->data;
+        $data = Arr::only($this->data, ['name', 'whatsapp_numbers', 'password']);
         $data['password'] = Hash::make('D3F4ultP455w0rdF0rM1n3r4lku');
-        $data = Arr::only($data, ['name', 'whatsapp_numbers', 'password']);
 
         $this->user = User::create($data);
 
@@ -38,8 +37,7 @@ class RegisterAction
 
     protected function withAddress(): User
     {
-        $data = $this->data;
-        $resolvedData = Arr::only($data, ['address']);
+        $resolvedData = Arr::only($this->data, ['address']);
 
         $this->user->addresses()->create($resolvedData);
 
