@@ -12,7 +12,7 @@ class RegisterAction
 
     protected User $user;
 
-    public function execute(array $data)
+    public function execute(array $data): User|bool
     {
         $this->data = $data;
 

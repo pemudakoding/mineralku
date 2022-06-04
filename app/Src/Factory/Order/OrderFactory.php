@@ -3,6 +3,7 @@
 namespace App\Src\Factory\Order;
 
 use App\Src\ValueObjects\Order\DateFormat;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 
 class OrderFactory
@@ -24,19 +25,18 @@ class OrderFactory
         $this->data = collect($data)->only(self::SELECTED_DATA);
     }
 
-    public function resolveForDeliveryDate()
+    public function resolveForDeliveryDate(): Carbon|string
     {
         if($this->data->get('is_delivery_now')) {
             return now();
         }
 
         $datetime = $this->data->get('delivery_date') . ' ' . $this->data->get('delivery_time');
-        print_r($datetime);
 
         return DateFormat::make($datetime)->toHumanDateTime();
     }
 
-    public function resolveForPrice()
+    public function resolveForPrice(): int|float
     {
         return 6600;
     }

@@ -10,7 +10,7 @@ class StoreOrderAction
 {
     protected OrderFactory $factory;
 
-    public function execute(array $data)
+    public function execute(array $data): Order|\Exception
     {
         $this->factory = new OrderFactory($data);
 
@@ -29,7 +29,7 @@ class StoreOrderAction
         }
     }
 
-    protected function store()
+    protected function store(): Order
     {
         $data = $this->factory->data->except(['delivery_date', 'delivery_time']);
         $data['delivery_date'] = $this->factory->resolveForDeliveryDate();
