@@ -8,11 +8,16 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterAction
 {
+    protected array $data;
+
+    protected User $user;
+
     public function execute(array $data)
     {
+        $this->data = $data;
+
         try {
-            $user = $this->store($data);
-            $this->storeAddress($user, $data);
+            $user = $this->store()->withAddress();
 
             return $user;
         } catch (\Exception $th) {
@@ -20,18 +25,24 @@ class RegisterAction
         }
     }
 
-    protected function store(array $data): User
+    protected function store(): self
     {
+        $data = $this->data;
         $data['password'] = Hash::make('D3F4ultP455w0rdF0rM1n3r4lku');
         $data = Arr::only($data, ['name', 'whatsapp_numbers', 'password']);
 
-        return User::create($data);
+        $this->user = User::create($data);
+
+        return $this;
     }
 
-    protected function storeAddress(User $user, array $data)
+    protected function withAddress(): User
     {
-        $data = Arr::only($data, ['address']);
+        $data = $this->data;
+        $resolvedData = Arr::only($data, ['address']);
 
-        return $user->addresses()->create($data);
+        $this->user->addresses()->create($resolvedData);
+
+        return $this->user->with('addresses')->first();
     }
 }
