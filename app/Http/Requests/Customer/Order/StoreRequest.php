@@ -31,6 +31,8 @@ class StoreRequest extends FormRequest
             'quantity' => 'required|integer|min:1',
             'shipping_detail' => 'required|in:pickup,delivery',
             'is_delivery_now' => 'required|boolean',
+            'delivery_time' => 'required_if:is_delivery_now,true|date_format:H:i',
+            'delivery_date' => 'required_if:is_delivery_now,true|date',
         ];
     }
 }

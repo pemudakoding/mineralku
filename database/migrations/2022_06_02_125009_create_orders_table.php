@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->enum('shipping_detail', ['pickup', 'delivery']);
             $table->smallInteger('is_delivery_now');
-            $table->timestamp('delivery_time');
+            $table->timestamp('delivery_date');
             $table->float('total_price');
             $table->timestamps();
 
