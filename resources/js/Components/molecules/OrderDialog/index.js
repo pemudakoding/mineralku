@@ -1,5 +1,5 @@
 import React, { Fragment, useRef, useState } from 'react';
-import { BaseDialog, Input, Checkbox } from '@/Components';
+import { BaseDialog, Input, Radio } from '@/Components';
 
 const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen }) => {
     return (
@@ -28,40 +28,40 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen }) => {
                     Pengiriman
                 </div>
                 <div className="relative flex items-center mb-2">
-                    <Checkbox title="Antar Ke Alamat Saya" checked />
+                    <Radio title="Antar Ke Alamat Saya" name="antar" value="1" checked />
                 </div>
                 <div className="relative flex items-center mb-2">
-                    <Checkbox title="Ambil Sendiri" />
+                    <Radio title="Ambil Sendiri" name="antar" value="0" />
                 </div>
                 <div className="inline-block bg-blue-default-200 my-4 text-xs font-semibold rounded-md text-white py-1 px-2">
                     Jadwal Pengantaran
                 </div>
                 <div className="relative flex items-center mb-2">
-                    <Checkbox title="Antar sekarang" checked />
+                    <Radio title="Antar sekarang" name="pengantaran" value="1" checked />
                 </div>
                 <div className="relative flex items-center mb-2">
-                    <Checkbox title="Atur Jadwal" />
+                    <Radio title="Atur Jadwal" name="pengantaran" value="0" />
                 </div>
                 <div className="inline-block bg-blue-default-200 my-4 text-xs font-semibold rounded-md text-white py-1 px-2">
                     Total Pembayaran
                 </div>
-                <div className="flex flex-wrap items-center justify-between">
-                    <div className="bg-blue-200 text-sm text-gray-600 font-medium w-2/3 mb-2 p-2">
+                <div className="flex flex-wrap items-center justify-between mb-4">
+                    <div className="text-blue-default-200 text-sm text-gray-600 font-medium w-2/3 mb-2">
                         Sub Total Untuk Produk
                     </div>
-                    <div className="bg-red-200 text-right text-sm text-gray-600 font-medium w-1/3 mb-2 p-2">
+                    <div className="text-blue-default-200 text-right text-sm text-gray-600 font-medium w-1/3 mb-2">
                         Rp 5.000
                     </div>
-                    <div className="bg-blue-200 text-sm text-gray-600 font-medium w-2/3 mb-2 p-2">
+                    <div className="text-blue-default-200 text-sm text-gray-600 font-medium w-2/3 mb-2">
                         Sub Total Untuk Pengiriman
                     </div>
-                    <div className="bg-red-200 text-right text-sm text-gray-600 font-medium w-1/3 mb-2 p-2">
+                    <div className="text-blue-default-200 text-right text-sm text-gray-600 font-medium w-1/3 mb-2">
                         Rp 1.000
                     </div>
-                    <div className="bg-blue-200 text-sm text-gray-600 font-medium w-2/3 mb-4 p-2">
+                    <div className="text-blue-default-200 text-sm text-gray-600 font-medium w-2/3 mb-2">
                         Service Fee (10%)
                     </div>
-                    <div className="bg-red-200 text-right text-sm text-gray-600 font-medium w-1/3 mb-4 p-2">
+                    <div className="text-blue-default-200 text-right text-sm text-gray-600 font-medium w-1/3 mb-2">
                         Rp. 600
                     </div>
                 </div>
@@ -71,10 +71,10 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen }) => {
                     </p>
                 </div>
                 <div className="flex flex-wrap items-center justify-between">
-                    <div className="bg-blue-200 text-xl text-gray-600 font-medium w-2/3 mb-2 p-2">
+                    <div className="text-blue-default-200 text-xl text-gray-600 font-medium w-2/3">
                         Total
                     </div>
-                    <div className="bg-red-200 text-right text-xl text-gray-600 font-medium w-1/3 mb-2 p-2">
+                    <div className="text-blue-default-200 text-right text-xl text-gray-600 font-medium w-1/3">
                         Rp 6.600
                     </div>
                 </div>
@@ -82,15 +82,15 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen }) => {
             <BaseDialog.Button>
                 <button
                     type="button"
-                    className="w-full justify-center rounded-md border bg-blue-default-200 shadow-sm px-4 py-2  text-base font-medium text-white hover:bg-gray-50 hover:text-blue-default-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-default-200 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                    className="w-full justify-center rounded-md border bg-blue-default-200 shadow-sm px-4 py-2 text-base font-medium text-white hover:bg-gray-50 hover:text-blue-default-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-default-200 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
                 >
                     Pesan Sekarang
                 </button>
                 <button
-                        type="button"
-                        className="w-full justify-center rounded-md border bg-gray-50 shadow-sm px-4 py-2  text-base font-medium text-gray-700  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                        onClick={() => setOrderDialogOpen(false)}
-                    >
+                    type="button"
+                    className="w-full justify-center rounded-md border bg-gray-50 shadow-sm px-4 py-2 text-base font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 mt-3 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                    onClick={() => setOrderDialogOpen(false)}
+                >
                     Batal
                 </button>
             </BaseDialog.Button>

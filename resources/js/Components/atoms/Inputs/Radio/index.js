@@ -1,13 +1,13 @@
 import React from 'react';
 
-export default function Checkbox({ title, name, value, handleChange, checked }) {
+export default function Radio({ title, name, value, handleChange, checked }) {
     return (
         <label className="flex items-center">
             <input
-                type="checkbox"
+                type="radio"
                 name={name}
                 value={value}
-                className="rounded border-gray-300 text-blue-default-200 shadow-sm focus:border-blue-default-200 focus:ring focus:ring-blue-default-200 focus:ring-opacity-50"
+                className="rounded-full border-gray-300 text-blue-default-200 shadow-sm focus:border-blue-default-200 focus:ring focus:ring-blue-default-200 focus:ring-opacity-50"
                 onChange={(e) => handleChange(e)}
                 checked={checked}
             />

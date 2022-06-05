@@ -35,7 +35,7 @@ const Input = ({
                     name={name}
                     value={value}
                     className={
-                        `w-full py-2 text-sm bg-white text-gray-600 font-medium rounded-md pl-10 border-2 border-gray-300 focus:outline-none` +
+                        `w-full py-2 text-sm bg-white text-gray-600 font-medium rounded-md pl-10 border-2 border-gray-300 focus:outline-none focus:border-blue-default-200 focus:ring focus:ring-blue-default-200 focus:ring-opacity-50` +
                         className
                     }
                     ref={input}
@@ -55,7 +55,7 @@ const Input = ({
                 name={name}
                 value={value}
                 className={
-                    `border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm ` +
+                    `border-gray-300 focus:border-blue-default-200 focus:ring focus:ring-blue-default-200 focus:ring-opacity-50 rounded-md shadow-sm ` +
                     className
                 }
                 ref={input}
