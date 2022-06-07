@@ -5536,7 +5536,7 @@ var OrderDialog = function OrderDialog(_ref) {
     name: "",
     whatsapp_numbers: "",
     address: "",
-    shipping_delivery: "delivery",
+    shipping_detail: "delivery",
     is_delivery_now: true
   }),
       data = _useForm.data,
@@ -5632,10 +5632,9 @@ var OrderDialog = function OrderDialog(_ref) {
           className: "relative flex items-center mb-2",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Radio, {
             title: "Antar Ke Alamat Saya",
-            name: "shipping_delivery",
             value: "delivery",
             onChange: function onChange(e) {
-              return setData('shipping_delivery', e.target.value);
+              return setData('shipping_detail', e.target.value);
             },
             checked: true
           })
@@ -5643,10 +5642,9 @@ var OrderDialog = function OrderDialog(_ref) {
           className: "relative flex items-center mb-2",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Radio, {
             title: "Ambil Sendiri",
-            name: "shipping_delivery",
             value: "pickup",
             onChange: function onChange(e) {
-              return setData('shipping_delivery', e.target.value);
+              return setData('shipping_detail', e.target.value);
             }
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
