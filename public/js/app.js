@@ -4522,7 +4522,7 @@ function Checkbox(_ref) {
   var title = _ref.title,
       name = _ref.name,
       value = _ref.value,
-      handleChange = _ref.handleChange,
+      _onChange = _ref.onChange,
       checked = _ref.checked;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
     className: "flex items-center",
@@ -4532,7 +4532,7 @@ function Checkbox(_ref) {
       value: value,
       className: "rounded border-gray-300 text-blue-default-200 shadow-sm focus:border-blue-default-200 focus:ring focus:ring-blue-default-200 focus:ring-opacity-50",
       onChange: function onChange(e) {
-        return handleChange(e);
+        return _onChange(e);
       },
       checked: checked
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
@@ -4692,7 +4692,7 @@ function Radio(_ref) {
   var title = _ref.title,
       name = _ref.name,
       value = _ref.value,
-      handleChange = _ref.handleChange,
+      _onChange = _ref.onChange,
       checked = _ref.checked;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("label", {
     className: "flex items-center",
@@ -4702,7 +4702,7 @@ function Radio(_ref) {
       value: value,
       className: "rounded-full border-gray-300 text-blue-default-200 shadow-sm focus:border-blue-default-200 focus:ring focus:ring-blue-default-200 focus:ring-opacity-50",
       onChange: function onChange(e) {
-        return handleChange(e);
+        return _onChange(e);
       },
       checked: checked
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
@@ -5516,8 +5516,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components */ "./resources/js/Components/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _Components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components */ "./resources/js/Components/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -5527,145 +5529,199 @@ var OrderDialog = function OrderDialog(_ref) {
   var isOrderDialogOpen = _ref.isOrderDialogOpen,
       setOrderDialogOpen = _ref.setOrderDialogOpen,
       depots = _ref.depots;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_Components__WEBPACK_IMPORTED_MODULE_1__.BaseDialog, {
+
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.useForm)({
+    depots_id: "",
+    quantity: 1,
+    name: "",
+    whatsapp_numbers: "",
+    address: "",
+    shipping_delivery: "delivery",
+    is_delivery_now: true
+  }),
+      data = _useForm.data,
+      setData = _useForm.setData,
+      post = _useForm.post,
+      processing = _useForm.processing,
+      errors = _useForm.errors;
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    post('/order');
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_Components__WEBPACK_IMPORTED_MODULE_2__.BaseDialog, {
     isBaseDialogOpen: isOrderDialogOpen,
     setBaseDialogOpen: setOrderDialogOpen,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.BaseDialog.Title, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.BaseDialog.Title, {
       children: "Buat Pesanan"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_Components__WEBPACK_IMPORTED_MODULE_1__.BaseDialog.Content, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "inline-block bg-blue-default-200 mb-4 text-xs font-semibold rounded-md text-white py-1 px-2",
-        children: "Detail Pesanan"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "relative flex items-center mb-2",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_Components__WEBPACK_IMPORTED_MODULE_1__.Select, {
-          name: "depots_id",
-          style: "input-icon",
-          icon: "Droplet",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-            value: "",
-            children: "Pilih Depot"
-          }), depots.map(function (depot) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-              value: depot.id,
-              children: depot.name
-            });
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.BaseDialog.Content, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+        onSubmit: handleSubmit,
+        id: "order",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "inline-block bg-blue-default-200 mb-4 text-xs font-semibold rounded-md text-white py-1 px-2",
+          children: "Detail Pesanan"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "relative flex items-center mb-2",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_Components__WEBPACK_IMPORTED_MODULE_2__.Select, {
+            style: "input-icon",
+            icon: "Droplet",
+            onChange: function onChange(e) {
+              return setData('depots_id', e.target.value);
+            },
+            value: data.depots_id,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "",
+              children: "Pilih Depot"
+            }), depots.map(function (depot) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                value: depot.id,
+                children: depot.name
+              });
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "relative flex items-center mb-2",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Input, {
+            style: "input-icon",
+            icon: "Hash",
+            placeholder: "Jumlah Pesanan",
+            onChange: function onChange(e) {
+              return setData('quantity', e.target.value);
+            },
+            value: data.quantity
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "relative flex items-center mb-2",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Input, {
+            style: "input-icon",
+            icon: "User",
+            placeholder: "Nama",
+            onChange: function onChange(e) {
+              return setData('name', e.target.value);
+            },
+            value: data.name
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "relative flex items-center mb-2",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Input, {
+            style: "input-icon",
+            icon: "MessageSquare",
+            placeholder: "Nomor WhatsApp",
+            onChange: function onChange(e) {
+              return setData('whatsapp_numbers', e.target.value);
+            },
+            value: data.whatsapp_numbers
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "relative flex items-center mb-2",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Input, {
+            style: "input-icon",
+            icon: "MapPin",
+            placeholder: "Alamat Lengkap",
+            onChange: function onChange(e) {
+              return setData('address', e.target.value);
+            },
+            value: data.address
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "inline-block bg-blue-default-200 my-4 text-xs font-semibold rounded-md text-white py-1 px-2",
+          children: "Pengiriman"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "relative flex items-center mb-2",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Radio, {
+            title: "Antar Ke Alamat Saya",
+            name: "shipping_delivery",
+            value: "delivery",
+            onChange: function onChange(e) {
+              return setData('shipping_delivery', e.target.value);
+            },
+            checked: true
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "relative flex items-center mb-2",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Radio, {
+            title: "Ambil Sendiri",
+            name: "shipping_delivery",
+            value: "pickup",
+            onChange: function onChange(e) {
+              return setData('shipping_delivery', e.target.value);
+            }
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "inline-block bg-blue-default-200 my-4 text-xs font-semibold rounded-md text-white py-1 px-2",
+          children: "Jadwal Pengantaran"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "relative flex items-center mb-2",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Radio, {
+            title: "Antar sekarang",
+            name: "is_delivery_now",
+            value: "1",
+            onChange: function onChange(e) {
+              return setData('is_delivery_now', e.target.value);
+            },
+            checked: true
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "relative flex items-center mb-2",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Radio, {
+            title: "Atur Jadwal",
+            name: "is_delivery_now",
+            value: "0",
+            onChange: function onChange(e) {
+              return setData('is_delivery_now', e.target.value);
+            }
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "inline-block bg-blue-default-200 my-4 text-xs font-semibold rounded-md text-white py-1 px-2",
+          children: "Total Pembayaran"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "flex flex-wrap items-center justify-between mb-4",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "text-blue-default-200 text-sm text-gray-600 font-medium w-2/3 mb-2",
+            children: "Sub Total Untuk Produk"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "text-blue-default-200 text-right text-sm text-gray-600 font-medium w-1/3 mb-2",
+            children: "Rp 5.000"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "text-blue-default-200 text-sm text-gray-600 font-medium w-2/3 mb-2",
+            children: "Sub Total Untuk Pengiriman"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "text-blue-default-200 text-right text-sm text-gray-600 font-medium w-1/3 mb-2",
+            children: "Rp 1.000"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "text-blue-default-200 text-sm text-gray-600 font-medium w-2/3 mb-2",
+            children: "Service Fee (10%)"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "text-blue-default-200 text-right text-sm text-gray-600 font-medium w-1/3 mb-2",
+            children: "Rp. 600"
           })]
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "relative flex items-center mb-2",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
-          style: "input-icon",
-          icon: "Hash",
-          placeholder: "Jumlah Pesanan",
-          name: "quantity"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "relative flex items-center mb-2",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
-          style: "input-icon",
-          icon: "User",
-          placeholder: "Nama",
-          name: "name"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "relative flex items-center mb-2",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
-          style: "input-icon",
-          icon: "MessageSquare",
-          placeholder: "Nomor WhatsApp",
-          name: "whatsapp_numbers"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "relative flex items-center mb-2",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
-          style: "input-icon",
-          icon: "MapPin",
-          placeholder: "Alamat Lengkap",
-          name: "address"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "inline-block bg-blue-default-200 my-4 text-xs font-semibold rounded-md text-white py-1 px-2",
-        children: "Pengiriman"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "relative flex items-center mb-2",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Radio, {
-          title: "Antar Ke Alamat Saya",
-          name: "shipping_delivery",
-          value: "delivery",
-          checked: true
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "relative flex items-center mb-2",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Radio, {
-          title: "Ambil Sendiri",
-          name: "shipping_delivery",
-          value: "pickup"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "inline-block bg-blue-default-200 my-4 text-xs font-semibold rounded-md text-white py-1 px-2",
-        children: "Jadwal Pengantaran"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "relative flex items-center mb-2",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Radio, {
-          title: "Antar sekarang",
-          name: "is_delivery_now",
-          value: "1",
-          checked: true
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "relative flex items-center mb-2",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Radio, {
-          title: "Atur Jadwal",
-          name: "is_delivery_now",
-          value: "0"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "inline-block bg-blue-default-200 my-4 text-xs font-semibold rounded-md text-white py-1 px-2",
-        children: "Total Pembayaran"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "flex flex-wrap items-center justify-between mb-4",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "text-blue-default-200 text-sm text-gray-600 font-medium w-2/3 mb-2",
-          children: "Sub Total Untuk Produk"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "text-blue-default-200 text-right text-sm text-gray-600 font-medium w-1/3 mb-2",
-          children: "Rp 5.000"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "text-blue-default-200 text-sm text-gray-600 font-medium w-2/3 mb-2",
-          children: "Sub Total Untuk Pengiriman"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "text-blue-default-200 text-right text-sm text-gray-600 font-medium w-1/3 mb-2",
-          children: "Rp 1.000"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "text-blue-default-200 text-sm text-gray-600 font-medium w-2/3 mb-2",
-          children: "Service Fee (10%)"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "text-blue-default-200 text-right text-sm text-gray-600 font-medium w-1/3 mb-2",
-          children: "Rp. 600"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "mx-6 mb-4 border-2 border-gray-500 rounded-lg px-3 py-2",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+            className: "font-medium text-xs text-gray-500 leading-3 m-0",
+            children: "Service Free membantu kami meningkatkan kualitas layanan untuk Anda."
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "flex flex-wrap items-center justify-between",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "text-blue-default-200 text-xl text-gray-600 font-medium w-2/3",
+            children: "Total"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "text-blue-default-200 text-right text-xl text-gray-600 font-medium w-1/3",
+            children: "Rp 6.600"
+          })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "mx-6 mb-4 border-2 border-gray-500 rounded-lg px-3 py-2",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-          className: "font-medium text-xs text-gray-500 leading-3 m-0",
-          children: "Service Free membantu kami meningkatkan kualitas layanan untuk Anda."
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "flex flex-wrap items-center justify-between",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "text-blue-default-200 text-xl text-gray-600 font-medium w-2/3",
-          children: "Total"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "text-blue-default-200 text-right text-xl text-gray-600 font-medium w-1/3",
-          children: "Rp 6.600"
-        })]
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_Components__WEBPACK_IMPORTED_MODULE_1__.BaseDialog.Button, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-        type: "button",
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_Components__WEBPACK_IMPORTED_MODULE_2__.BaseDialog.Button, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        type: "submit",
         className: "w-full justify-center rounded-md border bg-blue-default-200 shadow-sm px-4 py-2 text-base font-medium text-white hover:bg-gray-50 hover:text-blue-default-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-default-200 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm",
+        disabled: processing,
+        form: "order",
         children: "Pesan Sekarang"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
         type: "button",
         className: "w-full justify-center rounded-md border bg-gray-50 shadow-sm px-4 py-2 text-base font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 mt-3 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm",
         onClick: function onClick() {
