@@ -20,6 +20,6 @@ Route::name('customers.')->group(function () {
     Route::name('order.')
         ->prefix('order')
         ->group(function (){
-            Route::get('/', StoreOrderController::class)->name('store');
+            Route::post('/', StoreOrderController::class)->name('store');
         });
 });
