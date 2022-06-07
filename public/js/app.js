@@ -5540,7 +5540,7 @@ var OrderDialog = function OrderDialog(_ref) {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Select, {
           name: "depots_id",
           style: "input-icon",
-          icon: "Camera",
+          icon: "Droplet",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
             value: "",
             children: "Pilih Depot"
@@ -5550,7 +5550,7 @@ var OrderDialog = function OrderDialog(_ref) {
         className: "relative flex items-center mb-2",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
           style: "input-icon",
-          icon: "Camera",
+          icon: "Hash",
           placeholder: "Jumlah Pesanan",
           name: "quantity"
         })
@@ -5558,7 +5558,7 @@ var OrderDialog = function OrderDialog(_ref) {
         className: "relative flex items-center mb-2",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
           style: "input-icon",
-          icon: "Camera",
+          icon: "User",
           placeholder: "Nama",
           name: "name"
         })
@@ -5566,7 +5566,7 @@ var OrderDialog = function OrderDialog(_ref) {
         className: "relative flex items-center mb-2",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
           style: "input-icon",
-          icon: "Camera",
+          icon: "MessageSquare",
           placeholder: "Nomor WhatsApp",
           name: "whatsapp_numbers"
         })
@@ -5574,7 +5574,7 @@ var OrderDialog = function OrderDialog(_ref) {
         className: "relative flex items-center mb-2",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Input, {
           style: "input-icon",
-          icon: "Camera",
+          icon: "MapPin",
           placeholder: "Alamat Lengkap",
           name: "address"
         })

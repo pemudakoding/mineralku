@@ -10,21 +10,21 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen }) => {
                     Detail Pesanan
                 </div>
                 <div className="relative flex items-center mb-2">
-                    <Select name="depots_id" style='input-icon' icon="Camera">
+                    <Select name="depots_id" style='input-icon' icon="Droplet">
                         <option value="">Pilih Depot</option>
                     </Select>
                 </div>
                 <div className="relative flex items-center mb-2">
-                    <Input style="input-icon" icon="Camera" placeholder="Jumlah Pesanan" name="quantity"/>
+                    <Input style="input-icon" icon="Hash" placeholder="Jumlah Pesanan" name="quantity"/>
                 </div>
                 <div className="relative flex items-center mb-2">
-                    <Input style="input-icon" icon="Camera" placeholder="Nama" name="name" />
+                    <Input style="input-icon" icon="User" placeholder="Nama" name="name" />
                 </div>
                 <div className="relative flex items-center mb-2">
-                    <Input style="input-icon" icon="Camera" placeholder="Nomor WhatsApp" name="whatsapp_numbers"/>
+                    <Input style="input-icon" icon="MessageSquare" placeholder="Nomor WhatsApp" name="whatsapp_numbers"/>
                 </div>
                 <div className="relative flex items-center mb-2">
-                    <Input style="input-icon" icon="Camera" placeholder="Alamat Lengkap" name="address" />
+                    <Input style="input-icon" icon="MapPin" placeholder="Alamat Lengkap" name="address" />
                 </div>
                 <div className="inline-block bg-blue-default-200 my-4 text-xs font-semibold rounded-md text-white py-1 px-2">
                     Pengiriman
