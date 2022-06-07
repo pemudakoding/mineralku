@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import * as Icon from 'react-feather';
+import {Icon} from '@/Components';
 
-const Input = ({
+const Select = ({
     type = 'text',
     name,
     value,
@@ -14,13 +14,13 @@ const Input = ({
     placeholder,
     style,
     icon,
+    children
 }) => {
-    const input = useRef();
-    const IconComponent = Icon[icon];
+    const selectRef = useRef();
 
     useEffect(() => {
         if (isFocused) {
-            input.current.focus();
+            Select.current.focus();
         }
     }, []);
 
@@ -28,9 +28,9 @@ const Input = ({
         return (
             <div className="w-full relative">
                 <span className="absolute inset-y-0 left-0 text-gray-600 flex items-center pl-2">
-                    <IconComponent />
+                    <Icon icon={icon} />
                 </span>
-                <input
+                <select
                     type={type}
                     name={name}
                     value={value}
@@ -38,36 +38,20 @@ const Input = ({
                         `w-full py-2 text-sm bg-white text-gray-600 font-medium rounded-md pl-10 border-2 border-gray-300 focus:outline-none focus:border-blue-default-200 focus:ring focus:ring-blue-default-200 focus:ring-opacity-50` +
                         className
                     }
-                    ref={input}
+                    ref={selectRef}
                     placeholder={placeholder}
                     autoComplete={autoComplete}
                     required={required}
                     onChange={(e) => onChange(e)}
-                />
+                > {children} </select>
             </div>
         );
     }
 
-    return (
-        <div className="flex flex-col items-start">
-            <input
-                type={type}
-                name={name}
-                value={value}
-                className={
-                    `border-gray-300 focus:border-blue-default-200 focus:ring focus:ring-blue-default-200 focus:ring-opacity-50 rounded-md shadow-sm ` +
-                    className
-                }
-                ref={input}
-                autoComplete={autoComplete}
-                required={required}
-                onChange={(e) => handleChange(e)}
-            />
-        </div>
-    );
+
 };
 
-Input.propTypes = {
+Select.propTypes = {
     type: PropTypes.string,
     value: PropTypes.string,
     autoComplete: PropTypes.string,
@@ -75,10 +59,9 @@ Input.propTypes = {
     required: PropTypes.string,
     style: PropTypes.string,
     className: PropTypes.string,
-    handleChange: PropTypes.string,
     isFocused: PropTypes.bool,
     name: PropTypes.string,
     placeholder: PropTypes.string,
 };
 
-export default Input;
+export default Select;

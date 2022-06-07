@@ -6,7 +6,7 @@ import NavLink from './NavLink';
 import ResponsiveNavLink from './ResponsiveNavLink';
 import DepotImage from './DepotImage';
 import Icon from './Icon';
-import { Checkbox, Label, Input, Radio } from './Inputs';
+import { Checkbox, Label, Input, Radio, Select } from './Inputs';
 
 export {
     Button,
@@ -21,4 +21,5 @@ export {
     DepotImage,
     Icon,
     Radio,
+    Select
 };

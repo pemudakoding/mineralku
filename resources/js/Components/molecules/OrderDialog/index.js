@@ -1,5 +1,5 @@
 import React, { Fragment, useRef, useState } from 'react';
-import { BaseDialog, Input, Radio } from '@/Components';
+import { BaseDialog, Input, Radio, Select } from '@/Components';
 
 const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen }) => {
     return (
@@ -10,37 +10,39 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen }) => {
                     Detail Pesanan
                 </div>
                 <div className="relative flex items-center mb-2">
-                    <Input style="input-icon" icon="Camera" placeholder="Pilih Depot" />
+                    <Select name="depots_id" style='input-icon' icon="Camera">
+                        <option value="">Pilih Depot</option>
+                    </Select>
                 </div>
                 <div className="relative flex items-center mb-2">
-                    <Input style="input-icon" icon="Camera" placeholder="Jumlah Pesanan" />
+                    <Input style="input-icon" icon="Camera" placeholder="Jumlah Pesanan" name="quantity"/>
                 </div>
                 <div className="relative flex items-center mb-2">
-                    <Input style="input-icon" icon="Camera" placeholder="Nama" />
+                    <Input style="input-icon" icon="Camera" placeholder="Nama" name="name" />
                 </div>
                 <div className="relative flex items-center mb-2">
-                    <Input style="input-icon" icon="Camera" placeholder="Nomor WhatsApp" />
+                    <Input style="input-icon" icon="Camera" placeholder="Nomor WhatsApp" name="whatsapp_numbers"/>
                 </div>
                 <div className="relative flex items-center mb-2">
-                    <Input style="input-icon" icon="Camera" placeholder="Alamat Lengkap" />
+                    <Input style="input-icon" icon="Camera" placeholder="Alamat Lengkap" name="address" />
                 </div>
                 <div className="inline-block bg-blue-default-200 my-4 text-xs font-semibold rounded-md text-white py-1 px-2">
                     Pengiriman
                 </div>
                 <div className="relative flex items-center mb-2">
-                    <Radio title="Antar Ke Alamat Saya" name="antar" value="1" checked />
+                    <Radio title="Antar Ke Alamat Saya" name="shipping_delivery" value="delivery" checked />
                 </div>
                 <div className="relative flex items-center mb-2">
-                    <Radio title="Ambil Sendiri" name="antar" value="0" />
+                    <Radio title="Ambil Sendiri" name="shipping_delivery" value="pickup" />
                 </div>
                 <div className="inline-block bg-blue-default-200 my-4 text-xs font-semibold rounded-md text-white py-1 px-2">
                     Jadwal Pengantaran
                 </div>
                 <div className="relative flex items-center mb-2">
-                    <Radio title="Antar sekarang" name="pengantaran" value="1" checked />
+                    <Radio title="Antar sekarang" name="is_delivery_now" value="1" checked />
                 </div>
                 <div className="relative flex items-center mb-2">
-                    <Radio title="Atur Jadwal" name="pengantaran" value="0" />
+                    <Radio title="Atur Jadwal" name="is_delivery_now" value="0" />
                 </div>
                 <div className="inline-block bg-blue-default-200 my-4 text-xs font-semibold rounded-md text-white py-1 px-2">
                     Total Pembayaran
