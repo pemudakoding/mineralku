@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import {Icon} from '@/Components';
+import { Icon } from '@/Components';
 
 const Select = ({
     type = 'text',
@@ -14,7 +14,7 @@ const Select = ({
     placeholder,
     style,
     icon,
-    children
+    children,
 }) => {
     const selectRef = useRef();
 
@@ -43,12 +43,12 @@ const Select = ({
                     autoComplete={autoComplete}
                     required={required}
                     onChange={(e) => onChange(e)}
-                > {children} </select>
+                >
+                    {children}
+                </select>
             </div>
         );
     }
-
-
 };
 
 Select.propTypes = {

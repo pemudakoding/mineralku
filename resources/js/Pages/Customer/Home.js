@@ -16,7 +16,7 @@ const openOrderDialog = (setOrderDialogOpen) => {
     setOrderDialogOpen(true);
 };
 
-const Home = ({depots}) => {
+const Home = ({ depots }) => {
     let [isOrderDialogOpen, setOrderDialogOpen] = useState(false);
 
     return (

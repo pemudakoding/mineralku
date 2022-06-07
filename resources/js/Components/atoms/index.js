@@ -21,5 +21,5 @@ export {
     DepotImage,
     Icon,
     Radio,
-    Select
+    Select,
 };

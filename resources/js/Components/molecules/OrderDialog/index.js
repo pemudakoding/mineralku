@@ -1,21 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from '@inertiajs/inertia-react';
 import { BaseDialog, Input, Radio, Select } from '@/Components';
 
 const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
-    const {data, setData, post, processing, errors} = useForm({
-        depots_id: "",
+    const { data, setData, post, processing, errors } = useForm({
+        depots_id: '',
         quantity: 1,
-        name: "",
-        whatsapp_numbers: "",
-        address: "",
-        shipping_detail: "delivery",
-        is_delivery_now: true
+        name: '',
+        whatsapp_numbers: '',
+        address: '',
+        shipping_detail: 'delivery',
+        is_delivery_now: true,
     });
 
     function handleSubmit(e) {
         e.preventDefault();
         post('/order');
+    }
+
+    let addressClass = '';
+    const [address, setAddress] = useState(true);
+    const addressHandler = (address) => {
+        setAddress(address);
+    };
+    if (address === false) {
+        addressClass = 'hidden';
+    }
+
+    let dateClass = '';
+    const [date, setDate] = useState(false);
+    const dateHandler = (date) => {
+        setDate(date);
+    };
+    if (date === true || address === false) {
+        dateClass = 'hidden';
     }
 
     return (
@@ -27,40 +45,111 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
                         Detail Pesanan
                     </div>
                     <div className="relative flex items-center mb-2">
-                        <Select style='input-icon' icon="Droplet" onChange={e => setData('depots_id', e.target.value)} value={data.depots_id}>
+                        <Select
+                            style="input-icon"
+                            icon="Droplet"
+                            onChange={(e) => setData('depots_id', e.target.value)}
+                            value={data.depots_id}
+                        >
                             <option value="">Pilih Depot</option>
-                            {depots.map( depot => <option value={depot.id}>{depot.name}</option> )}
+                            {depots.map((depot) => (
+                                <option value={depot.id}>{depot.name}</option>
+                            ))}
                         </Select>
                     </div>
                     <div className="relative flex items-center mb-2">
-                        <Input style="input-icon" icon="Hash" placeholder="Jumlah Pesanan" onChange={e => setData('quantity', e.target.value)} value={data.quantity}/>
+                        <Input
+                            style="input-icon"
+                            icon="Hash"
+                            placeholder="Jumlah Pesanan"
+                            onChange={(e) => setData('quantity', e.target.value)}
+                            value={data.quantity}
+                        />
                     </div>
                     <div className="relative flex items-center mb-2">
-                        <Input style="input-icon" icon="User" placeholder="Nama" onChange={e => setData('name', e.target.value)} value={data.name}/>
+                        <Input
+                            style="input-icon"
+                            icon="User"
+                            placeholder="Nama"
+                            onChange={(e) => setData('name', e.target.value)}
+                            value={data.name}
+                        />
                     </div>
                     <div className="relative flex items-center mb-2">
-                        <Input style="input-icon" icon="MessageSquare" placeholder="Nomor WhatsApp" onChange={e => setData('whatsapp_numbers', e.target.value)} value={data.whatsapp_numbers}/>
+                        <Input
+                            style="input-icon"
+                            icon="MessageSquare"
+                            placeholder="Nomor WhatsApp"
+                            onChange={(e) => setData('whatsapp_numbers', e.target.value)}
+                            value={data.whatsapp_numbers}
+                        />
                     </div>
-                    <div className="relative flex items-center mb-2">
-                        <Input style="input-icon" icon="MapPin" placeholder="Alamat Lengkap" onChange={e => setData('address', e.target.value)} value={data.address} />
+                    <div className={`relative flex items-center mb-2 ` + addressClass}>
+                        <Input
+                            style="input-icon"
+                            icon="MapPin"
+                            placeholder="Alamat Lengkap"
+                            onChange={(e) => setData('address', e.target.value)}
+                            value={data.address}
+                        />
+                    </div>
+                    <div className={`relative flex items-center mb-2 ` + dateClass}>
+                        <Input
+                            type="date"
+                            style="input-icon"
+                            icon="Calendar"
+                            placeholder="Tanggal Pengiriman"
+                            onChange={(e) => setData('date', e.target.value)}
+                            value={data.date}
+                        />
                     </div>
                     <div className="inline-block bg-blue-default-200 my-4 text-xs font-semibold rounded-md text-white py-1 px-2">
                         Pengiriman
                     </div>
                     <div className="relative flex items-center mb-2">
-                        <Radio title="Antar Ke Alamat Saya" value="delivery" onChange={e => setData('shipping_detail', e.target.value)} checked />
+                        <Radio
+                            title="Antar Ke Alamat Saya"
+                            name="send"
+                            value="delivery"
+                            onClick={(e) => addressHandler(true)}
+                            onChange={(e) => setData('shipping_detail', e.target.value)}
+                            checked={address === true}
+                        />
                     </div>
                     <div className="relative flex items-center mb-2">
-                        <Radio title="Ambil Sendiri"  value="pickup" onChange={e => setData('shipping_detail', e.target.value)}/>
+                        <Radio
+                            title="Ambil Sendiri"
+                            name="send"
+                            value="pickup"
+                            onClick={(e) => addressHandler(false)}
+                            onChange={(e) => setData('shipping_detail', e.target.value)}
+                            checked={address === false}
+                        />
                     </div>
-                    <div className="inline-block bg-blue-default-200 my-4 text-xs font-semibold rounded-md text-white py-1 px-2">
-                        Jadwal Pengantaran
-                    </div>
-                    <div className="relative flex items-center mb-2">
-                        <Radio title="Antar sekarang" name="is_delivery_now" value="1" onChange={e => setData('is_delivery_now', e.target.value)} checked />
-                    </div>
-                    <div className="relative flex items-center mb-2">
-                        <Radio title="Atur Jadwal" name="is_delivery_now" value="0" onChange={e => setData('is_delivery_now', e.target.value)}/>
+                    <div className={`w-full ` + addressClass}>
+                        <div className="inline-block bg-blue-default-200 my-4 text-xs font-semibold rounded-md text-white py-1 px-2">
+                            Jadwal Pengantaran
+                        </div>
+                        <div className="relative flex items-center mb-2">
+                            <Radio
+                                title="Antar sekarang"
+                                name="is_delivery_now"
+                                value="1"
+                                onClick={(e) => dateHandler(true)}
+                                onChange={(e) => setData('is_delivery_now', e.target.value)}
+                                checked={date === true}
+                            />
+                        </div>
+                        <div className="relative flex items-center mb-2">
+                            <Radio
+                                title="Atur Jadwal"
+                                name="is_delivery_now"
+                                value="0"
+                                onClick={(e) => dateHandler(false)}
+                                onChange={(e) => setData('is_delivery_now', e.target.value)}
+                                checked={date === false}
+                            />
+                        </div>
                     </div>
                     <div className="inline-block bg-blue-default-200 my-4 text-xs font-semibold rounded-md text-white py-1 px-2">
                         Total Pembayaran
