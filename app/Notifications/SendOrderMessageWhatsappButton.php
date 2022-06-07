@@ -7,8 +7,9 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use NotificationChannels\Telegram\TelegramMessage;
+use Illuminate\Support\Str;
 
-class SendOrderMessageNotification extends Notification implements ShouldQueue
+class SendOrderMessageWhatsappButton extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -33,10 +34,27 @@ class SendOrderMessageNotification extends Notification implements ShouldQueue
         return ['telegram'];
     }
 
+    /**
+     * Get the mail representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return \Illuminate\Notifications\Messages\MailMessage
+     */
     public function toTelegram($notifiable)
     {
         return TelegramMessage::create()
             ->to(config('services.telegram-bot-api.order_channel'))
-            ->view('notifications.markdown.SendOrderMessage', ['data' => $this->data]);
+            ->content("Buat CS silahkan copy pesan diatas lalu tekan tombol dibawah pesan ini!")
+            ->button('Whatsapp', $this->resolveForWhatsappUrl());
+    }
+
+    public function resolveForWhatsappNumber()
+    {
+        return Str::replaceFirst('0','62',$this->data['whatsapp_numbers']);
+    }
+
+    public function resolveForWhatsappUrl()
+    {
+        return 'wa.me/' . $this->resolveForWhatsappNumber();
     }
 }

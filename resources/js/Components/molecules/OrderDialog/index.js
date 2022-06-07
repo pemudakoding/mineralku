@@ -9,7 +9,7 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
         name: "",
         whatsapp_numbers: "",
         address: "",
-        shipping_delivery: "delivery",
+        shipping_detail: "delivery",
         is_delivery_now: true
     });
 
@@ -48,10 +48,10 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
                         Pengiriman
                     </div>
                     <div className="relative flex items-center mb-2">
-                        <Radio title="Antar Ke Alamat Saya" name="shipping_delivery" value="delivery" onChange={e => setData('shipping_delivery', e.target.value)} checked />
+                        <Radio title="Antar Ke Alamat Saya" value="delivery" onChange={e => setData('shipping_detail', e.target.value)} checked />
                     </div>
                     <div className="relative flex items-center mb-2">
-                        <Radio title="Ambil Sendiri" name="shipping_delivery" value="pickup" onChange={e => setData('shipping_delivery', e.target.value)}/>
+                        <Radio title="Ambil Sendiri"  value="pickup" onChange={e => setData('shipping_detail', e.target.value)}/>
                     </div>
                     <div className="inline-block bg-blue-default-200 my-4 text-xs font-semibold rounded-md text-white py-1 px-2">
                         Jadwal Pengantaran
