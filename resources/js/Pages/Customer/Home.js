@@ -16,7 +16,7 @@ const openOrderDialog = (setOrderDialogOpen) => {
     setOrderDialogOpen(true);
 };
 
-const Home = (props) => {
+const Home = ({depots}) => {
     let [isOrderDialogOpen, setOrderDialogOpen] = useState(false);
 
     return (
@@ -24,6 +24,7 @@ const Home = (props) => {
             <OrderDialog
                 isOrderDialogOpen={isOrderDialogOpen}
                 setOrderDialogOpen={setOrderDialogOpen}
+                depots={depots}
             />
             <HeroSection className="text-center">
                 <h1 className="fredoka-one text-white text-4xl">Selamat Datang!</h1>

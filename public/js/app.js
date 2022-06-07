@@ -5525,7 +5525,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var OrderDialog = function OrderDialog(_ref) {
   var isOrderDialogOpen = _ref.isOrderDialogOpen,
-      setOrderDialogOpen = _ref.setOrderDialogOpen;
+      setOrderDialogOpen = _ref.setOrderDialogOpen,
+      depots = _ref.depots;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_Components__WEBPACK_IMPORTED_MODULE_1__.BaseDialog, {
     isBaseDialogOpen: isOrderDialogOpen,
     setBaseDialogOpen: setOrderDialogOpen,
@@ -5537,14 +5538,19 @@ var OrderDialog = function OrderDialog(_ref) {
         children: "Detail Pesanan"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "relative flex items-center mb-2",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Select, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_Components__WEBPACK_IMPORTED_MODULE_1__.Select, {
           name: "depots_id",
           style: "input-icon",
           icon: "Droplet",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
             value: "",
             children: "Pilih Depot"
-          })
+          }), depots.map(function (depot) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+              value: depot.id,
+              children: depot.name
+            });
+          })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "relative flex items-center mb-2",
@@ -6855,7 +6861,9 @@ var openOrderDialog = function openOrderDialog(setOrderDialogOpen) {
   setOrderDialogOpen(true);
 };
 
-var Home = function Home(props) {
+var Home = function Home(_ref) {
+  var depots = _ref.depots;
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
       isOrderDialogOpen = _useState2[0],
@@ -6864,7 +6872,8 @@ var Home = function Home(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.OrderDialog, {
       isOrderDialogOpen: isOrderDialogOpen,
-      setOrderDialogOpen: setOrderDialogOpen
+      setOrderDialogOpen: setOrderDialogOpen,
+      depots: depots
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_Components__WEBPACK_IMPORTED_MODULE_2__.HeroSection, {
       className: "text-center",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {

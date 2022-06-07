@@ -1,7 +1,7 @@
 import React, { Fragment, useRef, useState } from 'react';
 import { BaseDialog, Input, Radio, Select } from '@/Components';
 
-const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen }) => {
+const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
     return (
         <BaseDialog isBaseDialogOpen={isOrderDialogOpen} setBaseDialogOpen={setOrderDialogOpen}>
             <BaseDialog.Title>Buat Pesanan</BaseDialog.Title>
@@ -12,6 +12,7 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen }) => {
                 <div className="relative flex items-center mb-2">
                     <Select name="depots_id" style='input-icon' icon="Droplet">
                         <option value="">Pilih Depot</option>
+                        {depots.map( depot => <option value={depot.id}>{depot.name}</option> )}
                     </Select>
                 </div>
                 <div className="relative flex items-center mb-2">
