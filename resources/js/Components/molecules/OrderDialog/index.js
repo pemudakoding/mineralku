@@ -5,7 +5,7 @@ import { BaseDialog, Input, Radio, Select, Icon } from '@/Components';
 const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
     const [status, setStatus] = useState('pending');
     const { data, setData, post, processing, errors } = useForm({
-        depots_id: '',
+        depot_id: '',
         quantity: 1,
         name: '',
         whatsapp_numbers: '',
@@ -65,8 +65,8 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
                             <Select
                                 style="input-icon"
                                 icon="Droplet"
-                                onChange={(e) => setData('depots_id', e.target.value)}
-                                value={data.depots_id}
+                                onChange={(e) => setData('depot_id', e.target.value)}
+                                value={data.depot_id}
                             >
                                 <option value="">Pilih Depot</option>
                                 {depots.map((depot) => (

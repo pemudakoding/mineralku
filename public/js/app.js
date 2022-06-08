@@ -5558,7 +5558,7 @@ var OrderDialog = function OrderDialog(_ref) {
       setStatus = _useState2[1];
 
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.useForm)({
-    depots_id: '',
+    depot_id: '',
     quantity: 1,
     name: '',
     whatsapp_numbers: '',
@@ -5635,9 +5635,9 @@ var OrderDialog = function OrderDialog(_ref) {
             style: "input-icon",
             icon: "Droplet",
             onChange: function onChange(e) {
-              return setData('depots_id', e.target.value);
+              return setData('depot_id', e.target.value);
             },
-            value: data.depots_id,
+            value: data.depot_id,
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
               value: "",
               children: "Pilih Depot"
