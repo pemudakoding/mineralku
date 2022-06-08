@@ -30,7 +30,9 @@ class RegisterAction
         $data = Arr::only($this->data, ['name', 'whatsapp_numbers', 'password']);
         $data['password'] = Hash::make('D3F4ultP455w0rdF0rM1n3r4lku');
 
-        $this->user = User::create($data);
+        $this->user = User::firstOrCreate([
+            'whatsapp_numbers' => $data['whatsapp_numbers']
+        ],$data);
 
         return $this;
     }
@@ -39,7 +41,7 @@ class RegisterAction
     {
         $resolvedData = Arr::only($this->data, ['address']);
 
-        $this->user->addresses()->create($resolvedData);
+        $this->user->addresses()->create($resolvedData,$resolvedData);
 
         return $this->user->with('addresses')->first();
     }
