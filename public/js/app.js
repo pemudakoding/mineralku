@@ -4488,10 +4488,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Icon = function Icon(_ref) {
-  var icon = _ref.icon;
+  var icon = _ref.icon,
+      size = _ref.size;
   var IconComponent = react_feather__WEBPACK_IMPORTED_MODULE_2__[icon];
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(IconComponent, {})
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(IconComponent, {
+      size: size
+    })
   });
 };
 
@@ -5543,10 +5546,16 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var OrderDialog = function OrderDialog(_ref) {
   var isOrderDialogOpen = _ref.isOrderDialogOpen,
       setOrderDialogOpen = _ref.setOrderDialogOpen,
       depots = _ref.depots;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('pending'),
+      _useState2 = _slicedToArray(_useState, 2),
+      status = _useState2[0],
+      setStatus = _useState2[1];
 
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.useForm)({
     depots_id: '',
@@ -5567,15 +5576,23 @@ var OrderDialog = function OrderDialog(_ref) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    post('/order');
+    post('/order', {
+      onSuccess: function onSuccess() {
+        return handleOnSuccess();
+      }
+    });
+  }
+
+  function handleOnSuccess() {
+    setStatus('success');
   }
 
   var addressClass = '';
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
-      _useState2 = _slicedToArray(_useState, 2),
-      address = _useState2[0],
-      setAddress = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+      _useState4 = _slicedToArray(_useState3, 2),
+      address = _useState4[0],
+      setAddress = _useState4[1];
 
   var addressHandler = function addressHandler(address) {
     setAddress(address);
@@ -5587,10 +5604,10 @@ var OrderDialog = function OrderDialog(_ref) {
 
   var dateClass = '';
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-      _useState4 = _slicedToArray(_useState3, 2),
-      date = _useState4[0],
-      setDate = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      date = _useState6[0],
+      setDate = _useState6[1];
 
   var dateHandler = function dateHandler(date) {
     setDate(date);
@@ -5603,10 +5620,10 @@ var OrderDialog = function OrderDialog(_ref) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_Components__WEBPACK_IMPORTED_MODULE_2__.BaseDialog, {
     isBaseDialogOpen: isOrderDialogOpen,
     setBaseDialogOpen: setOrderDialogOpen,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.BaseDialog.Title, {
-      children: "Buat Pesanan"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.BaseDialog.Content, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_Components__WEBPACK_IMPORTED_MODULE_2__.BaseDialog.Title, {
+      children: [status == 'pending' && 'Buat Pesanan', status == 'success' && 'Sukses']
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_Components__WEBPACK_IMPORTED_MODULE_2__.BaseDialog.Content, {
+      children: [status == 'pending' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
         onSubmit: handleSubmit,
         id: "order",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -5807,21 +5824,39 @@ var OrderDialog = function OrderDialog(_ref) {
             children: "Rp 6.600"
           })]
         })]
-      })
+      }), status == 'success' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "flex flex-col items-center py-10 text-green-300",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Icon, {
+          icon: "CheckCircle",
+          size: 48
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          className: "text-gray-600 text-center mt-4",
+          children: "Orderan kamu sukses dibuat, Pihak kami akan menghubungi kamu melalui Whatsapp"
+        })]
+      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_Components__WEBPACK_IMPORTED_MODULE_2__.BaseDialog.Button, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-        type: "submit",
-        className: "w-full justify-center rounded-md border bg-blue-default-200 shadow-sm px-4 py-2 text-base font-medium text-white hover:bg-gray-50 hover:text-blue-default-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-default-200 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm",
-        disabled: processing,
-        form: "order",
-        children: "Pesan Sekarang"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+      children: [status == 'pending' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          type: "submit",
+          className: "w-full justify-center rounded-md border bg-blue-default-200 shadow-sm px-4 py-2 text-base font-medium text-white hover:bg-gray-50 hover:text-blue-default-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-default-200 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm",
+          disabled: processing,
+          form: "order",
+          children: "Pesan Sekarang"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          type: "button",
+          className: "w-full justify-center rounded-md border bg-gray-50 shadow-sm px-4 py-2 text-base font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 mt-3 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm",
+          onClick: function onClick() {
+            return setOrderDialogOpen(false);
+          },
+          children: "Batal"
+        })]
+      }), status == 'success' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
         type: "button",
         className: "w-full justify-center rounded-md border bg-gray-50 shadow-sm px-4 py-2 text-base font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 mt-3 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm",
         onClick: function onClick() {
           return setOrderDialogOpen(false);
         },
-        children: "Batal"
+        children: "Tutup"
       })]
     })]
   });
