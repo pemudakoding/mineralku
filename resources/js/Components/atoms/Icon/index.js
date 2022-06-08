@@ -7,7 +7,7 @@ const Icon = ({ icon, size }) => {
 
     return (
         <span>
-            <IconComponent size={size}/>
+            <IconComponent size={size} />
         </span>
     );
 };

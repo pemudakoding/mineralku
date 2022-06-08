@@ -41,6 +41,7 @@ class HandleInertiaRequests extends Middleware
             'ziggy' => function () {
                 return (new Ziggy)->toArray();
             },
+            'defaultPrice' => 5000,
         ]);
     }
 }
