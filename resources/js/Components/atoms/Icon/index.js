@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as IconFeather from 'react-feather';
 
-const Icon = ({ icon }) => {
+const Icon = ({ icon, size }) => {
     const IconComponent = IconFeather[icon];
 
     return (
         <span>
-            <IconComponent />
+            <IconComponent size={size}/>
         </span>
     );
 };
