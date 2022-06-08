@@ -5,7 +5,7 @@ Nama Pemesan: {{$data['name']}}
 Jumlah Pesanan (Galon): {{$data['quantity']}}
 Nomor Whatsapp: {{$data['whatsapp_numbers']}}
 Alamat Lengkap: {{$data['address']}}
-Jadwal Pengantaran: {{$data['is_delivery_now']}}
+Jadwal Pengantaran: {{$data['is_delivery_now'] ? 'Sekarang' : $data['delivery_date'] . ' ' . $data['delivery_time']}}
 
 ***TOTAL PEMBAYARAN***
 Total Produk: {{$data['quantity']}} x Rp. 5000

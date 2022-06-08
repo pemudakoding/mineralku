@@ -10,11 +10,14 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
         whatsapp_numbers: '',
         address: '',
         shipping_detail: 'delivery',
-        is_delivery_now: true,
+        is_delivery_now: false,
+        delivery_time: "00:00",
+        delivery_date: new Date().toLocaleDateString()
     });
 
     function handleSubmit(e) {
         e.preventDefault();
+
         post('/order');
     }
 
@@ -93,16 +96,6 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
                             value={data.address}
                         />
                     </div>
-                    <div className={`relative flex items-center mb-2 ` + dateClass}>
-                        <Input
-                            type="date"
-                            style="input-icon"
-                            icon="Calendar"
-                            placeholder="Tanggal Pengiriman"
-                            onChange={(e) => setData('date', e.target.value)}
-                            value={data.date}
-                        />
-                    </div>
                     <div className="inline-block bg-blue-default-200 my-4 text-xs font-semibold rounded-md text-white py-1 px-2">
                         Pengiriman
                     </div>
@@ -148,6 +141,28 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
                                 onClick={(e) => dateHandler(false)}
                                 onChange={(e) => setData('is_delivery_now', e.target.value)}
                                 checked={date === false}
+                            />
+                        </div>
+                    </div>
+                    <div className="w-full grid grid-cols-2 gap-4 my-4">
+                        <div className={`relative flex items-center mb-2 ` + dateClass}>
+                            <Input
+                                type="date"
+                                style="input-icon"
+                                icon="Calendar"
+                                placeholder="Tanggal Pengiriman"
+                                onChange={(e) => setData('delivery_date', e.target.value)}
+                                value={data.date}
+                            />
+                        </div>
+                        <div className={`relative flex items-center mb-2 ` + dateClass}>
+                            <Input
+                                type="time"
+                                style="input-icon"
+                                icon="Clock"
+                                placeholder="Jam Pengiriman"
+                                onChange={(e) => setData('delivery_time', e.target.value)}
+                                value={data.date}
                             />
                         </div>
                     </div>
