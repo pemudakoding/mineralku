@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notification;
 use NotificationChannels\Telegram\TelegramMessage;
 use Illuminate\Support\Str;
 
-class SendOrderMessageWhatsappButton extends Notification implements ShouldQueue
+class SendOrderMessageWhatsappButton extends Notification
 {
     use Queueable;
 

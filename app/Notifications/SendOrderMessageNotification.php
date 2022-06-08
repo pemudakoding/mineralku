@@ -8,7 +8,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use NotificationChannels\Telegram\TelegramMessage;
 
-class SendOrderMessageNotification extends Notification implements ShouldQueue
+class SendOrderMessageNotification extends Notification
 {
     use Queueable;
 
