@@ -24,7 +24,7 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'depot_id' => 'nullable|exists:depots,id',
+            'depot_id' => 'required|exists:depots,id',
             'name' => 'required|string|max:255',
             'whatsapp_numbers' => 'required|numeric|digits_between:10,16',
             'address' => 'required|string|max:255',

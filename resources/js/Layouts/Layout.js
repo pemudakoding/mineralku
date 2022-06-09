@@ -7,7 +7,7 @@ export default function Layout({ children }) {
         <>
             <Header />
             <main id="mineralku-app">{children}</main>
-            <Footer />
+            {/* <Footer /> */}
         </>
     );
 }
