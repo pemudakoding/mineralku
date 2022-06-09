@@ -38,6 +38,12 @@ class OrderFactory
 
     public function resolveForPrice(): int|float
     {
-        return 6600;
+        $qty = intval($this->data->get('quantity'));
+        $price = config('temp-price.price');
+        $cost = $this->data->get('shipping_detail') == 'delivery' ? config('temp-price.shippingCost') : 0;
+        $fee = config('temp-price.serviceFee');
+        $totalPrice = $price*$qty+$cost+$fee;
+
+        return $totalPrice;
     }
 }
