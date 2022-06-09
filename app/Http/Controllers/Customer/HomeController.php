@@ -3,18 +3,16 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
-use App\Src\Foundation\Inertia\DelegatesRender;
+use App\Models\Depot;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class HomeController extends Controller
 {
-    use DelegatesRender;
-
-    protected string $pageDirectory = 'Customers';
-
     public function index()
     {
-        return $this->setFallbackPage('Home')
-            ->render();
+        return Inertia::render('Customer/Home', [
+            'depots' => Depot::select('id','name')->get()
+        ]);
     }
 }

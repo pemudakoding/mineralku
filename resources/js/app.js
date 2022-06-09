@@ -1,15 +1,18 @@
-// require('./bootstrap');
+require('./bootstrap');
 
-import React from 'react'
-import { createRoot } from 'react-dom/client';
-import { createInertiaApp } from '@inertiajs/inertia-react'
-import Layout from './layouts/Layout';
+import React from 'react';
+import { render } from 'react-dom';
+import { createInertiaApp } from '@inertiajs/inertia-react';
+import { InertiaProgress } from '@inertiajs/progress';
+
+const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
 createInertiaApp({
-  resolve: name => require(`./pages/${name}`),
-  setup({ el, App, props }) {
-    const container = createRoot(el);
+    title: (title) => `${title} - ${appName}`,
+    resolve: (name) => require(`./Pages/${name}`),
+    setup({ el, App, props }) {
+        return render(<App {...props} />, el);
+    },
+});
 
-    container.render(<App {...props} />)
-  },
-})
+InertiaProgress.init({ color: '#4B5563' });
