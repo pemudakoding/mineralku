@@ -87,7 +87,7 @@ class OrderFactory
     public function resolveForShippingFee()
     {
         return $this->data->get('shipping_detail') == 'delivery'
-            ? (config('temp-price.shippingFee') * $this->data->get('quantity'))
+            ? (config('temp-price.shippingFee') * intval($this->data->get('quantity')))
             : 0;
     }
 
