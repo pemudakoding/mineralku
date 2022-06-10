@@ -4,15 +4,14 @@ namespace App\Src\Actions\Order;
 
 use App\Models\Order;
 use App\Src\Factory\Order\OrderFactory;
-use Illuminate\Support\Arr;
 
 class StoreOrderAction
 {
     protected OrderFactory $factory;
 
-    public function execute(array $data): Order|\Exception
+    public function execute(OrderFactory $factory): Order|\Exception
     {
-        $this->factory = new OrderFactory($data);
+        $this->factory = $factory;
 
         try {
             if(empty($this->factory->data->get('depot_id'))) {
@@ -24,16 +23,16 @@ class StoreOrderAction
             }
 
             return $this->store();
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             return throw new \Exception($e->getMessage());
         }
     }
 
     protected function store(): Order
     {
-        $data = $this->factory->data->except(['delivery_date', 'delivery_time']);
+        $data = $this->factory->resolveForOrderData()->except(['delivery_date', 'delivery_time']);
         $data['delivery_date'] = $this->factory->resolveForDeliveryDate();
-        $data['total_price'] = $this->factory->resolveForPrice();
+        $data['total_price'] = $this->factory->resolveForTotalPrice();
 
         return Order::create($data->toArray());
     }
