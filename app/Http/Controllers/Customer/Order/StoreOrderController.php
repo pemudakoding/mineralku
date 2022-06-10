@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Customer\Order\StoreRequest;
 use App\Src\Actions\Auth\RegisterAction;
 use App\Src\Actions\Order\StoreOrderAction;
+use App\Src\Factory\Order\OrderFactory;
 use Illuminate\Support\Facades\Redirect;
 
 class StoreOrderController extends Controller
@@ -20,10 +21,11 @@ class StoreOrderController extends Controller
     public function __invoke(StoreRequest $request)
     {
         $user = (new RegisterAction)->execute($request->validated());
-        $order =(new StoreOrderAction)->execute(array_merge($request->validated(), ['user_id' => $user->id]));
-        $depotName = $order->load(['depot'])->depot->name;
 
-        OrderSuccess::dispatch(array_merge($request->validated(), ['depot_name' => $depotName]));
+        $orderFactory = new OrderFactory(array_merge($request->validated(), ['user_id' => $user->id]));
+        $order = (new StoreOrderAction)->execute($orderFactory);
+
+        OrderSuccess::dispatch($orderFactory->resolveForNotificationData());
 
         return Redirect::route('customers.index');
     }

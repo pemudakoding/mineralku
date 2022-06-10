@@ -46,10 +46,10 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
     if (date === true || address === false) {
         dateClass = 'hidden';
     }
-    const { defaultPrice } = usePage().props;
+
+    const { defaultPrice, shippingFee, serviceFee } = usePage().props;
     const totalPriceProduct = defaultPrice * data.quantity;
-    const shippingCost = address ? 1000 : 0;
-    const serviceFee = 1000;
+    const shippingCost = address ? (shippingFee * data.quantity) : 0;
     const totalPrice = totalPriceProduct + shippingCost + serviceFee;
 
     return (

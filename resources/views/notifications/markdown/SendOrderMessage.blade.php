@@ -9,12 +9,12 @@ Nama Depot: {{$data['depot_name']}}
 Jadwal Pengantaran: {{$data['is_delivery_now'] ? 'Sekarang' : $data['delivery_date'] . ' ' . $data['delivery_time']}}
 
 ***TOTAL PEMBAYARAN***
-Total Produk: {{$data['quantity']}} x Rp. 5000
-Total Pengiriman: Rp. 1000
-Service Fee : Rp. 1000
+Total Produk: {{$data['quantity']}} x Rp. {{ $data['price'] }}
+Total Pengiriman: Rp. {{ $data['shipping_fee'] }}
+Service Fee : Rp. {{ $data['service_fee'] }}
 ```
 (Service fee agar kami bisa meningkatkan pelayanan terbaik buat kamu)
 ```
-Total Pembayaran: Rp. 7000
+Total Pembayaran: Rp. {{ $data['total_price'] }}
 
 Terima Kasih telah berbelanja di www.mineralku.id Silahkan menunggu konfirmasi terbaru dari kami.
