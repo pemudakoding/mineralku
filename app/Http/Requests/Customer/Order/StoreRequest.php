@@ -27,7 +27,7 @@ class StoreRequest extends FormRequest
             'depot_id' => 'required|exists:depots,id',
             'name' => 'required|string|max:255',
             'whatsapp_numbers' => 'required|numeric|digits_between:10,16',
-            'address' => 'required|string|max:255',
+            'address' => 'required_if:shipping_detail,delivery|exclude_if:shipping_detail,pickup|string|max:255',
             'quantity' => 'required|integer|min:1',
             'shipping_detail' => 'required|in:pickup,delivery',
             'is_delivery_now' => 'required|boolean',
