@@ -74,7 +74,7 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
                             >
                                 <option value="">Pilih Depot</option>
                                 {depots.map((depot) => (
-                                    <option value={depot.id}>{depot.name}</option>
+                                    <option value={depot.id} key={depot.id}>{depot.name}</option>
                                 ))}
                             </Select>
                         </div>
@@ -85,7 +85,7 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
                                 icon="Hash"
                                 placeholder="Jumlah Pesanan"
                                 onChange={(e) => setData('quantity', e.target.value)}
-                                value={data.quantity}
+                                value={String(data.quantity)}
                             />
                         </div>
                         <div className="relative flex items-center mb-2">

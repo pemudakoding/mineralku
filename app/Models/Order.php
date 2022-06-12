@@ -18,6 +18,7 @@ class Order extends Model
         'is_delivery_now',
         'delivery_date',
         'total_price',
+        'status',
     ];
 
     protected $cast = [
