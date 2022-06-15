@@ -4365,7 +4365,9 @@ var Button = function Button(_ref) {
       title = _ref.title,
       style = _ref.style,
       className = _ref.className,
-      onClick = _ref.onClick;
+      onClick = _ref.onClick,
+      data = _ref.data,
+      preserveScroll = _ref.preserveScroll;
 
   if (style == 'col-icon') {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ButtonColIcon__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -4384,8 +4386,10 @@ var Button = function Button(_ref) {
       method: method,
       as: as,
       type: type,
+      data: data,
       className: ['poppins font-medium px-12 py-3 rounded-full transition-all duration-100 ease-in inline-block', getStyleClass(style), className].join(' '),
-      onclick: onclick,
+      onClick: onclick,
+      preserveScroll: preserveScroll,
       children: title
     });
   }
@@ -7287,7 +7291,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var Home = function Home() {
+var Home = function Home(_ref) {
+  var _searchParams$get;
+
+  var depot = _ref.depot,
+      order_total = _ref.order_total,
+      revenue_total = _ref.revenue_total,
+      orders = _ref.orders;
+  var url = new URL(window.location.href);
+  var searchParams = new URLSearchParams(url.search);
+  var limit = {
+    limit: parseInt((_searchParams$get = searchParams.get('limit')) !== null && _searchParams$get !== void 0 ? _searchParams$get : 5) + 5
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: "mineralku-app bg-blue-default-50 min-h-screen",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -7296,9 +7311,9 @@ var Home = function Home() {
         className: "container py-10",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "profile flex items-center flex-col poppins my-10",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h3", {
             className: "text-black text-xl font-semibold",
-            children: "Selamat Bekerja, Depot Air Afiqah"
+            children: ["Selamat Bekerja, Depot ", depot.name]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
             className: "address bg-green-300 font-medium w-fit p-2 rounded mt-4 ",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
@@ -7317,9 +7332,9 @@ var Home = function Home() {
                 children: "Total Pendapatan"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                 className: "card-body mt-4",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
                   className: "text-2xl font-medium text-gray-600",
-                  children: "Rp. 10000"
+                  children: ["Rp. ", revenue_total.toLocaleString(navigator.language)]
                 })
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -7331,7 +7346,7 @@ var Home = function Home() {
                 className: "card-body mt-4",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
                   className: "text-2xl font-medium text-gray-600",
-                  children: "14"
+                  children: order_total
                 })
               })]
             })]
@@ -7359,45 +7374,56 @@ var Home = function Home() {
               className: "bg-slate-100 rounded whitespace-nowrap py-1 px-2 mr-2 text-slate-500 font-medium text-sm focus:outline-none",
               children: "Selesai"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "flex flex-col bg-white rounded-lg p-4 shadow text-slate-600 mb-4",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-              className: "text-xl font-semibold text-slate-600 mb-0",
-              children: "Fulan"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
-              className: "flex items-center font-normal text-xs mb-2",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Icon, {
-                icon: "MapPin",
-                size: "15"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                className: "ml-1 italic",
-                children: "Jl. Dayo Dara, Palu, Sulawesi Tengah"
+          }), orders.map(function (order) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "flex flex-col bg-white rounded-lg p-4 shadow text-slate-600 mb-4",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+                className: "text-xl font-semibold text-slate-600 mb-0",
+                children: order.user.name
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+                className: "flex items-center font-normal text-xs mb-2",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Icon, {
+                  icon: "MapPin",
+                  size: "15"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                  className: "ml-1 italic",
+                  children: "Jl. Dayo Dara, Palu, Sulawesi Tengah"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+                className: "text-sm font-medium mb-1",
+                children: "Pesanan #MINKU-0101200402301203"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+                className: "text-xl font-semibold text-slate-600 mb-1",
+                children: "Isi Galon Bio Hexagonal"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+                className: "text-sm font-medium mb-1",
+                children: ["Rp. 5000 X ", order.quantity]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+                className: "text-sm font-semibold mb-3",
+                children: ["Total Pesanan: Rp. ", order.total_price.toLocaleString()]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "flex items-center",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                  className: "bg-slate-100 rounded whitespace-nowrap py-1 px-2 mr-2 text-slate-500 font-semibold text-sm focus:outline-none",
+                  children: "Proses"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                  className: "bg-green-300 rounded whitespace-nowrap py-1 px-2 mr-2 text-slate-600 font-semibold text-sm focus:outline-none",
+                  children: "Kirim"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                  className: "bg-green-300 rounded whitespace-nowrap py-1 px-2 mr-2 text-slate-600 font-semibold text-sm focus:outline-none",
+                  children: "Selesai"
+                })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-              className: "text-sm font-medium mb-1",
-              children: "Pesanan #MINKU-0101200402301203"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-              className: "text-xl font-semibold text-slate-600 mb-1",
-              children: "Isi Galon Bio Hexagonal"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-              className: "text-sm font-medium mb-1",
-              children: "Rp. 5000 X 4"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-              className: "text-sm font-semibold mb-3",
-              children: "Total Pesanan: Rp. 20.000"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "flex items-center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-                className: "bg-slate-100 rounded whitespace-nowrap py-1 px-2 mr-2 text-slate-500 font-semibold text-sm focus:outline-none",
-                children: "Proses"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-                className: "bg-green-300 rounded whitespace-nowrap py-1 px-2 mr-2 text-slate-600 font-semibold text-sm focus:outline-none",
-                children: "Kirim"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-                className: "bg-green-300 rounded whitespace-nowrap py-1 px-2 mr-2 text-slate-600 font-semibold text-sm focus:outline-none",
-                children: "Selesai"
-              })]
-            })]
+            }, order.id);
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "flex items-center overflow-x-auto mb-4",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+              title: "Load More",
+              method: "get",
+              href: "/depot",
+              data: limit,
+              preserveScroll: true
+            })
           })]
         })]
       })

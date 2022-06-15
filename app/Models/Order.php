@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Src\Builders\OrderBuilder;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -25,8 +27,18 @@ class Order extends Model
         'delivery_date' => 'datetime',
     ];
 
+    public function newEloquentBuilder($query): Builder
+    {
+        return new OrderBuilder($query);
+    }
+
     public function depot(): BelongsTo
     {
         return $this->belongsTo(Depot::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

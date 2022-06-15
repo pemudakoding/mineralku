@@ -3,12 +3,24 @@
 namespace App\Http\Controllers\Depot;
 
 use App\Http\Controllers\Controller;
+use App\Models\Depot;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class HomeController
 {
-    public function __invoke()
+    public function __invoke(Request $request)
     {
-        return Inertia::render('Depot/Home');
+        $depot = Depot::query()->with('orders')->first();
+
+        $limit = $request->limit ?? 5;
+
+        return Inertia::render('Depot/Home', [
+            'depot' => $depot,
+            'order_total' => $depot->orders()->resolveForAMonth()->count(),
+            'revenue_total' => $depot->orders()->resolveForRevenueAMonth(),
+            'orders' => $depot->orders()->with('user')->resolveForLimit($limit)->get(),
+            'limit' => $limit,
+        ]);
     }
 }
