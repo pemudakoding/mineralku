@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Depot\HomeController;
+use App\Http\Controllers\Depot\Order\UpdateStatusController;
 use Illuminate\Support\Facades\Route;
 
 /**
@@ -9,8 +10,14 @@ use Illuminate\Support\Facades\Route;
  * here.
  */
 
- Route::name('depot')
+ Route::name('depot.')
     ->prefix('depot')
     ->group(function(){
         Route::get('/', HomeController::class)->name('index');
+
+        Route::prefix('order')
+            ->name('order.')
+            ->group(function(){
+                Route::patch('/status', UpdateStatusController::class)->name('status-patch');
+            });
     });
