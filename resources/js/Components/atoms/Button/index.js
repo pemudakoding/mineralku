@@ -4,7 +4,7 @@ import ButtonColIcon from './ButtonColIcon';
 import './index.scss';
 import { Link } from '@inertiajs/inertia-react';
 
-const Button = ({ type, method, as, href, icon, title, style, className, onClick, target }) => {
+const Button = ({ type, method, as, href, icon, title, style, className, onClick, data, preserveScroll }) => {
     if (style == 'col-icon') {
         return (
             <ButtonColIcon
@@ -25,12 +25,14 @@ const Button = ({ type, method, as, href, icon, title, style, className, onClick
                 method={method}
                 as={as}
                 type={type}
+                data={data}
                 className={[
                     'poppins font-medium px-12 py-3 rounded-full transition-all duration-100 ease-in inline-block',
                     getStyleClass(style),
                     className,
                 ].join(' ')}
-                onclick={onclick}
+                onClick={onclick}
+                preserveScroll={preserveScroll}
             >
                 {title}
             </Link>

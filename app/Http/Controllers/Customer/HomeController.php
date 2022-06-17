@@ -9,7 +9,7 @@ use Inertia\Inertia;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function __invoke()
     {
         return Inertia::render('Customer/Home', [
             'depots' => Depot::select('id','name')->get()

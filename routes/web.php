@@ -16,6 +16,7 @@ use Inertia\Inertia;
 */
 
 require __DIR__.'/web/customer.php';
+require __DIR__.'/web/depot.php';
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
