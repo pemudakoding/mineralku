@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\User;
 use App\Src\Actions\Auth\RegisterAction;
 use App\Src\Actions\Order\StoreOrderAction;
+use App\Src\Factory\Order\OrderFactory;
 use Tests\TestCase;
 
 class StoreOrderTest extends TestCase
@@ -29,7 +30,9 @@ class StoreOrderTest extends TestCase
             'is_delivery_now' => true,
         ];
 
-        $order = (new StoreOrderAction)->execute($data);
+        $factory = new OrderFactory($data);
+        $order = (new StoreOrderAction)->execute($factory);
+
         $deliveryDate = now()->format('Y-m-d H:i:s');
 
         $this->assertInstanceOf(Order::class, $order);
@@ -51,7 +54,8 @@ class StoreOrderTest extends TestCase
             'delivery_date' => '2020-01-01',
         ];
 
-        $order = (new StoreOrderAction)->execute($data);
+        $factory = new OrderFactory($data);
+        $order = (new StoreOrderAction)->execute($factory);
 
         $this->assertInstanceOf(Order::class, $order);
         $this->assertEquals('2020-01-01 14:00:00', $order->delivery_date);
@@ -74,7 +78,8 @@ class StoreOrderTest extends TestCase
             'delivery_date' => '2020-01-01',
         ];
 
-        $order = (new StoreOrderAction)->execute($data);
+        $factory = new OrderFactory($data);
+        $order = (new StoreOrderAction)->execute($factory);
     }
 
     public function test_cannot_store_order_when_user_doesnt_exists()
@@ -94,6 +99,7 @@ class StoreOrderTest extends TestCase
             'delivery_date' => '2020-01-01',
         ];
 
-        $order = (new StoreOrderAction)->execute($data);
+        $factory = new OrderFactory($data);
+        $order = (new StoreOrderAction)->execute($factory);
     }
 }

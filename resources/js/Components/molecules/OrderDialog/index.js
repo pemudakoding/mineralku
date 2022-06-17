@@ -49,7 +49,7 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
 
     const { defaultPrice, shippingFee, serviceFee } = usePage().props;
     const totalPriceProduct = defaultPrice * data.quantity;
-    const shippingCost = address ? (shippingFee * data.quantity) : 0;
+    const shippingCost = address ? shippingFee * data.quantity : 0;
     const totalPrice = totalPriceProduct + shippingCost + serviceFee;
 
     return (
