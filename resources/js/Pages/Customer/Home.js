@@ -157,7 +157,7 @@ const Home = ({ depots }) => {
                                 </h3>
                             </div>
                             <div className="text-center">
-                                <Button href="/register" title="Gabung Sekarang" style="primary" />
+                                <Button href="https://docs.google.com/forms/d/12mwvBjxq1GdIMyYz6t6Xy53mAe5M6R19YQVgkdOjdII" title="Gabung Sekarang" type='external' style="primary" target="_blank"/>
                             </div>
                         </div>
                     </section>
