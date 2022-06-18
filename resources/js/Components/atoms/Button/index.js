@@ -4,7 +4,7 @@ import ButtonColIcon from './ButtonColIcon';
 import './index.scss';
 import { Link } from '@inertiajs/inertia-react';
 
-const Button = ({ type, method, as, href, icon, title, style, className, onClick, data, preserveScroll }) => {
+const Button = ({ type, method, as, href, icon, title, style, className, onClick, data, preserveScroll, target}) => {
     if (style == 'col-icon') {
         return (
             <ButtonColIcon
