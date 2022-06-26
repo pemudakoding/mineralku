@@ -17,7 +17,13 @@ const Home = ({ depot, order_total, revenue_total, orders}) => {
                             Selamat Bekerja, Depot { depot.name }
                         </h3>
                         <div className="address bg-green-300 font-medium w-fit p-2 rounded mt-4 ">
-                            <p className="text-xs">Jl Dayodara, Palu, Sulawesi Tengah</p>
+                            <p className="text-xs">
+                                {depot.address}, {" "}
+                                {depot.urban_village.name}, {" "}
+                                {depot.sub_district.name}, {" "}
+                                {depot.district.name}, {" "}
+                                {depot.province.name}. {" "}
+                            </p>
                         </div>
                     </div>
                     <div className="statistics my-10">

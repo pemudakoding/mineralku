@@ -11,7 +11,15 @@ class HomeController
 {
     public function __invoke(Request $request)
     {
-        $depot = Depot::query()->with('orders')->first();
+        $depot = Depot::query()
+            ->with([
+                'orders',
+                'urbanVillage',
+                'subDistrict',
+                'district',
+                'province'
+            ])
+            ->first();
 
         $limit = $request->limit ?? 5;
 
