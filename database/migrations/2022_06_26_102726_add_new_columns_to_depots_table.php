@@ -30,7 +30,7 @@ return new class extends Migration
                 ->nullable();
 
             $table->foreignId('province_id')
-                ->after('province_id')
+                ->after('district_id')
                 ->nullable();
 
             $table->foreign('urban_village_id')
