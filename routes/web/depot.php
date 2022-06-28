@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
     ->group(function(){
         Route::get('/', HomeController::class)->name('index');
 
-        Route::prefix('order')
-            ->name('order.')
+        Route::prefix('orders')
+            ->name('orders.')
             ->group(function(){
                 Route::patch('/status', UpdateStatusController::class)->name('status-patch');
             });

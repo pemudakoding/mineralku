@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\V1\Depot\Order\UpdateStatusController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-require __DIR__.'/api/v1/depot.php';
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::prefix('depot')
+    ->name('depot.')
+    ->group(function(){
+
+        Route::prefix('orders')
+            ->name('orders.')
+            ->group(function(){
+                Route::patch('status', UpdateStatusController::class);
+            });
+
+    });

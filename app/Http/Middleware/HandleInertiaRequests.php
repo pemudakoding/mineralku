@@ -44,6 +44,9 @@ class HandleInertiaRequests extends Middleware
             'defaultPrice' => config('temp-price.price'),
             'shippingFee' => config('temp-price.shippingFee'),
             'serviceFee' => config('temp-price.serviceFee'),
+            'flash' => [
+                'message' => fn () => $request->session()->get('message')
+            ],
         ]);
     }
 }

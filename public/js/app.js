@@ -7297,7 +7297,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components */ "./resources/js/Components/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
 
 
 
@@ -7315,121 +7319,154 @@ var Home = function Home(_ref) {
   var limit = {
     limit: parseInt((_searchParams$get = searchParams.get('limit')) !== null && _searchParams$get !== void 0 ? _searchParams$get : 5) + 5
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  var flash = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.usePage)().props.flash;
+
+  function updateStatus(element, status, order_id) {
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.patch('/depot/orders/status', {
+      status: status,
+      order_id: order_id
+    });
+  }
+
+  console.log(flash);
+
+  if (flash.message) {
+    alert(flash.message);
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
     className: "mineralku-app bg-blue-default-50 min-h-screen",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "md:w-6/12 w-10/12 mx-auto",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("main", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("main", {
         className: "container py-10",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "profile flex items-center flex-col poppins my-10",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h3", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h3", {
             className: "text-black text-xl font-semibold",
             children: ["Selamat Bekerja, Depot ", depot.name]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: "address bg-green-300 font-medium w-fit p-2 rounded mt-4 ",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
               className: "text-xs",
               children: [depot.address, ", ", " ", depot.urban_village.name, ", ", " ", depot.sub_district.name, ", ", " ", depot.district.name, ", ", " ", depot.province.name, ". ", " "]
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "statistics my-10",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "grid gap-4 grid-cols-1 md:grid-cols-2",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "card-income bg-white p-4 shadow rounded-lg poppins",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "card-title text-slate-400 font-normal",
                 children: "Total Pendapatan"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "card-body mt-4",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
                   className: "text-2xl font-medium text-gray-600",
                   children: ["Rp. ", revenue_total.toLocaleString(navigator.language)]
                 })
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "card-income bg-white p-4 shadow rounded-lg poppins",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "card-title font-normal text-gray-400",
                 children: "Total Transaksi"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "card-body mt-4",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                   className: "text-2xl font-medium text-gray-600",
                   children: order_total
                 })
               })]
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "flex flex-col poppins py-10",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
             className: "text-2xl font-medium text-slate-600 mb-4",
             children: "Pesanan Kamu"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "flex items-center overflow-x-auto mb-4",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
               className: "bg-green-300 rounded whitespace-nowrap py-1 px-2 mr-2 text-slate-600 font-medium text-sm focus:outline-none",
               children: "Semua"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
               className: "bg-slate-100 rounded whitespace-nowrap py-1 px-2 mr-2 text-slate-500 font-medium text-sm focus:outline-none",
               children: "Pesanan Baru"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
               className: "bg-slate-100 rounded whitespace-nowrap py-1 px-2 mr-2 text-slate-500 font-medium text-sm focus:outline-none",
               children: "Diproses"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
               className: "bg-slate-100 rounded whitespace-nowrap py-1 px-2 mr-2 text-slate-500 font-medium text-sm focus:outline-none",
               children: "Dikirim"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
               className: "bg-slate-100 rounded whitespace-nowrap py-1 px-2 mr-2 text-slate-500 font-medium text-sm focus:outline-none",
               children: "Selesai"
             })]
           }), orders.map(function (order) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "flex flex-col bg-white rounded-lg p-4 shadow text-slate-600 mb-4",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
                 className: "text-xl font-semibold text-slate-600 mb-0",
                 children: order.user.name
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
                 className: "flex items-center font-normal text-xs mb-2",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Icon, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Icon, {
                   icon: "MapPin",
                   size: "15"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                   className: "ml-1 italic",
                   children: "Jl. Dayo Dara, Palu, Sulawesi Tengah"
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                 className: "text-sm font-medium mb-1",
                 children: "Pesanan #MINKU-0101200402301203"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
                 className: "text-xl font-semibold text-slate-600 mb-1",
                 children: "Isi Galon Bio Hexagonal"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
                 className: "text-sm font-medium mb-1",
                 children: ["Rp. 5000 X ", order.quantity]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
                 className: "text-sm font-semibold mb-3",
                 children: ["Total Pesanan: Rp. ", order.total_price.toLocaleString()]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                className: "flex items-center",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-                  className: "bg-slate-100 rounded whitespace-nowrap py-1 px-2 mr-2 text-slate-500 font-semibold text-sm focus:outline-none",
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "grid grid-cols-1 md:grid-cols-3",
+                children: [order.status == 'processing' || order.status == 'sending' || order.status == 'completed' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                  className: "bg-slate-100 flex justify-center items-center rounded-full whitespace-nowrap py-2 mb-4 md:mb-0 px-2 mr-2 text-slate-500 font-semibold text-sm focus:outline-none",
                   children: "Proses"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-                  className: "bg-green-300 rounded whitespace-nowrap py-1 px-2 mr-2 text-slate-600 font-semibold text-sm focus:outline-none",
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+                  title: "Proses",
+                  className: "bg-green-300 whitespace-nowrap py-2 mb-4 md:mb-0 px-2 mr-2 text-slate-600 font-semibold text-sm focus:outline-none text-center",
+                  onClick: function onClick(e) {
+                    return updateStatus(e, 'processing', order.id);
+                  }
+                }), order.status == 'sending' || order.status == 'pending' || order.status == 'completed' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                  className: "bg-slate-100 flex justify-center items-center rounded-full whitespace-nowrap py-2 mb-4 md:mb-0 px-2 mr-2 text-slate-500 font-semibold text-sm focus:outline-none",
                   children: "Kirim"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-                  className: "bg-green-300 rounded whitespace-nowrap py-1 px-2 mr-2 text-slate-600 font-semibold text-sm focus:outline-none",
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+                  title: "Kirim",
+                  className: "bg-green-300 whitespace-nowrap py-2 mb-4 md:mb-0 px-2 mr-2 text-slate-600 font-semibold text-sm focus:outline-none text-center",
+                  onClick: function onClick(e) {
+                    return updateStatus(e, 'sending', order.id);
+                  }
+                }), order.status == 'completed' || order.status == 'pending' || order.status == 'processing' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                  className: "bg-slate-100 flex justify-center items-center rounded-full whitespace-nowrap py-2 mb-4 md:mb-0 px-2 mr-2 text-slate-500 font-semibold text-sm focus:outline-none",
                   children: "Selesai"
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+                  title: "Selesai",
+                  className: "bg-green-300 whitespace-nowrap py-2 mb-4 md:mb-0 px-2 mr-2 text-slate-600 font-semibold text-sm focus:outline-none text-center",
+                  onClick: function onClick(e) {
+                    return updateStatus(e, 'completed', order.id);
+                  }
                 })]
               })]
             }, order.id);
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: "flex items-center overflow-x-auto mb-4",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Button, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_1__.Button, {
               title: "Load More",
               method: "get",
               href: "/depot",
