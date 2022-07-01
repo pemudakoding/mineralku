@@ -39,15 +39,26 @@ class DepotSeeder extends Seeder
             ->first()
             ->id;
 
-        Depot::create([
-            'name' => 'Depot Air Minum Isi Ulang Afiqah',
-            'address' => 'BTN Lagarutu CPI 2, Jl. Dayodara No.10, RW.008',
-            'urban_village_id' => $urbanVillage,
-            'sub_district_id' => $subDistrict,
-            'district_id' => $disctrict,
-            'province_id' => $province,
-            'lat' => '-0.8837565',
-            'long' => '119.894005'
-        ]);
+        $depot = Depot::firstOrCreate(
+            [
+                'name' => 'Depot Air Minum Isi Ulang Afiqah'
+            ],
+            [
+                'name' => 'Depot Air Minum Isi Ulang Afiqah',
+                'address' => 'BTN Lagarutu CPI 2, Jl. Dayodara No.10, RW.008',
+                'urban_village_id' => $urbanVillage,
+                'sub_district_id' => $subDistrict,
+                'district_id' => $disctrict,
+                'province_id' => $province,
+                'lat' => '-0.8837565',
+                'long' => '119.894005'
+            ]
+        );
+
+        $depot->products()->createMany(
+            [
+                ['name' => 'Bio', 'price' => 5000],
+            ]
+        );
     }
 }

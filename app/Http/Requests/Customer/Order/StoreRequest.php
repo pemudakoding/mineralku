@@ -25,6 +25,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'depot_id' => 'required|exists:depots,id',
+            'depot_product_id' => 'required|exists:depot_products,id',
             'name' => 'required|string|max:255',
             'whatsapp_numbers' => 'required|numeric|digits_between:10,16',
             'address' => 'required_if:shipping_detail,delivery|exclude_if:shipping_detail,pickup|string|max:255',

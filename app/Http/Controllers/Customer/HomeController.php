@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function __invoke()
     {
         return Inertia::render('Customer/Home', [
-            'depots' => Depot::select('id','name')->get()
+            'depots' => Depot::select('id','name')->with('products')->get()
         ]);
     }
 }

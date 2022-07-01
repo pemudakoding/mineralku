@@ -39,4 +39,9 @@ class Depot extends Model
     {
         return $this->belongsTo(Province::class);
     }
+
+    public function products(): HasMany
+    {
+        return $this->hasMany(DepotProduct::class);
+    }
 }

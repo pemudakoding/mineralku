@@ -5573,6 +5573,7 @@ var OrderDialog = function OrderDialog(_ref) {
 
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.useForm)({
     depot_id: '',
+    depot_product_id: '',
     quantity: 1,
     name: '',
     whatsapp_numbers: '',
@@ -5588,6 +5589,16 @@ var OrderDialog = function OrderDialog(_ref) {
       processing = _useForm.processing,
       errors = _useForm.errors;
 
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      products = _useState4[0],
+      setProducts = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState6 = _slicedToArray(_useState5, 2),
+      productPrice = _useState6[0],
+      setProductPrice = _useState6[1];
+
   function handleSubmit(e) {
     e.preventDefault();
     post('/order', {
@@ -5597,16 +5608,42 @@ var OrderDialog = function OrderDialog(_ref) {
     });
   }
 
+  function handleOnchangeDepot(e) {
+    var depotId = e.target.value;
+
+    var _depots$filter = depots.filter(function (depot) {
+      return depot.id == depotId;
+    }),
+        _depots$filter2 = _slicedToArray(_depots$filter, 1),
+        depot = _depots$filter2[0];
+
+    setProducts((depot === null || depot === void 0 ? void 0 : depot.products) || null);
+    setData('depot_id', depotId);
+  }
+
+  function handleOnchangeProduct(e) {
+    var productId = e.target.value;
+
+    var _products$filter = products.filter(function (product) {
+      return product.id == productId;
+    }),
+        _products$filter2 = _slicedToArray(_products$filter, 1),
+        product = _products$filter2[0];
+
+    setProductPrice((product === null || product === void 0 ? void 0 : product.price) || 0);
+    setData('depot_product_id', e.target.value);
+  }
+
   function handleOnSuccess() {
     setStatus('success');
   }
 
   var addressClass = '';
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
-      _useState4 = _slicedToArray(_useState3, 2),
-      address = _useState4[0],
-      setAddress = _useState4[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+      _useState8 = _slicedToArray(_useState7, 2),
+      address = _useState8[0],
+      setAddress = _useState8[1];
 
   var addressHandler = function addressHandler(address) {
     setAddress(address);
@@ -5618,10 +5655,10 @@ var OrderDialog = function OrderDialog(_ref) {
 
   var dateClass = '';
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-      _useState6 = _slicedToArray(_useState5, 2),
-      date = _useState6[0],
-      setDate = _useState6[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState10 = _slicedToArray(_useState9, 2),
+      date = _useState10[0],
+      setDate = _useState10[1];
 
   var dateHandler = function dateHandler(date) {
     setDate(date);
@@ -5632,10 +5669,9 @@ var OrderDialog = function OrderDialog(_ref) {
   }
 
   var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props,
-      defaultPrice = _usePage$props.defaultPrice,
       shippingFee = _usePage$props.shippingFee,
       serviceFee = _usePage$props.serviceFee;
-  var totalPriceProduct = defaultPrice * data.quantity;
+  var totalPriceProduct = productPrice * data.quantity;
   var shippingCost = address ? shippingFee * data.quantity : 0;
   var totalPrice = totalPriceProduct + shippingCost + serviceFee;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_Components__WEBPACK_IMPORTED_MODULE_2__.BaseDialog, {
@@ -5656,9 +5692,9 @@ var OrderDialog = function OrderDialog(_ref) {
           className: "relative flex items-center mb-2",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_Components__WEBPACK_IMPORTED_MODULE_2__.Select, {
             style: "input-icon",
-            icon: "Droplet",
+            icon: "MapPin",
             onChange: function onChange(e) {
-              return setData('depot_id', e.target.value);
+              return handleOnchangeDepot(e);
             },
             value: data.depot_id,
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
@@ -5669,6 +5705,25 @@ var OrderDialog = function OrderDialog(_ref) {
                 value: depot.id,
                 children: depot.name
               }, depot.id);
+            })]
+          })
+        }), products && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "relative flex items-center mb-2",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_Components__WEBPACK_IMPORTED_MODULE_2__.Select, {
+            style: "input-icon",
+            icon: "Droplet",
+            onChange: function onChange(e) {
+              return handleOnchangeProduct(e);
+            },
+            value: data.depot_product_id,
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+              value: "",
+              children: "Pilih Paket"
+            }), products.map(function (product) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                value: product.id,
+                children: product.name
+              }, product.id);
             })]
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -7090,7 +7145,7 @@ var Home = function Home(_ref) {
         children: "Selamat Datang!"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
         className: "text-white text-center mt-4 poppins",
-        children: ["Yuk! cukupi kebutuhanmu ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), "air galonmu di Mineralku"]
+        children: ["Yuk! cukupi kebutuhan ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), "air galonmu di Mineralku"]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("section", {
         className: "button-section mt-8 mb-8 flex flex-col items-center md:block ",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components__WEBPACK_IMPORTED_MODULE_2__.Button, {
