@@ -5610,26 +5610,18 @@ var OrderDialog = function OrderDialog(_ref) {
 
   function handleOnchangeDepot(e) {
     var depotId = e.target.value;
-
-    var _depots$filter = depots.filter(function (depot) {
+    var depot = depots.find(function (depot) {
       return depot.id == depotId;
-    }),
-        _depots$filter2 = _slicedToArray(_depots$filter, 1),
-        depot = _depots$filter2[0];
-
+    });
     setProducts((depot === null || depot === void 0 ? void 0 : depot.products) || null);
     setData('depot_id', depotId);
   }
 
   function handleOnchangeProduct(e) {
     var productId = e.target.value;
-
-    var _products$filter = products.filter(function (product) {
+    var product = products.find(function (product) {
       return product.id == productId;
-    }),
-        _products$filter2 = _slicedToArray(_products$filter, 1),
-        product = _products$filter2[0];
-
+    });
     setProductPrice((product === null || product === void 0 ? void 0 : product.price) || 0);
     setData('depot_product_id', e.target.value);
   }
@@ -7383,8 +7375,6 @@ var Home = function Home(_ref) {
     });
   }
 
-  console.log(flash);
-
   if (flash.message) {
     alert(flash.message);
   }
@@ -7473,14 +7463,14 @@ var Home = function Home(_ref) {
                   size: "15"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                   className: "ml-1 italic",
-                  children: "Jl. Dayo Dara, Palu, Sulawesi Tengah"
+                  children: order.delivery_address
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-                className: "text-sm font-medium mb-1",
+                className: "text-sm font-medium mb-1 mt-8",
                 children: "Pesanan #MINKU-0101200402301203"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h3", {
                 className: "text-xl font-semibold text-slate-600 mb-1",
-                children: "Isi Galon Bio Hexagonal"
+                children: ["Isi Galon ", order.product.name]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
                 className: "text-sm font-medium mb-1",
                 children: ["Rp. 5000 X ", order.quantity]

@@ -29,7 +29,7 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
 
     function handleOnchangeDepot(e) {
         const depotId = e.target.value;
-        const [depot] = depots.filter(depot => depot.id == depotId);
+        const depot = depots.find(depot => depot.id == depotId);
 
         setProducts(depot?.products || null);
         setData('depot_id', depotId);
@@ -37,7 +37,7 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
 
     function handleOnchangeProduct(e) {
         const productId = e.target.value;
-        const [product] = products.filter(product => product.id == productId);
+        const product = products.find(product => product.id == productId);
 
         setProductPrice(product?.price || 0);
         setData('depot_product_id', e.target.value)

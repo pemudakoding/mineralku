@@ -18,7 +18,6 @@ const Home = ({ depot, order_total, revenue_total, orders}) => {
         );
     }
 
-    console.log(flash);
     if(flash.message) {
         alert(flash.message);
     }
@@ -87,14 +86,14 @@ const Home = ({ depot, order_total, revenue_total, orders}) => {
                                     <p className="flex items-center font-normal text-xs mb-2">
                                         <Icon icon="MapPin" size="15" />
                                         <span className="ml-1 italic">
-                                            Jl. Dayo Dara, Palu, Sulawesi Tengah
+                                            {order.delivery_address}
                                         </span>
                                     </p>
-                                    <p className="text-sm font-medium mb-1">
+                                    <p className="text-sm font-medium mb-1 mt-8">
                                         Pesanan #MINKU-0101200402301203
                                     </p>
                                     <h3 className="text-xl font-semibold text-slate-600 mb-1">
-                                        Isi Galon Bio Hexagonal
+                                        Isi Galon {order.product.name}
                                     </h3>
                                     <p className="text-sm font-medium mb-1">Rp. 5000 X {order.quantity}</p>
                                     <p className="text-sm font-semibold mb-3">Total Pesanan: Rp. {order.total_price.toLocaleString()}</p>

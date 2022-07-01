@@ -17,6 +17,7 @@ class HomeController
                 'urbanVillage',
                 'subDistrict',
                 'district',
+                'province',
                 'province'
             ])
             ->first();
@@ -27,7 +28,7 @@ class HomeController
             'depot' => $depot,
             'order_total' => $depot->orders()->resolveForAMonth()->count(),
             'revenue_total' => $depot->orders()->resolveForRevenueAMonth(),
-            'orders' => $depot->orders()->with('user')->resolveForLimit($limit)->get(),
+            'orders' => $depot->orders()->with('user','product')->resolveForLimit($limit)->get(),
             'limit' => $limit,
         ]);
     }

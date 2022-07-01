@@ -52,7 +52,9 @@ class OrderFactory
 
     public function resolveForOrderData()
     {
-        return $this->data->only(self::SELECTED_DATA);
+        return $this->data->only(self::SELECTED_DATA)->merge([
+            'delivery_address' => $this->data->get('address')
+        ]);
     }
 
     public function resolveForDeliveryDate(): Carbon|string
