@@ -22,8 +22,10 @@ class RedirectIfAuthenticated
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+            $auth = Auth::guard($guard);
+
+            if ($auth->check() && $guard == 'depot') {
+                return redirect()->route('depot.index');
             }
         }
 

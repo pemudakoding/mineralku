@@ -1,7 +1,12 @@
 import React from 'react';
 import { Button } from '@/Components';
+import DepotFooter from './DepotFooter.js';
 
-const Footer = (props) => {
+const Footer = ({type}) => {
+    if(type == 'depot'){
+        return <DepotFooter/>
+    }
+
     return (
         <footer className="footer-wrapper z-50 bg-white fixed w-full bottom-0 py-3 shadow-2xl">
             <div className="nav-wrapper container mx-auto">

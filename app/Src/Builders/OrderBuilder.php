@@ -2,6 +2,7 @@
 
 namespace App\Src\Builders;
 
+use App\Src\Enums\Orders\Status;
 use Illuminate\Database\Eloquent\Builder;
 
 class OrderBuilder extends Builder
@@ -25,5 +26,15 @@ class OrderBuilder extends Builder
     public function resolveForLimit(int $limit)
     {
         return $this->limit($limit);
+    }
+
+    public function whereDepot(int $depotId)
+    {
+        return $this->where('depot_id', $depotId);
+    }
+
+    public function whereStatus(Status $status)
+    {
+        return $this->where('status', $status);
     }
 }
