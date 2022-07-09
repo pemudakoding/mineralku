@@ -7,7 +7,7 @@ const DepotFooter = (props) => {
             <div className="nav-wrapper container mx-auto">
                 <nav>
                     <ul className="flex justify-center">
-                        <li className="mr-10">
+                        <li>
                             <Button title="Logout" href="depot/auth/logout" method='POST' style="col-icon" icon="LogOut" />
                         </li>
                     </ul>
