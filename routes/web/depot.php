@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\Depot\AuthenticatingController;
 use App\Http\Controllers\Depot\HomeController;
 use App\Http\Controllers\Depot\Order\UpdateStatusController;
 use Illuminate\Support\Facades\Route;
@@ -13,11 +14,21 @@ use Illuminate\Support\Facades\Route;
  Route::name('depot.')
     ->prefix('depot')
     ->group(function(){
-        Route::get('/', HomeController::class)->name('index');
-
-        Route::prefix('orders')
-            ->name('orders.')
+        Route::middleware('auth:depot')
             ->group(function(){
-                Route::patch('/status', UpdateStatusController::class)->name('status-patch');
+                Route::get('/', HomeController::class)->name('index');
+
+                Route::prefix('orders')
+                    ->name('orders.')
+                    ->group(function(){
+                        Route::patch('/status', UpdateStatusController::class)->name('status-patch');
+                    });
+            });
+
+        Route::middleware('guest:depot')
+            ->prefix('auth')
+            ->name('auth.')
+            ->group(function(){
+                Route::get('login/token', AuthenticatingController::class)->name('authenticating-token');
             });
     });
