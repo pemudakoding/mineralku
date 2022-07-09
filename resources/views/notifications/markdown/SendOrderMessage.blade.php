@@ -6,11 +6,12 @@ Jumlah Pesanan (Galon): {{$data['quantity']}}
 Nomor Whatsapp: {{$data['whatsapp_numbers']}}
 Alamat Lengkap: {{$data['address']}}
 Nama Depot: {{$data['depot_name']}}
+Jenis Air: {{ $data['product_name'] }}
 Jadwal Pengantaran: {{$data['is_delivery_now'] ? 'Sekarang' : $data['delivery_date'] . ' ' . $data['delivery_time']}}
 
 ***TOTAL PEMBAYARAN***
 Total Produk: {{$data['quantity']}} x Rp. {{ $data['price'] }}
-Total Pengiriman: Rp. {{ $data['shipping_fee'] }}
+Biaya Pengiriman: Rp. {{ $data['shipping_fee'] }}
 Service Fee : Rp. {{ $data['service_fee'] }}
 ```
 (Service fee agar kami bisa meningkatkan pelayanan terbaik buat kamu)

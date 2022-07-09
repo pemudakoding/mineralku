@@ -6,6 +6,7 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
     const [status, setStatus] = useState('pending');
     const { data, setData, post, processing, errors } = useForm({
         depot_id: '',
+        depot_product_id: '',
         quantity: 1,
         name: '',
         whatsapp_numbers: '',
@@ -15,6 +16,8 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
         delivery_time: '00:00',
         delivery_date: new Date().toLocaleDateString(),
     });
+    const [products, setProducts] = useState(null);
+    const [productPrice, setProductPrice] = useState(0);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -22,6 +25,22 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
         post('/order', {
             onSuccess: () => handleOnSuccess(),
         });
+    }
+
+    function handleOnchangeDepot(e) {
+        const depotId = e.target.value;
+        const depot = depots.find(depot => depot.id == depotId);
+
+        setProducts(depot?.products || null);
+        setData('depot_id', depotId);
+    }
+
+    function handleOnchangeProduct(e) {
+        const productId = e.target.value;
+        const product = products.find(product => product.id == productId);
+
+        setProductPrice(product?.price || 0);
+        setData('depot_product_id', e.target.value)
     }
 
     function handleOnSuccess() {
@@ -47,8 +66,8 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
         dateClass = 'hidden';
     }
 
-    const { defaultPrice, shippingFee, serviceFee } = usePage().props;
-    const totalPriceProduct = defaultPrice * data.quantity;
+    const { shippingFee, serviceFee } = usePage().props;
+    const totalPriceProduct = productPrice * data.quantity;
     const shippingCost = address ? shippingFee * data.quantity : 0;
     const totalPrice = totalPriceProduct + shippingCost + serviceFee;
 
@@ -68,8 +87,8 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
                         <div className="relative flex items-center mb-2">
                             <Select
                                 style="input-icon"
-                                icon="Droplet"
-                                onChange={(e) => setData('depot_id', e.target.value)}
+                                icon="MapPin"
+                                onChange={(e) => handleOnchangeDepot(e)}
                                 value={data.depot_id}
                             >
                                 <option value="">Pilih Depot</option>
@@ -78,6 +97,21 @@ const OrderDialog = ({ isOrderDialogOpen, setOrderDialogOpen, depots }) => {
                                 ))}
                             </Select>
                         </div>
+                        {products && (
+                            <div className="relative flex items-center mb-2">
+                                <Select
+                                    style="input-icon"
+                                    icon="Droplet"
+                                    onChange={(e) => handleOnchangeProduct(e)}
+                                    value={data.depot_product_id}
+                                >
+                                    <option value="">Pilih Paket</option>
+                                    {products.map((product) => (
+                                        <option value={product.id} key={product.id}>{product.name}</option>
+                                    ))}
+                                </Select>
+                            </div>
+                        )}
                         <div className="relative flex items-center mb-2">
                             <Input
                                 type="number"

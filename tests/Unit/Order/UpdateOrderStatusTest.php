@@ -17,10 +17,16 @@ class UpdateOrderStatusTest extends TestCase
     {
         $depot = Depot::factory()->create();
         $user = User::factory()->create();
+        $depotProduct = $depot->products()->create([
+            'name' => 'Bio',
+            'price' => 5000
+        ]);
 
         $data = [
             'depot_id' => $depot->id,
             'user_id' => $user->id,
+            'depot_product_id' => $depotProduct->id,
+            'address' => 'Jl Kedondong 2',
             'quantity' => 1,
             'shipping_detail' => 'pickup',
             'is_delivery_now' => false,

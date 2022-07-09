@@ -14,8 +14,10 @@ class Order extends Model
 
     protected $fillable = [
         'depot_id',
+        'depot_product_id',
         'user_id',
         'quantity',
+        'delivery_address',
         'shipping_detail',
         'is_delivery_now',
         'delivery_date',
@@ -37,8 +39,13 @@ class Order extends Model
         return $this->belongsTo(Depot::class);
     }
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function product(): BelongsTo
+    {
+        return $this->belongsTo(DepotProduct::class, 'depot_product_id');
     }
 }

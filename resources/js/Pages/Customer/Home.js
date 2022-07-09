@@ -29,7 +29,7 @@ const Home = ({ depots }) => {
             <HeroSection className="text-center">
                 <h1 className="fredoka-one text-white text-4xl">Selamat Datang!</h1>
                 <p className="text-white text-center mt-4 poppins">
-                    Yuk! cukupi kebutuhanmu <br />
+                    Yuk! cukupi kebutuhan <br />
                     air galonmu di Mineralku
                 </p>
                 <section className="button-section mt-8 mb-8 flex flex-col items-center md:block ">

@@ -3,6 +3,7 @@
 namespace App\Src\Factory\Order;
 
 use App\Models\Depot;
+use App\Models\DepotProduct;
 use App\Models\User;
 use App\Src\ValueObjects\Order\CurrencyFormat;
 use App\Src\ValueObjects\Order\DateFormat;
@@ -15,6 +16,7 @@ class OrderFactory
 
     protected const SELECTED_DATA = [
         'depot_id',
+        'depot_product_id',
         'user_id',
         'quantity',
         'shipping_detail',
@@ -32,6 +34,7 @@ class OrderFactory
     {
         return [
             'depot_name' => $this->resolveForDepotName(),
+            'product_name' => $this->resolveForProductName(),
             'name' => $this->resolveForCustomerName(),
             'whatsapp_numbers' => $this->data->get('whatsapp_numbers'),
             'address' => $this->data->get('address'),
@@ -49,7 +52,9 @@ class OrderFactory
 
     public function resolveForOrderData()
     {
-        return $this->data->only(self::SELECTED_DATA);
+        return $this->data->only(self::SELECTED_DATA)->merge([
+            'delivery_address' => $this->data->get('address')
+        ]);
     }
 
     public function resolveForDeliveryDate(): Carbon|string
@@ -76,7 +81,10 @@ class OrderFactory
 
     public function resolveForPrice()
     {
-        return config('temp-price.price');
+        return DepotProduct::select('price')
+            ->where('id',$this->data->get('depot_product_id'))
+            ->first()
+            ->price;
     }
 
     public function resolveForServiceFee()
@@ -99,5 +107,10 @@ class OrderFactory
     public function resolveForCustomerName()
     {
         return User::find($this->data->get('user_id'))->name;
+    }
+
+    public function resolveForProductName()
+    {
+        return DepotProduct::find($this->data->get('depot_product_id'))->name;
     }
 }

@@ -15,11 +15,15 @@ class StoreOrderAction
 
         try {
             if(empty($this->factory->data->get('depot_id'))) {
-                throw new \Exception('Depot are required');
+                throw new \Exception('Depot is required');
             }
 
             if(empty($this->factory->data->get('user_id'))) {
-                throw new \Exception('User are required');
+                throw new \Exception('User is required');
+            }
+
+            if(empty($this->factory->data->get('depot_product_id'))) {
+                throw new \Exception('Depot Product is required');
             }
 
             return $this->store();
