@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Depot;
 
 use App\Http\Controllers\Controller;
 use App\Models\Depot;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -11,7 +12,10 @@ class HomeController
 {
     public function __invoke(Request $request)
     {
-        $depot = Depot::query()
+        $depot = User::with('depot')
+            ->where('id', auth('depot')->user()->id)
+            ->first()
+            ->depot()
             ->with([
                 'orders',
                 'urbanVillage',
