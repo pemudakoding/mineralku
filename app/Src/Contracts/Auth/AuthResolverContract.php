@@ -4,5 +4,5 @@ namespace App\Src\Contracts\Auth;
 
 interface AuthResolverContract
 {
-    public function resolve();
+    public function resolve(): array|bool;
 }

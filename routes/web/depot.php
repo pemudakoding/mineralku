@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\Depot\AuthenticatingController;
+use App\Http\Controllers\Auth\Depot\LogoutController;
 use App\Http\Controllers\Depot\HomeController;
 use App\Http\Controllers\Depot\Order\UpdateStatusController;
 use Illuminate\Support\Facades\Route;
@@ -23,12 +24,21 @@ use Illuminate\Support\Facades\Route;
                     ->group(function(){
                         Route::patch('/status', UpdateStatusController::class)->name('status-patch');
                     });
+
+
             });
 
-        Route::middleware('guest:depot')
-            ->prefix('auth')
+        Route::prefix('auth')
             ->name('auth.')
             ->group(function(){
-                Route::get('login/token', AuthenticatingController::class)->name('authenticating-token');
+                Route::middleware('guest:depot')
+                    ->group(function(){
+                        Route::get('login/token', AuthenticatingController::class)->name('authenticating-token');
+                    });
+
+                Route::middleware('auth:depot')
+                    ->group(function(){
+                        Route::post('logout', LogoutController::class)->name('logout');
+                    });
             });
     });

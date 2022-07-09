@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import { Icon, Button } from '@/Components';
+import { Icon, Button, Footer } from '@/Components';
 import { Inertia } from '@inertiajs/inertia';
 import { usePage } from '@inertiajs/inertia-react'
 
@@ -148,6 +148,7 @@ const Home = ({ depot, order_total, revenue_total, orders}) => {
                     </div>
                 </main>
             </div>
+            <Footer type="depot"/>
         </div>
     );
 };
