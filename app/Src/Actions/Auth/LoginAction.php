@@ -13,6 +13,6 @@ class LoginAction
 
         return $driver instanceof DriverEnum
             ? $factory->using($driver->value)->resolve()
-            : throw new Exception("Login driver must instance", 500);
+            : throw new \Exception("Login driver must instance", 500);
     }
 }
