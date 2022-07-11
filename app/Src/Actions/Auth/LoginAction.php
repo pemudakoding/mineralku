@@ -11,8 +11,8 @@ class LoginAction
     {
         $factory = new AuthFactory($data);
 
-        return match($driver) {
-            DriverEnum::Token => $factory->using($driver->value)->resolve()
-        };
+        return $driver instanceof DriverEnum
+            ? $factory->using($driver->value)->resolve()
+            : throw new Exception("Login driver must instance", 500);
     }
 }
