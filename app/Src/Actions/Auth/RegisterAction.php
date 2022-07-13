@@ -43,6 +43,6 @@ class RegisterAction
 
         $this->user->addresses()->create($resolvedData,$resolvedData);
 
-        return $this->user->with('addresses')->first();
+        return $this->user->load('addresses');
     }
 }
