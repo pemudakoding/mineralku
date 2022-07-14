@@ -212,4 +212,5 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
+    'order_prefix' => env('ORDER_PREFIX','minku'),
 ];

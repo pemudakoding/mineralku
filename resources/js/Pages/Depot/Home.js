@@ -90,7 +90,7 @@ const Home = ({ depot, order_total, revenue_total, orders}) => {
                                         </span>
                                     </p>
                                     <p className="text-sm font-medium mb-1 mt-8">
-                                        Pesanan #MINKU-0101200402301203
+                                        Pesanan #{order.order_number}
                                     </p>
                                     <h3 className="text-xl font-semibold text-slate-600 mb-1">
                                         Isi Galon {order.product.name}

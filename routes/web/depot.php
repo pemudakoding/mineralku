@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
  * here.
  */
 
- Route::name('depot.')
+Route::name('depot.')
     ->prefix('depot')
     ->group(function(){
         Route::middleware('auth:depot')
@@ -24,8 +24,6 @@ use Illuminate\Support\Facades\Route;
                     ->group(function(){
                         Route::patch('/status', UpdateStatusController::class)->name('status-patch');
                     });
-
-
             });
 
         Route::prefix('auth')
